@@ -1,0 +1,84 @@
+body {
+  margin: 0;
+  background-color: #93d1ee;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; }
+
+h1 {
+  font-size: 3em;
+  display: flex;
+  justify-content: center; }
+
+main {
+  display: grid;
+  justify-content: center; }
+
+#circleContainer {
+  width: 95vw;
+  border: 2px solid white; }
+  #circleContainer #qCircle {
+    width: 30vw;
+    height: 30vw;
+    float: left;
+    margin-left: 10%;
+    background-color: yellow;
+    border-radius: 50%; }
+  #circleContainer #serveCircle {
+    width: 30vw;
+    height: 30vw;
+    float: left;
+    margin-left: 20%;
+    background-color: lightgreen;
+    border-radius: 50%; }
+
+#qSection {
+  background-color: pink;
+  border: 5px solid yellow;
+  width: 95vw; }
+  #qSection #qContainer {
+    width: 90vw;
+    height: 90vh;
+    margin-left: 2vw;
+    background-color: lightcyan;
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; }
+    @media (min-width: 768px) {
+      #qSection #qContainer {
+        grid-template-columns: 1fr 1fr 1fr;
+        float: left;
+        width: 45vw;
+        height: 90vh;
+        margin-left: 1vw; } }
+    @media (min-width: 1024px) {
+      #qSection #qContainer {
+        grid-template-columns: 1fr 1fr 1fr; } }
+    @media (min-width: 1824px) {
+      #qSection #qContainer {
+        grid-template-columns: 1fr 1fr 1fr; } }
+  #qSection #serveContainer {
+    width: 90vw;
+    height: 90vh;
+    margin-left: 2vw;
+    background-color: lightcyan;
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; }
+    @media (min-width: 768px) {
+      #qSection #serveContainer {
+        grid-template-columns: 1fr 1fr 1fr;
+        float: left;
+        width: 45vw;
+        margin-left: 1vw;
+        height: 90vh; } }
+    @media (min-width: 1024px) {
+      #qSection #serveContainer {
+        grid-template-columns: 1fr 1fr 1fr; } }
+    @media (min-width: 1824px) {
+      #qSection #serveContainer {
+        grid-template-columns: 1fr 1fr 1fr; } }
+  #qSection #column1, #qSection #column2, #qSection #column3 {
+    margin-left: 6vw; }
+
+/* Template til queue */
+/* Template til serving */
+/* Template til taps */

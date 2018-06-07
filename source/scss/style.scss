@@ -1,0 +1,133 @@
+// Mediaqueries
+$breakpoint-mobile: 640px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-largeScreen: 1824px;
+
+
+@import 'preset';
+
+main {
+    display: grid;
+    justify-content: center;
+}
+
+
+#circleContainer {
+    width: 95vw;
+    border: 2px solid white;
+
+    #qCircle{
+        width:30vw;
+        height: 30vw;
+        float: left;
+        margin-left:10%;
+        background-color: yellow;
+        border-radius: 50%;
+    }
+
+    #serveCircle{
+        width:30vw;
+        height: 30vw;
+        float: left;
+        margin-left: 20%;
+        background-color:lightgreen;
+        border-radius: 50%;
+    }
+}
+
+
+
+#qSection {
+    background-color: pink;
+    border: 5px solid yellow;
+    width: 95vw;
+
+    #qContainer {
+        width:90vw;
+        height: 90vh;
+        margin-left: 2vw;
+        background-color: lightcyan;
+        border: 1px solid black;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    
+        @media (min-width: $breakpoint-tablet) {
+            grid-template-columns: 1fr 1fr 1fr;
+            float:left;
+            width:45vw;
+            height: 90vh;
+            margin-left: 1vw;
+        }
+        @media (min-width: $breakpoint-desktop) {    
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        @media (min-width: $breakpoint-largeScreen) {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
+
+
+
+    #serveContainer {
+        width:90vw;
+        height: 90vh;
+        margin-left: 2vw;
+        background-color: lightcyan;
+        border: 1px solid black;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    
+        @media (min-width: $breakpoint-tablet) {
+            grid-template-columns: 1fr 1fr 1fr;
+            float: left;
+            width:45vw;
+            margin-left: 1vw;
+            height: 90vh;
+        }
+        @media (min-width: $breakpoint-desktop) {    
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        @media (min-width: $breakpoint-largeScreen) {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
+    
+    #column1, #column2, #column3{
+        margin-left: 6vw;
+    }
+
+}
+
+
+
+
+
+
+
+
+/* Template til queue */
+
+
+
+
+
+/* Template til serving */
+
+
+
+
+
+/* Template til taps */
+
+
+
+
+
+
+
+
+
+
+
+
