@@ -7,6 +7,7 @@
     <title>FooBar</title>
     <link rel="stylesheet" type="text/css" href="/dist/css/style.css">
 
+
 </head>
 
 <body>
@@ -14,56 +15,47 @@
 <main>
     <h1>FooBar</h1>
 
-<div id="circleContainer">
-<template id="circTemp">
-    <div id="qCircle"><p id="qNumb">Q.NUMB</p></div>
-    <div id="serveCircle"><p id="serveNumb">S.NUMB</p></div>
-</template>
-</div>
-
+    
+    <div id="circleContainer">
+        <div id="qCircle">
+            <p id="qNumb">Q.NUMB</p>
+        </div>
+            
+        <div id="serveCircle">
+            <p id="serveNumb">S.NUMB</p>
+        </div>
+    </div>
 
 
 <!-- QUEUE SECTION -->
 <section id="qSection">
 
     <div id="qContainer">
-        <template id="qTemp">
-            <div id="column1">
-                <h2>Q.ID</h2>
-                <li id="qId"></li>
-            </div> 
-
-            <div id="column2">
-                <h2>ORDER</h2>
-                <li id="order"></li>
-            </div>
-
-            <div id="column3">
-                <h2>AMOUNT</h2>
-                <li id="anmount">amount</li>
-            </div>
-        </template>
+        <h1>QUEUE</h1>
+        <table id="order">
+            <template id="tableTemp">
+                <tr id="tableRow">
+                    <td class="id"></td>
+                    <td class="beertype"></td>
+                    <td class="beercount"></td>
+                </tr>
+            </template>
+        </table>
     </div>
 
     <div id="serveContainer">
-        <template id="serveTemp">
-            <div id="column1">
-                <h2>Q.ID</h2>
-                <li id="qId"></li>
-            </div> 
-        
-            <div id="column2">
-                <h2>ORDER</h2>
-                <li id="order"></li>
-            </div>
-        
-            <div id="column3">
-                <h2>AMOUNT</h2>
-                <li id="anmount">amount</li>
-            </div>
-        </template>
-    </div>
+            <h1>SERVING</h1>
 
+        <table id="order">
+            <template id="tableTemp">
+                <tr id="tableRow">
+                    <td class="id"></td>
+                    <td class="beertype"></td>
+                    <td class="beercount"></td>
+                </tr>
+            </template>
+        </table>
+    </div>
 
 </section>
 
@@ -71,7 +63,7 @@
 
 
 <!-- TAPS SECTION -->
-<div id="tapsContainer">
+<!-- <div id="tapsContainer">
 
     <template id="tapTemp">
         <div id="top">
@@ -91,11 +83,11 @@
         </div>
     </template>
 
-</div>
+</div> -->
 
 
 <!-- MODAL VINDUE TIL TAPS READ MORE -->
-<div id="modalContainer">
+<!-- <div id="modalContainer">
     <template id="modalTemp">
         <h1 id="beerName"></h1>
         <p id="description">blablablablab descript</p>
@@ -103,7 +95,7 @@
         <p id="flavour"></p>
         <div id="close">Close</div>
     </template>
-</div>
+</div> -->
 
 </main>
 

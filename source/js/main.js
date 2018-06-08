@@ -1,47 +1,107 @@
 "use strict";
-
 window.addEventListener("DOMContentLoaded", getJsonData);
 
 let rawData;
 let jsonData;
-
+let queueObjects;
 
 async function getJsonData() {
     rawData = FooBar.getData();
     jsonData = JSON.parse(rawData);
-    // console.log(jsonData.queue[0].id);
 
+    getQNumber(jsonData.queue);
+    getSNumber(jsonData.serving);
+    console.log("serving amount",jsonData.serving);
 
+    jsonData.queue.forEach(element => {        
+        
 
-//function der finder array object id
-    let jsonThing = [];
-    jsonData.queue.forEach(element => {
-        // start cloning in to template
-        let template = document.querySelector("#qTemp");
-        let clone = template.cloneNode(true).content;
-
-//objects bliver overskrevet når 
-        let queueObjects = {id: 1, order: ""}
-        queueObjects.id = element.id;
-        // console.log(queueObjects.id)
-        clone.querySelector("#qId").textContent = queueObjects.id;
+        const newOrder = [];
+        let orderLine = {id: 0, type: null, amount: 0};
 
         element.order.forEach(orderElement => {
-            queueObjects.order += orderElement;
-            clone.querySelector("#order").textContent = queueObjects.order;
-        });
-        jsonThing.push(queueObjects)
 
-        document.querySelector("#qContainer").appendChild(clone);
+            if( orderElement === orderLine.type ) {
+                orderLine.amount++;
+            } else {
+                if( orderLine.type!==null ) {
+                    newOrder.push( orderLine );
+                }
+                orderLine = {type: orderElement, amount: 1};
+            }
+        });
+        newOrder.push( orderLine );
+
+        // Nu indeholder newOrder et array over øl-typer og amount
+        newOrder.forEach( newElement => {
+            // clone #tableTemp (template)
+            // indsæt data fra orderLine i clonen (beertype, beercount)
+
+            //find elm. id, clone to temp
+            orderLine.id = element.id;
+       
+            let template = document.querySelector("#tableTemp");
+            let clone = template.cloneNode(true).content;
+            
+            clone.querySelector(".id").textContent = "Order.No: " + orderLine.id;
+            clone.querySelector(".beertype").textContent = newElement.type;
+            clone.querySelector(".beercount").textContent = newElement.amount;
+            
+            // find måde at dele tallene op i odd and even
+            // If orderLine.id is an even number then set background to pink
+            // modulo tager orderline.id og dividerer med 2 og returnerer så resten der er tilbage
+            // Hvis resten er lig med 0 må det betyde at orderLine.id er et lige tal.
+            // hvor mange gange kan 2 være i id nummeret - resten af det afgør om det er odd/even
+            // alle lige tal går op i 2 , alle ulige tal gør ikke
+            if (orderLine.id%2==0) {
+                clone.querySelector(`tr`).style.backgroundColor = "lightgreen";
+            } else { // odd 
+                clone.querySelector(`tr`).style.backgroundColor = "lightblue";   
+            }
+
+            // append clonen til #order
+            document.querySelector("#order").appendChild(clone);
+
+        });
     });
 }
 
-// wrap for each i en function der bliver kaldt for hver gang der bliver hentet data (getJsonData) 
-//tilføj amount til for eachet
 
-//function der finder 
+// find amount of people in queue
+function getQNumber(queue){
+    document.querySelector("#qNumb").textContent = queue.length;
+
+    if(queue.length > 10){
+        document.querySelector("#qCircle").style.backgroundColor = "red";
+    }
+    else if(queue.length > 5 && 10){
+        document.querySelector("#qCircle").style.backgroundColor = "yellow";
+    }
+    // console.log(queue);
+}
+
+// find amount of people in serving
+function getSNumber(serving){
+    document.querySelector("#serveNumb").textContent = serving.length;
+
+    if(serving.length > 10){
+        document.querySelector("#serveCircle").style.backgroundColor = "red";
+    }
+    else if(serving.length > 5 && 10){
+        document.querySelector("#serveCircle").style.backgroundColor = "yellow";
+    }
+    // console.log(serving);
+}
 
 
+
+
+// setInterval(function(){
+//     //empty the jsonData queue objects
+//     console.log(delete jsonData[queueObjects])
+
+//         getJsonData();
+//     }, 3000);
 
 
 

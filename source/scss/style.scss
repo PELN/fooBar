@@ -12,6 +12,9 @@ main {
     justify-content: center;
 }
 
+h1 {
+    font-size: 2em;
+}
 
 #circleContainer {
     width: 95vw;
@@ -22,8 +25,17 @@ main {
         height: 30vw;
         float: left;
         margin-left:10%;
-        background-color: yellow;
+        background-color: lightgreen;
         border-radius: 50%;
+        border: 5px solid white;
+
+        #qNumb{
+            font-size: 3em;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     }
 
     #serveCircle{
@@ -33,99 +45,118 @@ main {
         margin-left: 20%;
         background-color:lightgreen;
         border-radius: 50%;
+        border: 5px solid white;
+
+        #serveNumb{
+            font-size: 3em;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     }
 }
 
-
-
 #qSection {
-    background-color: pink;
-    border: 5px solid yellow;
+    background-color: rgb(198, 194, 233);
+    border: 2px solid black;
     width: 95vw;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+
+    @media (min-width: $breakpoint-tablet) {
+        grid-template-columns: 1fr 1fr;
+    }
+    @media (min-width: $breakpoint-desktop) {    
+        grid-template-columns: 1fr 1fr;
+    }
+    @media (min-width: $breakpoint-largeScreen) {
+        grid-template-columns: 1fr 1fr;
+
+    }
 
     #qContainer {
-        width:90vw;
-        height: 90vh;
-        margin-left: 2vw;
+        margin-top: 5vw;
+        width: 95vw;
+        height: auto;
+        // margin-left: 7vw;
         background-color: lightcyan;
-        border: 1px solid black;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-    
+        padding: 5px;
+        box-shadow: 5px 5px;
+ 
         @media (min-width: $breakpoint-tablet) {
-            grid-template-columns: 1fr 1fr 1fr;
             float:left;
             width:45vw;
-            height: 90vh;
             margin-left: 1vw;
+            
+            table{
+                width:45vw;
+            }
         }
         @media (min-width: $breakpoint-desktop) {    
-            grid-template-columns: 1fr 1fr 1fr;
+            table{
+                width:45vw;
+            }
         }
         @media (min-width: $breakpoint-largeScreen) {
-            grid-template-columns: 1fr 1fr 1fr;
+            table{
+                width:45vw;
+            }
         }
     }
 
-
-
     #serveContainer {
-        width:90vw;
-        height: 90vh;
-        margin-left: 2vw;
+        margin-top: 5vw;
+        width: 95vw;
+        height: 10vh;
+        // margin-left: 7vw;
         background-color: lightcyan;
-        border: 1px solid black;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        padding: 5px;
+        box-shadow: 5px 5px;
     
         @media (min-width: $breakpoint-tablet) {
-            grid-template-columns: 1fr 1fr 1fr;
             float: left;
             width:45vw;
             margin-left: 1vw;
-            height: 90vh;
+            height: auto;
+
+            table{
+                width:45vw;
+            }
         }
         @media (min-width: $breakpoint-desktop) {    
-            grid-template-columns: 1fr 1fr 1fr;
-        }
+            table{
+                width:45vw;
+            }        }
         @media (min-width: $breakpoint-largeScreen) {
-            grid-template-columns: 1fr 1fr 1fr;
+            table{
+                width:45vw;
+            }        
         }
-    }
-    
-    #column1, #column2, #column3{
-        margin-left: 6vw;
     }
 
 }
 
 
+// tabel
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+table{
+    width:95vw;
+}
+
+th, td {
+    padding: 5px;
+}
 
 
-
-
-
-
-/* Template til queue */
-
-
-
-
-
-/* Template til serving */
-
-
-
-
-
-/* Template til taps */
-
-
-
-
-
-
-
+#order{
+    background-color: white;
+}
 
 
 
