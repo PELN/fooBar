@@ -58,7 +58,7 @@ setInterval(function(){
 function getDynamicJson() {
     fooData = FooBar.getData(true);
     jsonData = JSON.parse(fooData);
-    
+
     getQAmount(jsonData.queue);
     getSAmount(jsonData.serving);
 
@@ -72,10 +72,12 @@ function getDynamicJson() {
         let clone = template.cloneNode(true).content;
         // clone #tableTemp (template)
         // indsæt data fra orderLine i clonen (beertype, beercount)
+    
         clone.querySelector(".id").textContent = "Order.No: " + newElement.id;
         clone.querySelector(".beertype").textContent = newElement.type;
         clone.querySelector(".beercount").textContent = newElement.amount;
         oddEven(newElement.id, clone)
+        convertTime(newElement.time, clone);
 
         document.querySelector("#order").appendChild(clone);
     });
@@ -87,7 +89,8 @@ function getDynamicJson() {
         clone.querySelector(".id").textContent = "Order.No: " + serveElement.id;
         clone.querySelector(".beertype").textContent = serveElement.type;
         clone.querySelector(".beercount").textContent = serveElement.amount;
-        oddEven(serveElement.id, clone)
+        oddEven(serveElement.id, clone);
+        convertTime(serveElement.time, clone);
 
         document.querySelector("#serveOrder").appendChild(clone);
     });
@@ -121,12 +124,11 @@ function getSAmount(serving){
     // console.log(serving);
 }
 
-
 function customerData(specificData){
     let newOrder = [];
     specificData.forEach(element => {
       //find elm. id, clone to temp
-        let orderLine = {id: 0, type: null, amount: 0};
+        let orderLine = {id: 0, time: 0, type: null, amount: 0};
 
         element.order.forEach(orderElement => {
             
@@ -136,33 +138,49 @@ function customerData(specificData){
                 if( orderLine.type!==null ) {
                     newOrder.push( orderLine );
                 }
-                orderLine = {id: element.id, type: orderElement, amount: 1};
+                orderLine = {id: element.id, time: element.startTime, type: orderElement, amount: 1};
             }
         });
         newOrder.push( orderLine );
 
-        console.log("ny ordre længde",newOrder.length)
+        // console.log("ny ordre længde",newOrder.length)
 
     });
-
-
-
     return newOrder;
 }
 
+
+function convertTime(customerTime, tempClone) {
+
+    let time = new Date(customerTime);
+        let hours = (time.getHours() < 10) ? "0" + time.getHours() : time.getHours();
+        let minutes = (time.getMinutes() < 10) ? "0" + time.getMinutes() : time.getMinutes();
+        let formattedTime = hours + ":" + minutes;
+
+    tempClone.querySelector(".time").textContent = "Time: " + formattedTime;
+    tempClone.querySelector(".time").textContent = "Time: " + formattedTime;
+}
+
+
 // funktion der deler tallene op i odd and even
-function oddEven(orderId, tempClone){
+function oddEven(customerId, tempClone){
     // If orderLine.id is an even number then set background to pink
     // modulo tager orderline.id og dividerer med 2 og returnerer så resten der er tilbage
     // Hvis resten er lig med 0 må det betyde at orderLine.id er et lige tal.
     // hvor mange gange kan 2 være i id nummeret - resten af det afgør om det er odd/even
     // alle lige tal går op i 2 , alle ulige tal gør ikke
-    if (orderId%2==0) {
+    if (customerId%2==0) {
         tempClone.querySelector(`tr`).style.backgroundColor = "lightgreen";
     } else { // odd 
         tempClone.querySelector(`tr`).style.backgroundColor = "lightblue";   
     }
 }
+
+
+
+
+
+
 
 
 
