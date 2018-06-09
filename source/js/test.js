@@ -22,16 +22,50 @@ async function getConstJson() {
             let eachAlc = beerTypes[i].alc;
             let eachCat = beerTypes[i].category;
             let eachImg = beerTypes[i].label;
-            
+
             clone.querySelector("#beerName").textContent = eachName;
             clone.querySelector("img").src = "source/assets/" + eachImg;
             clone.querySelector("#beerCat").textContent = "Category: " + eachCat;
             clone.querySelector("#beerAlc").textContent = "Alc: " + eachAlc;
 
+            //click on 'read' button, open modal window with description
+            //there is a bug - when you click on one read more, closes it, and click another one, it saves the one from before and displays 2 elements. 
+            //maybe it can be fixed by refreshing after closed modal?
+            clone.querySelector("#read").addEventListener("click", ()=>{
+                document.querySelector("#modalContainer").style.visibility = "visible";
+
+                let descTemplate = document.querySelector("#modalTemp");
+                let descClone = descTemplate.cloneNode(true).content;
+
+                let description = beerTypes[i].description;
+
+                let aroma = description.aroma;
+                let appearance = description.appearance;
+                let flavor = description.flavor;
+                let mouthfeel = description.mouthfeel;
+                let overallImpression = description.overallImpression;
+                    
+                descClone.querySelector("#beerName").textContent = eachName;
+                descClone.querySelector("#aroma").textContent = "Aroma: " + aroma;
+                descClone.querySelector("#appearance").textContent = "Appearance: " + appearance;
+                descClone.querySelector("#flavor").textContent = "Flavor: " + flavor;
+                descClone.querySelector("#mouthfeel").textContent = "Mouthfeel: " + mouthfeel;
+                descClone.querySelector("#overallImpression").textContent = "Overall Impression: " + overallImpression;
+                
+                //close button, close window
+                descClone.querySelector("#close").addEventListener("click", ()=>{
+                    document.querySelector("#modalContainer").style.visibility = "hidden";
+                });
+
+                document.querySelector("#modalContainer").appendChild(descClone);
+            });
+
             document.querySelector("#beerContainer").appendChild(clone);
         }
     getDynamicJson();
+    kegLvl()
 }
+
 
 setInterval(function(){
     //empty the jsonData queue objects 
@@ -50,7 +84,16 @@ setInterval(function(){
         serveTable.deleteRow(i);
     }
     
+    //delete template?? delete tapsContainer?? tapTemp?? tapBox??
+ 
+    // let lvl = document.querySelector("#");
+    // for (let i = lvl.length - 1; i >= 1; i--) {
+    //     document.querySelector("");
+
+    // }
+
     getDynamicJson();
+    // kegLvl()
 }, 5000);
 
 
@@ -176,8 +219,47 @@ function oddEven(customerId, tempClone){
 }
 
 
+//level changes - set interval for calling the function
+
+//find keg level on each tap
+function kegLvl(){
+    
+    let taps = jsonData.taps;
+    let level;
+    let beer;
+
+    //for each element in taps array, get beer, level and capacity
+    // clone to template
+    taps.forEach(tapElement => {
+       
+        beer = tapElement.beer;
+        level = tapElement.level;
+
+        let template = document.querySelector("#tapTemp");
+        let clone = template.cloneNode(true).content;
+        
+        clone.querySelector("#beer").textContent =  beer;
+        clone.querySelector("#level").textContent =  level;
+
+        console.log(beer, level);
+
+        //if level ændrer sig, skal den animere rect:last-of-type
+        //0%, 25%, 50%, 100% = 0 1250 2500
+        //transform: translateX(-750px);
+        
+        
+
+        //if keg lvl = 0 , show keg empty , change color
 
 
+        document.querySelector("#tapsContainer").appendChild(clone);
+
+    });
+
+   
+
+
+}
 
 
 

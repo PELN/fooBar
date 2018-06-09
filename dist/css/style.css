@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background-color: #ffd373;
+  background: linear-gradient(to bottom right, lightblue, #00ccff);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; }
 
 h1 {
@@ -57,6 +57,15 @@ h1 {
     background-color: lightgreen;
     border-radius: 50%;
     border: 5px solid white; }
+    @media (min-width: 768px) {
+      #circleContainer #qCircle {
+        width: 20vw;
+        height: 20vw;
+        margin-left: 16%; } }
+    @media (min-width: 1024px) {
+      #circleContainer #qCircle {
+        width: 20vw;
+        height: 20vw; } }
     #circleContainer #qCircle #qNumb {
       font-size: 3em;
       position: relative;
@@ -71,6 +80,15 @@ h1 {
     background-color: lightgreen;
     border-radius: 50%;
     border: 5px solid white; }
+    @media (min-width: 768px) {
+      #circleContainer #serveCircle {
+        width: 20vw;
+        height: 20vw;
+        margin-left: 25%; } }
+    @media (min-width: 1024px) {
+      #circleContainer #serveCircle {
+        width: 20vw;
+        height: 20vw; } }
     #circleContainer #serveCircle #serveNumb {
       font-size: 3em;
       position: relative;
@@ -160,10 +178,11 @@ th, td {
   margin-left: 5%; }
 
 #beerContainer {
-  border: 5px solid darkmagenta;
+  background-color: darkcyan;
   width: 95vw;
   display: grid;
-  grid-template-columns: 1fr 1fr; }
+  grid-template-columns: 1fr 1fr;
+  justify-content: center; }
   @media (min-width: 768px) {
     #beerContainer {
       grid-template-columns: 1fr 1fr 1fr 1fr; } }
@@ -174,12 +193,13 @@ th, td {
     #beerContainer {
       grid-template-columns: 1fr 1fr 1fr 1fr; } }
   #beerContainer #beerBox {
-    border: 2px solid cyan;
     background-color: white;
     margin-bottom: 2vw;
     display: grid;
     justify-content: center;
-    width: 45vw; }
+    width: 45vw;
+    padding: 5px;
+    box-shadow: 5px 5px; }
     #beerContainer #beerBox #beerName {
       font-size: 3vw; }
     #beerContainer #beerBox img {
@@ -189,11 +209,12 @@ th, td {
       height: 4vh;
       margin-bottom: 2vw;
       color: white;
-      background-color: orange;
-      margin-left: 10%; }
+      background-color: plum;
+      margin-left: 10%;
+      border: none; }
       #beerContainer #beerBox button:hover {
-        color: orange;
-        background-color: white;
+        color: white;
+        background-color: orangered;
         transition: 0.3s; }
     @media (min-width: 768px) {
       #beerContainer #beerBox {
@@ -203,7 +224,7 @@ th, td {
         #beerContainer #beerBox #beerName {
           font-size: 2vw; }
         #beerContainer #beerBox img {
-          width: 20vw; }
+          width: 12vw; }
         #beerContainer #beerBox button {
           width: 15vw; } }
     @media (min-width: 1024px) {
@@ -214,15 +235,67 @@ th, td {
         width: 20vw; } }
 
 #modalContainer {
-  width: 80vw;
   border: 2px solid black;
-  background-color: rgba(31, 30, 30, 0.815);
   color: white;
-  visibility: hidden; }
+  visibility: hidden;
+  width: 95vw;
+  position: fixed;
+  z-index: 120341239481;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.9); }
   #modalContainer #modalBox {
-    width: 70vw;
-    border: 4px solid red; }
+    width: 90vw;
+    border: 4px solid red;
+    color: white;
+    font-size: 14px;
+    padding: 3vw 3vw 3vw 3vw;
+    z-index: 120341239481123123;
+    display: grid;
+    justify-content: center; }
   #modalContainer #close {
     background-color: #22d822;
     width: 15vw;
     height: 5vh; }
+
+#tapsContainer {
+  width: 95vw;
+  border: 5px solid fuchsia;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center; }
+  #tapsContainer #tapBox {
+    width: 45vw;
+    background-color: white;
+    box-shadow: 5px 5px;
+    margin-bottom: 4vw; }
+  #tapsContainer #emptyKeg {
+    width: 20vw;
+    height: 10vh;
+    border: 2px solid orange;
+    background-color: yellow; }
+    #tapsContainer #emptyKeg #empty {
+      color: red;
+      font-size: 25px; }
+  @media (min-width: 768px) {
+    #tapsContainer {
+      grid-template-columns: 1fr 1fr 1fr; }
+      #tapsContainer #tapBox {
+        width: 30vw;
+        border: 4px solid yellow; } }
+  @media (min-width: 1024px) {
+    #tapsContainer {
+      grid-template-columns: 1fr 1fr 1fr; }
+      #tapsContainer #tapBox {
+        width: 30vw;
+        border: 4px solid yellow; } }
+  @media (min-width: 1824px) {
+    #tapsContainer {
+      grid-template-columns: 1fr 1fr 1fr; }
+      #tapsContainer #tapBox {
+        width: 30vw;
+        border: 4px solid yellow; } }
+
+rect:last-of-type {
+  transform: translateX(-750px);
+  /* Remember this isn't really "pixels", it's a length of 2 in the SVG coordinate system */ }
