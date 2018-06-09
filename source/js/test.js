@@ -8,7 +8,6 @@ let fooData;
 let jsonData;
 let queueObjects;
 
-
 async function getConstJson() {
     constData = FooBar.getData(false);
     constJsonData = JSON.parse(constData);
@@ -22,10 +21,12 @@ async function getConstJson() {
             let eachName = beerTypes[i].name;
             let eachAlc = beerTypes[i].alc;
             let eachCat = beerTypes[i].category;
+            let eachImg = beerTypes[i].label;
             
-            clone.querySelector("#beerName").textContent = eachName;            
-            clone.querySelector("#beerCat").textContent = eachCat;
-            clone.querySelector("#beerAlc").textContent = eachAlc;
+            clone.querySelector("#beerName").textContent = eachName;
+            clone.querySelector("img").src = "source/assets/" + eachImg;
+            clone.querySelector("#beerCat").textContent = "Category: " + eachCat;
+            clone.querySelector("#beerAlc").textContent = "Alc: " + eachAlc;
 
             document.querySelector("#beerContainer").appendChild(clone);
         }
@@ -37,22 +38,20 @@ setInterval(function(){
     let table = document.querySelector("#order");
     //fordi at arrayet starter på 0, skal man minus 1, for at få det sidste element med
     // >= sættes fordi, den ikke tager 'head' row med
-    for(let i = table.rows.length - 1; i >= 0; i--)
+    for(let i = table.rows.length - 1; i > 0; i--)
     {
         table.deleteRow(i);
     }
 
     let serveTable = document.querySelector("#serveOrder");
     //or use :  var table = document.all.tableid;
-    for(let i = serveTable.rows.length - 1; i >= 0; i--)
+    for(let i = serveTable.rows.length - 1; i > 0; i--)
     {
         serveTable.deleteRow(i);
     }
     
     getDynamicJson();
 }, 5000);
-
-
 
 
 function getDynamicJson() {

@@ -40,12 +40,15 @@ $breakpoint-largeScreen: 1824px;
                 margin-top: 1vw;
             }
         }
-        
 }
 
 main {
     display: grid;
     justify-content: center;
+}
+
+#title{
+    font-size: 3em;
 }
 
 h1 {
@@ -101,6 +104,7 @@ h1 {
     display: grid;
     grid-template-columns: 1fr;
     padding-bottom: 5vw;
+    grid-gap: 15px;
 
     @media (min-width: $breakpoint-tablet) {
         grid-template-columns: 1fr 1fr;
@@ -113,65 +117,72 @@ h1 {
 
     }
 
+    #headings h4{
+        display: inline-block;
+    }
+
     #qContainer {
         margin-top: 5vw;
-        width: 95vw;
+        width: 90vw;
         height: auto;
         // margin-left: 7vw;
         background-color: lightcyan;
         padding: 5px;
         box-shadow: 5px 5px;
- 
+        padding-bottom: 5vw;
+
         @media (min-width: $breakpoint-tablet) {
             float:left;
             width:45vw;
             margin-left: 1vw;
             
-            table{
-                width:45vw;
+            #order{
+                width: 40vw;
             }
         }
         @media (min-width: $breakpoint-desktop) {    
-            table{
-                width:45vw;
+            #order{
+                width: 40vw;
             }
         }
         @media (min-width: $breakpoint-largeScreen) {
-            table{
-                width:45vw;
+            #order{
+                width: 40vw;
             }
         }
     }
 
     #serveContainer {
         margin-top: 5vw;
-        width: 95vw;
+        width: 90vw;
         // margin-left: 7vw;
         background-color: lightcyan;
         padding: 5px;
         box-shadow: 5px 5px;
-    
+        padding-bottom: 5vw;
+
+
         @media (min-width: $breakpoint-tablet) {
             float: left;
             width:45vw;
-            margin-left: 1vw;
+            // margin-left: 1vw;
             height: auto;
 
-            table{
-                width:45vw;
+            #serveOrder{
+                width: 40vw;
             }
         }
         @media (min-width: $breakpoint-desktop) {    
-            table{
-                width:45vw;
-            }        }
+            #serveOrder{
+                width: 40vw;
+            }      
+        }
         @media (min-width: $breakpoint-largeScreen) {
-            table{
-                width:45vw;
-            }        
+            #serveOrder{
+                width: 40vw;
+            }     
         }
     }
-
 }
 
 
@@ -181,47 +192,125 @@ table, th, td {
     border-collapse: collapse;
 }
 
-table{
-    width:95vw;
-}
+// table{
+//     width:95vw;
+// }
 
 th, td {
     padding: 5px;
+    width: 5vw;
 }
 
+#tableRow {
+    width:30vw;
+}
 
 #order{
-    background-color: white;
+    width:40vw;
+    margin-left: 5%;
+}
+
+#serveOrder{
+    width: 40vw;
+    margin-left: 5%;
 }
 
 
-
-
+// Beer types
 #beerContainer{
-    border: 2px solid blue;
+    border: 5px solid darkmagenta;
     width: 95vw;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    
+    @media (min-width: $breakpoint-tablet) {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    @media (min-width: $breakpoint-desktop) {    
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    @media (min-width: $breakpoint-largeScreen) {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
 
-
-
-    #tempContainer{
+    #beerBox{
+        border: 2px solid cyan;
+        background-color: white;
+        margin-bottom: 2vw;
         display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
+        justify-content: center;
+        width: 45vw;
 
-    #tapTemp{
-        border: 2px solid red;
-        width: 50vw;
-    }
+        #beerName{
+            font-size: 3vw;
+        }
+        
+        img{
+            width: 25vw;
+        }
     
-    #beerName{
-        font-size: 3vw;
-    }
+        button{
+            width:30vw;
+            height: 4vh;
+            margin-bottom: 2vw;
+            color:white;
+            background-color: orange;
+            margin-left: 10%;
     
+            &:hover {
+                color:orange;
+                background-color: white;
+                transition: 0.3s;
+            }
+        }
+
+
+        @media (min-width: $breakpoint-tablet) {
+            display: grid;
+            justify-content: center;
+            width: 20vw;
+            
+            #beerName{
+                font-size: 2vw;
+            }
+
+            img{
+                width: 20vw;
+            }
+
+            button{
+                width:15vw;
+            }
+        }
+        @media (min-width: $breakpoint-desktop) {
+            width: 20vw;
+        }
+        @media (min-width: $breakpoint-largeScreen) {
+            width: 20vw;
+        }
+        
+    }
     
 }
 
+#modalContainer{
+    width: 80vw;
+    border: 2px solid black;
+    background-color: rgba(31, 30, 30, 0.815);
+    color: white;
+    visibility: hidden;
+
+    #modalBox{
+        width: 70vw;
+        border: 4px solid red;
+    }    
+
+    #close{
+        background-color: rgb(34, 216, 34);
+        width: 15vw;
+        height: 5vh;
+    }
+}
 
 
 

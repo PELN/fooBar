@@ -38,7 +38,7 @@ async function getJsonData() {
 
             //find elm. id, clone to temp
             orderLine.id = element.id;
-       
+        
             let template = document.querySelector("#tableTemp");
             let clone = template.cloneNode(true).content;
             

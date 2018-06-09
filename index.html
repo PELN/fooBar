@@ -15,7 +15,7 @@
     </header>
 
 <main>
-    <h1>FooBar</h1>
+    <h1 id="title">FooBar</h1>
     
     <div id="circleContainer">
         <div id="qCircle">
@@ -34,7 +34,14 @@
     <div id="qContainer">
         <h1>QUEUE</h1>
         <table id="order">
+                <tr>
+                    <th>CUSTOMER</th>
+                    <th>ORDERED AT</th>
+                    <th>ORDER</th>
+                    <th>AMOUNT</th>
+                </tr>
             <template id="tableTemp">
+              
                 <tr id="tableRow">
                     <td class="id"></td>
                     <td class="time"></td>
@@ -48,6 +55,12 @@
     <div id="serveContainer">
         <h1>SERVING</h1>
         <table id="serveOrder">
+                <tr>
+                    <th>CUSTOMER</th>
+                    <th>ORDERED AT</th>
+                    <th>ORDER</th>
+                    <th>AMOUNT</th>
+                </tr>
             <template id="serveTemp">
                 <tr id="tableRow">
                     <td class="id"></td>
@@ -64,25 +77,29 @@
 <!-- udvalg af øl med billeder + navn + read more -->
 <div id="beerContainer">
         <template id="beerTemp">
-            <h1 id="beerName">beer name</h1>
-            <img src="">
-            <p id="beerCat"></p>
-            <p id="beerAlc"></p>
-            <button id="read">READ MORE</button>
+            <div id="beerBox">
+                <h1 id="beerName">beer name</h1>
+                <img class="beerImg" src="">
+                <p id="beerCat"></p>
+                <p id="beerAlc"></p>
+                <button id="read">READ MORE</button>
+            </div>
         </template>
 </div>
 
 
 <!-- MODAL VINDUE TIL TAPS READ MORE -->
-<!-- <div id="modalContainer">
+<div id="modalContainer">
     <template id="modalTemp">
-        <h1 id="beerName"></h1>
-        <p id="description">blablablablab descript</p>
-        <p id="aroma"></p>
-        <p id="flavour"></p>
-        <div id="close">Close</div>
+        <div id="modalBox">
+            <h1 id="beerName">name</h1>
+            <p id="description">blablablablab descript</p>
+            <p id="aroma"></p>
+            <p id="flavour"></p>
+            <button id="close">Close</button>
+        </div>
     </template>
-</div> -->
+</div>
 
 
 <!-- level of beer + storage? -->

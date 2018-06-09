@@ -40,6 +40,9 @@ main {
   display: grid;
   justify-content: center; }
 
+#title {
+  font-size: 3em; }
+
 h1 {
   font-size: 2em; }
 
@@ -82,7 +85,8 @@ h1 {
   height: auto;
   display: grid;
   grid-template-columns: 1fr;
-  padding-bottom: 5vw; }
+  padding-bottom: 5vw;
+  grid-gap: 15px; }
   @media (min-width: 768px) {
     #qSection {
       grid-template-columns: 1fr 1fr; } }
@@ -92,70 +96,133 @@ h1 {
   @media (min-width: 1824px) {
     #qSection {
       grid-template-columns: 1fr 1fr; } }
+  #qSection #headings h4 {
+    display: inline-block; }
   #qSection #qContainer {
     margin-top: 5vw;
-    width: 95vw;
+    width: 90vw;
     height: auto;
     background-color: lightcyan;
     padding: 5px;
-    box-shadow: 5px 5px; }
+    box-shadow: 5px 5px;
+    padding-bottom: 5vw; }
     @media (min-width: 768px) {
       #qSection #qContainer {
         float: left;
         width: 45vw;
         margin-left: 1vw; }
-        #qSection #qContainer table {
-          width: 45vw; } }
+        #qSection #qContainer #order {
+          width: 40vw; } }
     @media (min-width: 1024px) {
-      #qSection #qContainer table {
-        width: 45vw; } }
+      #qSection #qContainer #order {
+        width: 40vw; } }
     @media (min-width: 1824px) {
-      #qSection #qContainer table {
-        width: 45vw; } }
+      #qSection #qContainer #order {
+        width: 40vw; } }
   #qSection #serveContainer {
     margin-top: 5vw;
-    width: 95vw;
+    width: 90vw;
     background-color: lightcyan;
     padding: 5px;
-    box-shadow: 5px 5px; }
+    box-shadow: 5px 5px;
+    padding-bottom: 5vw; }
     @media (min-width: 768px) {
       #qSection #serveContainer {
         float: left;
         width: 45vw;
-        margin-left: 1vw;
         height: auto; }
-        #qSection #serveContainer table {
-          width: 45vw; } }
+        #qSection #serveContainer #serveOrder {
+          width: 40vw; } }
     @media (min-width: 1024px) {
-      #qSection #serveContainer table {
-        width: 45vw; } }
+      #qSection #serveContainer #serveOrder {
+        width: 40vw; } }
     @media (min-width: 1824px) {
-      #qSection #serveContainer table {
-        width: 45vw; } }
+      #qSection #serveContainer #serveOrder {
+        width: 40vw; } }
 
 table, th, td {
   border: 1px solid black;
   border-collapse: collapse; }
 
-table {
-  width: 95vw; }
-
 th, td {
-  padding: 5px; }
+  padding: 5px;
+  width: 5vw; }
+
+#tableRow {
+  width: 30vw; }
 
 #order {
-  background-color: white; }
+  width: 40vw;
+  margin-left: 5%; }
+
+#serveOrder {
+  width: 40vw;
+  margin-left: 5%; }
 
 #beerContainer {
-  border: 2px solid blue;
+  border: 5px solid darkmagenta;
   width: 95vw;
   display: grid;
   grid-template-columns: 1fr 1fr; }
-  #beerContainer #tempContainer {
+  @media (min-width: 768px) {
+    #beerContainer {
+      grid-template-columns: 1fr 1fr 1fr 1fr; } }
+  @media (min-width: 1024px) {
+    #beerContainer {
+      grid-template-columns: 1fr 1fr 1fr 1fr; } }
+  @media (min-width: 1824px) {
+    #beerContainer {
+      grid-template-columns: 1fr 1fr 1fr 1fr; } }
+  #beerContainer #beerBox {
+    border: 2px solid cyan;
+    background-color: white;
+    margin-bottom: 2vw;
     display: grid;
-    grid-template-columns: 1fr 1fr; }
-  #beerContainer #tapTemp {
-    border: 2px solid red;
-    width: 50vw; }
-  #beerContainer #beerName {
-    font-size: 3vw; }
+    justify-content: center;
+    width: 45vw; }
+    #beerContainer #beerBox #beerName {
+      font-size: 3vw; }
+    #beerContainer #beerBox img {
+      width: 25vw; }
+    #beerContainer #beerBox button {
+      width: 30vw;
+      height: 4vh;
+      margin-bottom: 2vw;
+      color: white;
+      background-color: orange;
+      margin-left: 10%; }
+      #beerContainer #beerBox button:hover {
+        color: orange;
+        background-color: white;
+        transition: 0.3s; }
+    @media (min-width: 768px) {
+      #beerContainer #beerBox {
+        display: grid;
+        justify-content: center;
+        width: 20vw; }
+        #beerContainer #beerBox #beerName {
+          font-size: 2vw; }
+        #beerContainer #beerBox img {
+          width: 20vw; }
+        #beerContainer #beerBox button {
+          width: 15vw; } }
+    @media (min-width: 1024px) {
+      #beerContainer #beerBox {
+        width: 20vw; } }
+    @media (min-width: 1824px) {
+      #beerContainer #beerBox {
+        width: 20vw; } }
+
+#modalContainer {
+  width: 80vw;
+  border: 2px solid black;
+  background-color: rgba(31, 30, 30, 0.815);
+  color: white;
+  visibility: hidden; }
+  #modalContainer #modalBox {
+    width: 70vw;
+    border: 4px solid red; }
+  #modalContainer #close {
+    background-color: #22d822;
+    width: 15vw;
+    height: 5vh; }
