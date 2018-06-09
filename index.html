@@ -44,10 +44,9 @@
     </div>
 
     <div id="serveContainer">
-            <h1>SERVING</h1>
-
-        <table id="order">
-            <template id="tableTemp">
+        <h1>SERVING</h1>
+        <table id="serveOrder">
+            <template id="serveTemp">
                 <tr id="tableRow">
                     <td class="id"></td>
                     <td class="beertype"></td>
@@ -59,31 +58,16 @@
 
 </section>
 
-
-
-
-<!-- TAPS SECTION -->
-<!-- <div id="tapsContainer">
-
-    <template id="tapTemp">
-        <div id="top">
+<!-- udvalg af øl med billeder + navn + read more -->
+<div id="beerContainer">
+        <template id="beerTemp">
             <h1 id="beerName">beer name</h1>
             <img src="">
             <p id="beerCat"></p>
             <p id="beerAlc"></p>
             <button id="read">READ MORE</button>
-        </div>
-
-        <div id="bottom">
-            <h1>LEVEL</h1>
-            <p id="tapLvl">/2500</p>
-            <div id="svgContainer">
-
-            </div>
-        </div>
-    </template>
-
-</div> -->
+        </template>
+</div>
 
 
 <!-- MODAL VINDUE TIL TAPS READ MORE -->
@@ -97,11 +81,26 @@
     </template>
 </div> -->
 
+
+<!-- level of beer + storage? -->
+<!-- TAPS SECTION -->
+<div id="tapsContainer">
+    <div id="tempContainer">
+        <template id="tapTemp">
+            <h1>LEVEL</h1>
+            <p id="tapLvl">/2500</p>
+            <div id="svgContainer">
+            </div>
+        </template>
+    </div>
+</div>
+
+
 </main>
 
 
 
     <script src="http://petlatkea.dk/2018/front/foobar.js"></script>
-    <script src="/source/js/main.js"></script>
+    <script src="/source/js/test.js"></script>
 </body>
 </html>

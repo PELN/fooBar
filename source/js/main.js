@@ -13,8 +13,7 @@ async function getJsonData() {
     getSNumber(jsonData.serving);
     console.log("serving amount",jsonData.serving);
 
-    jsonData.queue.forEach(element => {        
-        
+    jsonData.queue.forEach(element => {
 
         const newOrder = [];
         let orderLine = {id: 0, type: null, amount: 0};

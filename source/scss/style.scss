@@ -4,7 +4,6 @@ $breakpoint-tablet: 768px;
 $breakpoint-desktop: 1024px;
 $breakpoint-largeScreen: 1824px;
 
-
 @import 'preset';
 
 main {
@@ -156,6 +155,34 @@ th, td {
 
 #order{
     background-color: white;
+}
+
+
+
+
+#beerContainer{
+    border: 2px solid blue;
+    width: 95vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+
+
+    #tempContainer{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #tapTemp{
+        border: 2px solid red;
+        width: 50vw;
+    }
+    
+    #beerName{
+        font-size: 3vw;
+    }
+    
+    
 }
 
 

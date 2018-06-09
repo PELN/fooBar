@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background-color: #93d1ee;
+  background-color: #ffd373;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; }
 
 h1 {
@@ -116,3 +116,17 @@ th, td {
 
 #order {
   background-color: white; }
+
+#beerContainer {
+  border: 2px solid blue;
+  width: 95vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr; }
+  #beerContainer #tempContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr; }
+  #beerContainer #tapTemp {
+    border: 2px solid red;
+    width: 50vw; }
+  #beerContainer #beerName {
+    font-size: 3vw; }
