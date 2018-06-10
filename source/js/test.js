@@ -78,22 +78,20 @@ setInterval(function(){
     }
 
     let serveTable = document.querySelector("#serveOrder");
-    //or use :  var table = document.all.tableid;
     for(let i = serveTable.rows.length - 1; i > 0; i--)
     {
         serveTable.deleteRow(i);
     }
-    
-    //delete template?? delete tapsContainer?? tapTemp?? tapBox??
- 
-    // let lvl = document.querySelector("#");
-    // for (let i = lvl.length - 1; i >= 1; i--) {
-    //     document.querySelector("");
-
-    // }
+     
+    //længden af tapsContainer children er 8, men der er 7 items, så den skal starte fra det sidste element (-1)
+    let lvl = document.querySelector("#tapsContainer").children;
+    for(let i = lvl.length- 1; i > 0; i--)
+    {
+        document.querySelector("#tapsContainer").children[i].remove();
+    }
 
     getDynamicJson();
-    // kegLvl()
+    kegLvl()
 }, 5000);
 
 
@@ -237,17 +235,17 @@ function kegLvl(){
 
         let template = document.querySelector("#tapTemp");
         let clone = template.cloneNode(true).content;
-        
+        console.log(clone.querySelector("#beer").textContent)
         clone.querySelector("#beer").textContent =  beer;
         clone.querySelector("#level").textContent =  level;
 
-        console.log(beer, level);
+        // console.log(beer, level);
 
         //if level ændrer sig, skal den animere rect:last-of-type
         //0%, 25%, 50%, 100% = 0 1250 2500
         //transform: translateX(-750px);
         
-        
+
 
         //if keg lvl = 0 , show keg empty , change color
 
