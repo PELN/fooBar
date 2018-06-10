@@ -65,6 +65,7 @@ async function getConstJson() {
     getDynamicJson();
     kegLvl()
     getBartender();
+    getStorage();
 
 }
 
@@ -87,7 +88,6 @@ setInterval(function(){
      
     //længden af tapsContainer children er 8, men der er 7 items, så den skal starte fra det sidste element (-1)
     let lvl = document.querySelector("#tapsContainer").children;
-    // console.log("leeevv",lvl)
     for(let i = lvl.length- 1; i > 0; i--)
     {
         document.querySelector("#tapsContainer").children[i].remove();
@@ -95,17 +95,21 @@ setInterval(function(){
 
     //delete bartender status
     let bartenderStatus = document.querySelector("#bartenderContainer").children;
-
-    console.log("heejjjj",bartenderStatus);
-
     for(let i = bartenderStatus.length- 1; i > 0; i--)
     {
         document.querySelector("#bartenderContainer").children[i].remove();
     }
 
+    let beerStorage = document.querySelector("#storageContainer").children;
+    for(let i = beerStorage.length- 1; i > 0; i--)
+    {
+        document.querySelector("#storageContainer").children[i].remove();
+    }
+
     getDynamicJson();
-    kegLvl()
+    kegLvl();
     getBartender();
+    getStorage();
 
 }, 5000);
 
@@ -265,7 +269,7 @@ function kegLvl(){
         // console.log(clone.querySelector("#beer").textContent)
 
         clone.querySelector("#beer").textContent =  beer;
-        clone.querySelector("#level").textContent =  level;
+        clone.querySelector("#level").textContent =  "Current level: " + level;
 
         //push level til et array, så jeg kan bruge det som array til at finde lvl til at animere bar
         lvlArray.push(level);
@@ -301,8 +305,29 @@ function kegLvl(){
 
 
 //tap storage
+function getStorage(){
+    let storage = jsonData.storage;
 
+    storage.forEach(storElement => {
+        let template = document.querySelector("#storTemp");
+        let clone = template.cloneNode(true).content;
 
+        let nameOf = storElement.name;
+        let amountOf = storElement.amount;
+
+        clone.querySelector("#storageName").textContent =  nameOf;
+        clone.querySelector("#storageAmount").textContent = amountOf;
+        
+        // if(amountOf > 4){
+        //     document.querySelector("#storageBox").style.backgroundColor = "red";
+        //     console.log(amountOf)
+
+        // }
+
+        document.querySelector("#storageContainer").appendChild(clone);
+
+    });
+}
 
 
 
@@ -334,10 +359,12 @@ function kegLvl(){
 
 // beear.forEach(element => {
 //     let newElem = element.split(' ').join('_');
+
 //     if (beerSold[newElem] == undefined){
 // 		beerSold[newElem] = 1;
 // 	} else {
 //         beerSold[newElem]++;
 //     }
-// })
-// beerSold
+
+// });
+
