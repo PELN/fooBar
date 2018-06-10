@@ -15,7 +15,7 @@ section:nth-child(odd){
 main {
     display: grid;
     grid-template-columns: 1fr;
-    border: 2px solid rgb(34, 216, 34);
+    border: 4px solid rgb(34, 216, 34);
     width: 95vw;
 
     @media (min-width: $breakpoint-tablet) {
@@ -29,6 +29,13 @@ main {
     }
 }
 
+header {
+    background-color: rgb(35, 35, 39);
+    color: white;
+    height: 8vh;
+    width: 100%;
+    position: fixed;
+}
 
 #icon{
     width:2vw;
@@ -48,8 +55,6 @@ li:hover {
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: rgb(7, 7, 78);
-        color: white;
         width: 100vw;
         height: 6vh;
         position: fixed;
@@ -101,8 +106,6 @@ li:hover {
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: rgb(7, 7, 78);
-        color: white;
         width: 100vw;
         height: 6vh;
         position: fixed;
@@ -142,11 +145,14 @@ li:hover {
 }
 
 
+#employees{
+    margin-top: 3vw;
+}
 
 #bartenderContainer{
     width: 90vw;
     // background-color: rgb(238, 171, 48);
-    margin-top: 10vw;
+    margin-top: 5vw;
     margin-bottom: 10vw;
     margin-left: 4%;
 
@@ -195,17 +201,23 @@ li:hover {
             #bartenderName{
                 margin-left: 30%;
             }
+            img {
+                margin-left: 25%;
+            }
+            #status{
+                margin-left: 15%;
+                padding-bottom: 3vw;
+            }
         }   
     }
 }
+
 
 // circles
 #circleContainer {
     width: 93vw;
     border: 2px solid white;
-    background-color: white;
-    padding: 5px;
-    box-shadow: 5px 5px;
+   
 
     @media (min-width: $breakpoint-tablet) {
         width: 83vw;
@@ -218,9 +230,26 @@ li:hover {
         
     }
     
+#queueC {
+    width: 40vw;
+    height: 25vh;
+    border: 2px solid black;
+    display: inline-block;
+    padding: 5px;
+    box-shadow: 5px 5px;
+    background-color: white;
+    margin-left: 3%;
+    margin-bottom: 5vw;
+
+    @media (min-width: $breakpoint-tablet) {
+        width: 30vw;
+        height: 30vh;
+        margin-left: 7%;
+    }
+
     #qCircle{
-        width:30vw;
-        height: 30vw;
+        width:20vw;
+        height: 20vw;
         float: left;
         margin-left:10%;
         background-color: lightgreen;
@@ -228,17 +257,17 @@ li:hover {
         border: 5px solid white;
 
         @media (min-width: $breakpoint-tablet) {
-            width:20vw;
-            height: 20vw;
-            margin-left: 16%;
+            width:10vw;
+            height: 10vw;
+            margin-left: 30%;
         }
         @media (min-width: $breakpoint-desktop) {    
-            width:20vw;
-            height: 20vw;
+            width:10vw;
+            height: 10vw;
         }
 
         #qNumb{
-            font-size: 3em;
+            font-size: 2em;
             position: relative;
             display: flex;
             justify-content: center;
@@ -246,9 +275,27 @@ li:hover {
         }
     }
 
+}
+
+#serveC{
+    width: 40vw;
+    height: 25vh;
+    border: 2px solid black;
+    display: inline-block;
+    padding: 5px;
+    box-shadow: 5px 5px;
+    background-color: white;
+    margin-left: 3%;
+
+    @media (min-width: $breakpoint-tablet) {
+        width: 30vw;
+        height: 30vh;
+        margin-left: 12%;
+    }
+
     #serveCircle{
-        width:30vw;
-        height: 30vw;
+        width: 20vw;
+        height: 20vw;
         float: left;
         margin-left: 20%;
         background-color:lightgreen;
@@ -256,23 +303,25 @@ li:hover {
         border: 5px solid white;
 
         @media (min-width: $breakpoint-tablet) {
-            width:20vw;
-            height: 20vw;
-            margin-left: 25%;
+            width:10vw;
+            height: 10vw;
+            margin-left: 30%;
         }
         @media (min-width: $breakpoint-desktop) {    
-            width:20vw;
-            height: 20vw;
+            width: 10vw;
+            height: 10vw;
         }
 
         #serveNumb{
-            font-size: 3em;
+            font-size: 2em;
             position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
         }
     }
+}
+
 }
 
 // QUEUE section
@@ -397,7 +446,7 @@ th, td {
 // Beer types
 #beerContainer{
     // border: 5px solid darkmagenta;
-    background-color: darkcyan;
+    // background-color: darkcyan;
     width: 95vw;
     display: grid;
     grid-template-columns: 1fr 1fr;
