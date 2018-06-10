@@ -10,15 +10,29 @@
 
 <body>
     <header>
-            <div id="barinfo"><a href="">BAR-INFO</a></div>
-            <div id="manageinfo"><a href="">MANAGE</a></div>
+            <h4 id="title">FooBar Dashboard</h4>
     </header>
 
+    <div id="sidebar">
+    <nav>
+        <li><img id="icon" src="source/assets/elhefe.png"><a href="#employees">EMPLOYEES</a></li>
+        <li><img id="icon" src="source/assets/elhefe.png"><a href="#qSection">QUEUE ACTIVITY</a></li>
+        <li><img id="icon" src="source/assets/elhefe.png"><a href="#tapinfo">TAP INFO</a></li>
+        <li><img id="icon" src="source/assets/elhefe.png"><a href="#beerinfo">BEER INFO</a></li>
+        <li><img id="icon" src="source/assets/elhefe.png"><a href="#stats">STATS</a></li>
+    </nav>
+    </div>
 
 
-<main>
-    <h1 id="title">FooBar</h1>
+
     
+<main>
+
+<section id="employees">
+            <div id="bartenders"><h1>BARTENDERS</h1></div>
+    </section>
+
+
     <div id="circleContainer">
         <div id="qCircle">
             <p id="qNumb">Q.NUMB</p>
@@ -77,9 +91,9 @@
 </section>
 
 
-
 <!-- level of beer + storage? -->
 <!-- TAPS SECTION -->
+<section id="tapinfo">
 <h1>TAP LEVEL</h1>
 <div id="tapsContainer">
         <template id="tapTemp">
@@ -91,10 +105,10 @@
                 <div id="svgContainer">
                         <svg width='100%' height='65px'>
                             <g class='bars'>
-                                <rect fill='green' width='100%' height='25'></rect>;
+                                <rect fill='grey' width='100%' height='25'></rect>;
                                 <rect fill='yellow' width='50%' height='25'></rect>;
                                 <rect fill='red' width='25%' height='25'></rect>;
-                                <rect fill='blue' width='100%' height='25'></rect>
+                                <rect id="bluebar" fill='blue' width='0%' height='25'></rect>
                             </g>
                 
                             <g text-anchor='middle'>
@@ -112,10 +126,10 @@
             </div>
         </template>
 </div>
+</section>
 
 
-
-
+<section id="beerinfo">
 <!-- udvalg af øl med billeder + navn + read more -->
 <h1>SELECTION OF BEER</h1>
 
@@ -146,9 +160,15 @@
         </div>
     </template>
 </div>
+</section>
 
 
+<section id="stats">
 
+<h1>BESTSELLING BEER</h1>
+
+
+</section>
 
 
 
@@ -164,6 +184,6 @@
 
 
     <script src="http://petlatkea.dk/2018/front/foobar.js"></script>
-    <script src="/source/js/test.js"></script>
+    <script src="/source/js/main.js"></script>
 </body>
 </html>

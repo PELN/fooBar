@@ -217,15 +217,13 @@ function oddEven(customerId, tempClone){
 }
 
 
-//level changes - set interval for calling the function
-
-//find keg level on each tap
+//find keg level on each tap //call the function in the interval and in getconstjson
 function kegLvl(){
     
     let taps = jsonData.taps;
     let level;
     let beer;
-
+    let lvlArray = [];
     //for each element in taps array, get beer, level and capacity
     // clone to template
     taps.forEach(tapElement => {
@@ -238,30 +236,50 @@ function kegLvl(){
         console.log(clone.querySelector("#beer").textContent)
         clone.querySelector("#beer").textContent =  beer;
         clone.querySelector("#level").textContent =  level;
-
         // console.log(beer, level);
 
-        //if level ændrer sig, skal den animere rect:last-of-type
-        //0%, 25%, 50%, 100% = 0 1250 2500
-        //transform: translateX(-750px);
-        
-
+        lvlArray.push(level);
 
         //if keg lvl = 0 , show keg empty , change color
-
+        if(level < 0){
+            document.querySelector("#emptyKeg").style.display = "block";
+        }
 
         document.querySelector("#tapsContainer").appendChild(clone);
 
     });
+      
+    let bar = document.querySelectorAll("#bluebar");
+    for (let i = -1; i < lvlArray.length; i++) {
 
-   
+        if (bar[i] != null){
+            // level / capacity * 100, for at få procent
+            bar[i].style = `width:${lvlArray[i] / 2500 * 100}%`;
+        }
 
+        if(lvlArray[i] > 1250){
+            bar[i].setAttribute("fill", "green");
+        }
+        else if (lvlArray[i] > 626 && 1200) {
+            bar[i].setAttribute("fill", "yellow");
+        }
+        else if (lvlArray[i] > 0 && 625){
+            bar[i].setAttribute("fill", "red");
+        }
+     
+    
+    
+    }
 
 }
 
 
 
 
+
+
+//current beers sold
+//current servings
 
 
 

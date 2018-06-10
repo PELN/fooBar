@@ -6,59 +6,148 @@ $breakpoint-largeScreen: 1824px;
 
 @import 'preset';
 
-#barinfo, #manageinfo{
-    
-        margin-top: 2vw;
-        display: inline-block;
-        margin-left: 10%;
-        width: 30vw;
-        height: 6vh;
-        background-color: midnightblue;
-
-        a{
-            text-decoration: none;
-            display: flex;
-            justify-content: center;
-            font-size: 5vw;
-            margin-top: 2vw;
-            color: white;
-        }
-
-        @media (min-width: $breakpoint-tablet) {
-            margin-top: 2vw;
-            display: inline-block;
-            margin-left: 20%;
-            width: 23vw;
-            height: 8vh;
-            background-color: red;
-        
-            a{
-                text-decoration: none;
-                display: flex;
-                justify-content: center;
-                font-size: 2em;
-                margin-top: 1vw;
-            }
-        }
-}
 
 main {
     display: grid;
-    justify-content: center;
-}
-
-#title{
-    font-size: 3em;
-}
-
-h1 {
-    font-size: 2em;
-}
-
-#circleContainer {
+    grid-template-columns: 1fr;
+    border: 2px solid rgb(34, 216, 34);
     width: 95vw;
-    border: 2px solid white;
 
+    @media (min-width: $breakpoint-tablet) {
+        width:85vw;
+        margin-left: 15%;
+    }
+    
+    @media (min-width: $breakpoint-desktop) { 
+        width:85vw;
+        margin-left: 15%;
+    }
+}
+
+
+#icon{
+    width:2vw;
+    padding-right: 1vw;
+}
+
+// header + nav for ipad + desktop
+@media (min-width: $breakpoint-tablet) {
+    header {
+        margin:0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(7, 7, 78);
+        color: white;
+        width: 100vw;
+        height: 6vh;
+        position: fixed;
+        z-index: 9999;
+    
+        #title{
+            font-size: 3vw;
+            color: red;
+        }
+    }
+    
+    #sidebar{
+        width: 15vw;
+        height: 100vh;
+        background-color: rgb(35, 35, 39);
+        position: fixed;
+        display: grid;
+        grid-template-columns: 1fr;
+    
+        a{
+            color: white;
+            text-decoration: none;
+        }
+    
+        li{
+            list-style: none;
+            padding-top:3vw;
+            padding-bottom: 3vw;
+            width: 15vw;
+            position: relative;
+            top: 4vw;
+        }
+        li:nth-child(odd){
+            background-color: rgba(255, 255, 255, 0.178);
+        }
+
+        #icon{
+            width:2vw;
+            padding-right: 1vw;
+        }
+    }
+}
+@media (min-width: $breakpoint-desktop) {    
+    header {
+        margin:0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(7, 7, 78);
+        color: white;
+        width: 100vw;
+        height: 6vh;
+        position: fixed;
+        z-index: 9999;
+    
+        #title{
+            font-size: 2vw;
+            color: yellow;
+        }
+    }
+    
+    #sidebar{
+        width: 15vw;
+        height: 100vh;
+        background-color: rgb(35, 35, 39);
+        position: fixed;
+        display: grid;
+        grid-template-columns: 1fr;
+    
+        a{
+            color: white;
+            text-decoration: none;
+        }
+    
+        li{
+            list-style: none;
+            padding-top:3vw;
+            padding-bottom: 3vw;
+            width: 15vw;
+            position: relative;
+            top: 3vw;
+        }
+        li:nth-child(odd){
+            background-color: rgba(255, 255, 255, 0.178);
+        }
+    }
+}
+
+
+
+// circles
+#circleContainer {
+    width: 93vw;
+    border: 2px solid white;
+    background-color: white;
+    padding: 5px;
+    box-shadow: 5px 5px;
+
+    @media (min-width: $breakpoint-tablet) {
+        width: 83vw;
+        margin-top: 10vw;
+    }
+
+    @media (min-width: $breakpoint-desktop) {    
+        width: 83vw;
+        margin-top: 10vw;
+        
+    }
+    
     #qCircle{
         width:30vw;
         height: 30vw;
@@ -116,17 +205,18 @@ h1 {
     }
 }
 
+// QUEUE section
 #qSection {
     background-color: rgb(198, 194, 233);
     border: 2px solid black;
     width: 95vw;
-    height: auto;
     display: grid;
     grid-template-columns: 1fr;
     padding-bottom: 5vw;
     grid-gap: 15px;
 
     @media (min-width: $breakpoint-tablet) {
+        width: 85vw;
         grid-template-columns: 1fr 1fr;
     }
     @media (min-width: $breakpoint-desktop) {    
@@ -134,7 +224,6 @@ h1 {
     }
     @media (min-width: $breakpoint-largeScreen) {
         grid-template-columns: 1fr 1fr;
-
     }
 
     #headings h4{
@@ -153,21 +242,21 @@ h1 {
 
         @media (min-width: $breakpoint-tablet) {
             float:left;
-            width:45vw;
+            width:40vw;
             margin-left: 1vw;
             
             #order{
-                width: 40vw;
+                width: 30vw;
             }
         }
         @media (min-width: $breakpoint-desktop) {    
             #order{
-                width: 40vw;
+                width: 30vw;
             }
         }
         @media (min-width: $breakpoint-largeScreen) {
             #order{
-                width: 40vw;
+                width: 30vw;
             }
         }
     }
@@ -184,22 +273,21 @@ h1 {
 
         @media (min-width: $breakpoint-tablet) {
             float: left;
-            width:45vw;
-            // margin-left: 1vw;
+            width:40vw;
             height: auto;
 
             #serveOrder{
-                width: 40vw;
+                width: 30vw;
             }
         }
         @media (min-width: $breakpoint-desktop) {    
             #serveOrder{
-                width: 40vw;
+                width: 30vw;
             }      
         }
         @media (min-width: $breakpoint-largeScreen) {
             #serveOrder{
-                width: 40vw;
+                width: 30vw;
             }     
         }
     }
@@ -246,17 +334,20 @@ th, td {
     justify-content: center;
     
     @media (min-width: $breakpoint-tablet) {
+        width: 80vw;
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
-    @media (min-width: $breakpoint-desktop) {    
+    @media (min-width: $breakpoint-desktop) {   
+        width: 80vw; 
         grid-template-columns: 1fr 1fr 1fr 1fr;
+
     }
     @media (min-width: $breakpoint-largeScreen) {
+        width: 80vw;
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 
     #beerBox{
-        // border: 2px solid cyan;
         background-color: white;
         margin-bottom: 2vw;
         display: grid;
@@ -357,10 +448,15 @@ th, td {
     grid-template-columns: 1fr 1fr;
     justify-content: center;
     
+    h1 {
+        font-size: 20px;
+    }
+
     #tapBox{
         width: 45vw;
         background-color: white;
         box-shadow: 5px 5px;
+        padding-bottom: 3vw;
         margin-bottom: 4vw;
     }
 
@@ -369,43 +465,48 @@ th, td {
         height: 10vh;
         border: 2px solid orange;
         background-color: yellow;
+        display: none;
 
-    #empty{
-        color: red;
-        font-size: 25px;
-        }
+        #empty{
+            color: red;
+            font-size: 25px;
+            }
     }
 
     @media (min-width: $breakpoint-tablet) {
+        width: 80vw;
         grid-template-columns: 1fr 1fr 1fr;
 
         #tapBox{
-            width: 30vw;
+            width: 25vw;
             border: 4px solid yellow;
         }
     
     }
-    @media (min-width: $breakpoint-desktop) {    
+    @media (min-width: $breakpoint-desktop) {
+        width: 80vw;    
         grid-template-columns: 1fr 1fr 1fr;
 
         #tapBox{
-            width: 30vw;
+            width: 25vw;
             border: 4px solid yellow;
         }
     
     }
     @media (min-width: $breakpoint-largeScreen) {
+        width: 80vw;
         grid-template-columns: 1fr 1fr 1fr;
 
         #tapBox{
-            width: 30vw;
+            width: 25vw;
             border: 4px solid yellow;
         }
     }
 }
 
 
-rect:last-of-type {
-    transform: translateX(-750px); /* Remember this isn't really "pixels", it's a length of 2 in the SVG coordinate system */
-  }
+#bluebar {
+    width:100%;
+    transition: 0.5s ease-in-out;
+}
 

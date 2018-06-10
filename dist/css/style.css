@@ -7,48 +7,111 @@ h1 {
   display: flex;
   justify-content: center; }
 
-#barinfo, #manageinfo {
-  margin-top: 2vw;
-  display: inline-block;
-  margin-left: 10%;
-  width: 30vw;
-  height: 6vh;
-  background-color: midnightblue; }
-  #barinfo a, #manageinfo a {
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    font-size: 5vw;
-    margin-top: 2vw;
-    color: white; }
-  @media (min-width: 768px) {
-    #barinfo, #manageinfo {
-      margin-top: 2vw;
-      display: inline-block;
-      margin-left: 20%;
-      width: 23vw;
-      height: 8vh;
-      background-color: red; }
-      #barinfo a, #manageinfo a {
-        text-decoration: none;
-        display: flex;
-        justify-content: center;
-        font-size: 2em;
-        margin-top: 1vw; } }
-
 main {
   display: grid;
-  justify-content: center; }
+  grid-template-columns: 1fr;
+  border: 2px solid #22d822;
+  width: 95vw; }
+  @media (min-width: 768px) {
+    main {
+      width: 85vw;
+      margin-left: 15%; } }
+  @media (min-width: 1024px) {
+    main {
+      width: 85vw;
+      margin-left: 15%; } }
 
-#title {
-  font-size: 3em; }
+#icon {
+  width: 2vw;
+  padding-right: 1vw; }
 
-h1 {
-  font-size: 2em; }
+@media (min-width: 768px) {
+  header {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #07074e;
+    color: white;
+    width: 100vw;
+    height: 6vh;
+    position: fixed;
+    z-index: 9999; }
+    header #title {
+      font-size: 3vw;
+      color: red; }
+  #sidebar {
+    width: 15vw;
+    height: 100vh;
+    background-color: #232327;
+    position: fixed;
+    display: grid;
+    grid-template-columns: 1fr; }
+    #sidebar a {
+      color: white;
+      text-decoration: none; }
+    #sidebar li {
+      list-style: none;
+      padding-top: 3vw;
+      padding-bottom: 3vw;
+      width: 15vw;
+      position: relative;
+      top: 4vw; }
+    #sidebar li:nth-child(odd) {
+      background-color: rgba(255, 255, 255, 0.178); }
+    #sidebar #icon {
+      width: 2vw;
+      padding-right: 1vw; } }
+
+@media (min-width: 1024px) {
+  header {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #07074e;
+    color: white;
+    width: 100vw;
+    height: 6vh;
+    position: fixed;
+    z-index: 9999; }
+    header #title {
+      font-size: 2vw;
+      color: yellow; }
+  #sidebar {
+    width: 15vw;
+    height: 100vh;
+    background-color: #232327;
+    position: fixed;
+    display: grid;
+    grid-template-columns: 1fr; }
+    #sidebar a {
+      color: white;
+      text-decoration: none; }
+    #sidebar li {
+      list-style: none;
+      padding-top: 3vw;
+      padding-bottom: 3vw;
+      width: 15vw;
+      position: relative;
+      top: 3vw; }
+    #sidebar li:nth-child(odd) {
+      background-color: rgba(255, 255, 255, 0.178); } }
 
 #circleContainer {
-  width: 95vw;
-  border: 2px solid white; }
+  width: 93vw;
+  border: 2px solid white;
+  background-color: white;
+  padding: 5px;
+  box-shadow: 5px 5px; }
+  @media (min-width: 768px) {
+    #circleContainer {
+      width: 83vw;
+      margin-top: 10vw; } }
+  @media (min-width: 1024px) {
+    #circleContainer {
+      width: 83vw;
+      margin-top: 10vw; } }
   #circleContainer #qCircle {
     width: 30vw;
     height: 30vw;
@@ -100,13 +163,13 @@ h1 {
   background-color: #c6c2e9;
   border: 2px solid black;
   width: 95vw;
-  height: auto;
   display: grid;
   grid-template-columns: 1fr;
   padding-bottom: 5vw;
   grid-gap: 15px; }
   @media (min-width: 768px) {
     #qSection {
+      width: 85vw;
       grid-template-columns: 1fr 1fr; } }
   @media (min-width: 1024px) {
     #qSection {
@@ -127,16 +190,16 @@ h1 {
     @media (min-width: 768px) {
       #qSection #qContainer {
         float: left;
-        width: 45vw;
+        width: 40vw;
         margin-left: 1vw; }
         #qSection #qContainer #order {
-          width: 40vw; } }
+          width: 30vw; } }
     @media (min-width: 1024px) {
       #qSection #qContainer #order {
-        width: 40vw; } }
+        width: 30vw; } }
     @media (min-width: 1824px) {
       #qSection #qContainer #order {
-        width: 40vw; } }
+        width: 30vw; } }
   #qSection #serveContainer {
     margin-top: 5vw;
     width: 90vw;
@@ -147,16 +210,16 @@ h1 {
     @media (min-width: 768px) {
       #qSection #serveContainer {
         float: left;
-        width: 45vw;
+        width: 40vw;
         height: auto; }
         #qSection #serveContainer #serveOrder {
-          width: 40vw; } }
+          width: 30vw; } }
     @media (min-width: 1024px) {
       #qSection #serveContainer #serveOrder {
-        width: 40vw; } }
+        width: 30vw; } }
     @media (min-width: 1824px) {
       #qSection #serveContainer #serveOrder {
-        width: 40vw; } }
+        width: 30vw; } }
 
 table, th, td {
   border: 1px solid black;
@@ -185,12 +248,15 @@ th, td {
   justify-content: center; }
   @media (min-width: 768px) {
     #beerContainer {
+      width: 80vw;
       grid-template-columns: 1fr 1fr 1fr 1fr; } }
   @media (min-width: 1024px) {
     #beerContainer {
+      width: 80vw;
       grid-template-columns: 1fr 1fr 1fr 1fr; } }
   @media (min-width: 1824px) {
     #beerContainer {
+      width: 80vw;
       grid-template-columns: 1fr 1fr 1fr 1fr; } }
   #beerContainer #beerBox {
     background-color: white;
@@ -264,38 +330,45 @@ th, td {
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-content: center; }
+  #tapsContainer h1 {
+    font-size: 20px; }
   #tapsContainer #tapBox {
     width: 45vw;
     background-color: white;
     box-shadow: 5px 5px;
+    padding-bottom: 3vw;
     margin-bottom: 4vw; }
   #tapsContainer #emptyKeg {
     width: 20vw;
     height: 10vh;
     border: 2px solid orange;
-    background-color: yellow; }
+    background-color: yellow;
+    display: none; }
     #tapsContainer #emptyKeg #empty {
       color: red;
       font-size: 25px; }
   @media (min-width: 768px) {
     #tapsContainer {
+      width: 80vw;
       grid-template-columns: 1fr 1fr 1fr; }
       #tapsContainer #tapBox {
-        width: 30vw;
+        width: 25vw;
         border: 4px solid yellow; } }
   @media (min-width: 1024px) {
     #tapsContainer {
+      width: 80vw;
       grid-template-columns: 1fr 1fr 1fr; }
       #tapsContainer #tapBox {
-        width: 30vw;
+        width: 25vw;
         border: 4px solid yellow; } }
   @media (min-width: 1824px) {
     #tapsContainer {
+      width: 80vw;
       grid-template-columns: 1fr 1fr 1fr; }
       #tapsContainer #tapBox {
-        width: 30vw;
+        width: 25vw;
         border: 4px solid yellow; } }
 
-rect:last-of-type {
-  transform: translateX(-750px);
-  /* Remember this isn't really "pixels", it's a length of 2 in the SVG coordinate system */ }
+#bluebar {
+  width: 100%;
+  transition: 0.5s ease-in-out; }
