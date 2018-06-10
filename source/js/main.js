@@ -64,6 +64,8 @@ async function getConstJson() {
         }
     getDynamicJson();
     kegLvl()
+    getBartender();
+
 }
 
 
@@ -85,13 +87,26 @@ setInterval(function(){
      
     //længden af tapsContainer children er 8, men der er 7 items, så den skal starte fra det sidste element (-1)
     let lvl = document.querySelector("#tapsContainer").children;
+    // console.log("leeevv",lvl)
     for(let i = lvl.length- 1; i > 0; i--)
     {
         document.querySelector("#tapsContainer").children[i].remove();
     }
 
+    //delete bartender status
+    let bartenderStatus = document.querySelector("#bartenderContainer").children;
+
+    console.log("heejjjj",bartenderStatus);
+
+    for(let i = bartenderStatus.length- 1; i > 0; i--)
+    {
+        document.querySelector("#bartenderContainer").children[i].remove();
+    }
+
     getDynamicJson();
     kegLvl()
+    getBartender();
+
 }, 5000);
 
 
@@ -134,8 +149,26 @@ function getDynamicJson() {
 
         document.querySelector("#serveOrder").appendChild(clone);
     });
-
 }
+
+//find bartender information
+function getBartender(){
+    let bartender = jsonData.bartenders;
+
+    bartender.forEach(person =>{
+        let template = document.querySelector("#bartenders");
+        let clone = template.cloneNode(true).content;
+
+        let name = person.name;
+        let status = person.status;
+        
+        clone.querySelector("#bartenderName").textContent = name;
+        clone.querySelector("#status").textContent = status;
+
+        document.querySelector("#bartenderContainer").appendChild(clone);
+    });
+}
+
 
 
 // find amount of people in queue
@@ -148,7 +181,6 @@ function getQAmount(queue){
     else if(queue.length > 5 && 10){
         document.querySelector("#qCircle").style.backgroundColor = "yellow";
     }
-    // console.log(queue);
 }
 
 // find amount of people in serving
@@ -161,7 +193,6 @@ function getSAmount(serving){
     else if(serving.length > 5 && 10){
         document.querySelector("#serveCircle").style.backgroundColor = "yellow";
     }
-    // console.log(serving);
 }
 
 function customerData(specificData){
@@ -191,7 +222,6 @@ function customerData(specificData){
 
 
 function convertTime(customerTime, tempClone) {
-
     let time = new Date(customerTime);
         let hours = (time.getHours() < 10) ? "0" + time.getHours() : time.getHours();
         let minutes = (time.getMinutes() < 10) ? "0" + time.getMinutes() : time.getMinutes();
@@ -202,7 +232,7 @@ function convertTime(customerTime, tempClone) {
 }
 
 
-// funktion der deler tallene op i odd and even
+// funktion der deler tallene op i odd and even, så jeg kan ændre farverne 
 function oddEven(customerId, tempClone){
     // If orderLine.id is an even number then set background to pink
     // modulo tager orderline.id og dividerer med 2 og returnerer så resten der er tilbage
@@ -219,13 +249,12 @@ function oddEven(customerId, tempClone){
 
 //find keg level on each tap //call the function in the interval and in getconstjson
 function kegLvl(){
-    
     let taps = jsonData.taps;
     let level;
     let beer;
     let lvlArray = [];
-    //for each element in taps array, get beer, level and capacity
-    // clone to template
+
+    //for each element in taps array, get beer, level and capacity // clone to template
     taps.forEach(tapElement => {
        
         beer = tapElement.beer;
@@ -233,22 +262,23 @@ function kegLvl(){
 
         let template = document.querySelector("#tapTemp");
         let clone = template.cloneNode(true).content;
-        console.log(clone.querySelector("#beer").textContent)
+        // console.log(clone.querySelector("#beer").textContent)
+
         clone.querySelector("#beer").textContent =  beer;
         clone.querySelector("#level").textContent =  level;
-        // console.log(beer, level);
 
+        //push level til et array, så jeg kan bruge det som array til at finde lvl til at animere bar
         lvlArray.push(level);
 
         //if keg lvl = 0 , show keg empty , change color
         if(level < 0){
             document.querySelector("#emptyKeg").style.display = "block";
         }
-
         document.querySelector("#tapsContainer").appendChild(clone);
-
     });
       
+
+    // get the bar to move, when the level changes
     let bar = document.querySelectorAll("#bluebar");
     for (let i = -1; i < lvlArray.length; i++) {
 
@@ -265,13 +295,14 @@ function kegLvl(){
         }
         else if (lvlArray[i] > 0 && 625){
             bar[i].setAttribute("fill", "red");
-        }
-     
-    
-    
+        } 
     }
-
 }
+
+
+//tap storage
+
+
 
 
 
@@ -279,6 +310,8 @@ function kegLvl(){
 
 
 //current beers sold
+
+
 //current servings
 
 

@@ -30,6 +30,12 @@ main {
     padding-right: 1vw;
 }
 
+li:hover {
+    background-color: black;
+    transition: 0.2s;
+}
+
+
 // header + nav for ipad + desktop
 @media (min-width: $breakpoint-tablet) {
     header {
@@ -72,7 +78,10 @@ main {
             top: 4vw;
         }
         li:nth-child(odd){
-            background-color: rgba(255, 255, 255, 0.178);
+            background-color: rgba(7, 7, 7, 0.938);
+            &:hover{
+                background-color: rgb(35, 35, 39);
+            }
         }
 
         #icon{
@@ -128,6 +137,46 @@ main {
 }
 
 
+#bartenderContainer{
+    width: 95vw;
+    background-color: rgb(238, 171, 48);
+    // height: 40vh;
+    margin-top: 10vw;
+
+    img {
+        width:6vw;
+    }
+
+    #bartenderBox{
+        width: 30vw;
+        height: 25vh;
+        border: 2px solid gold;
+        display: inline-block;
+    }
+
+    @media (min-width: $breakpoint-tablet) {
+        width: 83vw;
+
+        #bartenderBox{
+            width: 20vw;
+            height: 30vh;
+            border: 2px solid gold;
+        }
+    }
+
+    @media (min-width: $breakpoint-desktop) {    
+        width: 83vw;
+
+        #bartenderBox{
+            width: 20vw;
+            height: 30vh;
+            border: 2px solid gold;
+        }
+        
+    }
+
+
+}
 
 // circles
 #circleContainer {

@@ -25,6 +25,10 @@ main {
   width: 2vw;
   padding-right: 1vw; }
 
+li:hover {
+  background-color: black;
+  transition: 0.2s; }
+
 @media (min-width: 768px) {
   header {
     margin: 0;
@@ -58,7 +62,9 @@ main {
       position: relative;
       top: 4vw; }
     #sidebar li:nth-child(odd) {
-      background-color: rgba(255, 255, 255, 0.178); }
+      background-color: rgba(7, 7, 7, 0.938); }
+      #sidebar li:nth-child(odd):hover {
+        background-color: #232327; }
     #sidebar #icon {
       width: 2vw;
       padding-right: 1vw; } }
@@ -97,6 +103,32 @@ main {
       top: 3vw; }
     #sidebar li:nth-child(odd) {
       background-color: rgba(255, 255, 255, 0.178); } }
+
+#bartenderContainer {
+  width: 95vw;
+  background-color: #eeab30;
+  margin-top: 10vw; }
+  #bartenderContainer img {
+    width: 6vw; }
+  #bartenderContainer #bartenderBox {
+    width: 30vw;
+    height: 25vh;
+    border: 2px solid gold;
+    display: inline-block; }
+  @media (min-width: 768px) {
+    #bartenderContainer {
+      width: 83vw; }
+      #bartenderContainer #bartenderBox {
+        width: 20vw;
+        height: 30vh;
+        border: 2px solid gold; } }
+  @media (min-width: 1024px) {
+    #bartenderContainer {
+      width: 83vw; }
+      #bartenderContainer #bartenderBox {
+        width: 20vw;
+        height: 30vh;
+        border: 2px solid gold; } }
 
 #circleContainer {
   width: 93vw;
