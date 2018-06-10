@@ -8,6 +8,16 @@ let fooData;
 let jsonData;
 let queueObjects;
 
+// BURGER MENU
+function openNav() {
+    document.querySelector("#mySidenav").style.width = "100%";
+}
+
+function closeNav() {
+    document.querySelector("#mySidenav").style.width = "0";
+}
+
+
 async function getConstJson() {
     constData = FooBar.getData(false);
     constJsonData = JSON.parse(constData);
@@ -367,4 +377,7 @@ function getStorage(){
 //     }
 
 // });
+
+
+
 
