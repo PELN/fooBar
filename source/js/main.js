@@ -163,7 +163,7 @@ function getBartender(){
         let status = person.status;
         
         clone.querySelector("#bartenderName").textContent = name;
-        clone.querySelector("#status").textContent = status;
+        clone.querySelector("#status").textContent = "STATUS: " + status;
 
         document.querySelector("#bartenderContainer").appendChild(clone);
     });

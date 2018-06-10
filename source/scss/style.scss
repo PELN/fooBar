@@ -6,6 +6,11 @@ $breakpoint-largeScreen: 1824px;
 
 @import 'preset';
 
+section:nth-child(odd){
+    background-color: rgba(193, 62, 226, 0.685);
+    width:100%;
+}
+
 
 main {
     display: grid;
@@ -137,45 +142,61 @@ li:hover {
 }
 
 
+
 #bartenderContainer{
-    width: 95vw;
-    background-color: rgb(238, 171, 48);
-    // height: 40vh;
+    width: 90vw;
+    // background-color: rgb(238, 171, 48);
     margin-top: 10vw;
+    margin-bottom: 10vw;
+    margin-left: 4%;
+
+    #bartenderName{
+        margin-left: 15%;
+    }
 
     img {
-        width:6vw;
+        width:10vw;
+        margin-left: 20%;
+    }
+
+    #status{
+        margin-left: 10%;
     }
 
     #bartenderBox{
-        width: 30vw;
+        width: 23vw;
         height: 25vh;
-        border: 2px solid gold;
+        background-color: white;
         display: inline-block;
+        padding: 5px;
+        box-shadow: 5px 5px;
+        justify-content: center;
+        margin-right: 3%;
     }
 
     @media (min-width: $breakpoint-tablet) {
-        width: 83vw;
+        width: 75vw;
+        margin-left: 10%;
 
         #bartenderBox{
             width: 20vw;
             height: 30vh;
-            border: 2px solid gold;
         }
     }
 
-    @media (min-width: $breakpoint-desktop) {    
-        width: 83vw;
+    @media (min-width: $breakpoint-desktop) {
+        width: 75vw;
+        margin-left: 10%;
 
         #bartenderBox{
             width: 20vw;
-            height: 30vh;
-            border: 2px solid gold;
-        }
-        
+            height: 35vh;
+
+            #bartenderName{
+                margin-left: 30%;
+            }
+        }   
     }
-
-
 }
 
 // circles
@@ -256,8 +277,8 @@ li:hover {
 
 // QUEUE section
 #qSection {
-    background-color: rgb(198, 194, 233);
-    border: 2px solid black;
+    // background-color: rgb(198, 194, 233);
+    // border: 2px solid black;
     width: 95vw;
     display: grid;
     grid-template-columns: 1fr;
