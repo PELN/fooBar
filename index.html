@@ -58,6 +58,7 @@
 
 
 <div id="circleContainer">
+    <h1>QUEUE ACTIVITY</h1>
     <div id="queueC">
         <h3>CURRENT QUEUE</h3>
         <div id="qCircle">
@@ -134,8 +135,6 @@
                                 <svg width='100%' height='65px'>
                                     <g class='bars'>
                                         <rect fill='grey' width='100%' height='25'></rect>;
-                                        <rect fill='yellow' width='50%' height='25'></rect>;
-                                        <rect fill='red' width='25%' height='25'></rect>;
                                         <rect id="bluebar" fill='blue' width='0%' height='25'></rect>
                                     </g>
                         
@@ -208,9 +207,19 @@
 
 
 <section id="stats">
+    <h1>BESTSELLING BEER</h1>
 
-<h1>BESTSELLING BEER</h1>
+    <div id="bestContainer">
+        <!-- <template id="bestTemp"> -->
+            <div id="lineContainer">
+                <svg viewBox="100 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                      <line x1="100" y1="80" x2="100" y2="20" stroke="black" />
+                </svg>
+                <h4 id="nameOfBeer">NAME OF BEER</h4>
 
+            </div>
+        <!-- </template> -->
+    </div>
 </section>
 
 
@@ -218,12 +227,13 @@
 
 </main>
 
+
+
+
 <!-- <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
     <polyline points="100,100 100,200 100,100"/>
-</svg> -->
-
-
-
+</svg>
+ -->
 
 
     <script src="http://petlatkea.dk/2018/front/foobar.js"></script>

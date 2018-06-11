@@ -184,16 +184,15 @@ function getBartender(){
 }
 
 
-
 // find amount of people in queue
 function getQAmount(queue){
     document.querySelector("#qNumb").textContent = queue.length;
 
     if(queue.length > 10){
-        document.querySelector("#qCircle").style.backgroundColor = "red";
+        document.querySelector("#qCircle").style.backgroundColor = "firebrick";
     }
     else if(queue.length > 5 && 10){
-        document.querySelector("#qCircle").style.backgroundColor = "yellow";
+        document.querySelector("#qCircle").style.backgroundColor = "#f7f8ac";
     }
 }
 
@@ -202,10 +201,10 @@ function getSAmount(serving){
     document.querySelector("#serveNumb").textContent = serving.length;
 
     if(serving.length > 10){
-        document.querySelector("#serveCircle").style.backgroundColor = "red";
+        document.querySelector("#serveCircle").style.backgroundColor = "firebrick";
     }
     else if(serving.length > 5 && 10){
-        document.querySelector("#serveCircle").style.backgroundColor = "yellow";
+        document.querySelector("#serveCircle").style.backgroundColor = "#f7f8ac";
     }
 }
 
@@ -254,9 +253,9 @@ function oddEven(customerId, tempClone){
     // hvor mange gange kan 2 være i id nummeret - resten af det afgør om det er odd/even
     // alle lige tal går op i 2 , alle ulige tal gør ikke
     if (customerId%2==0) {
-        tempClone.querySelector(`tr`).style.backgroundColor = "lightgreen";
+        tempClone.querySelector(`tr`).style.backgroundColor = "rgb(179, 240, 187)";
     } else { // odd 
-        tempClone.querySelector(`tr`).style.backgroundColor = "lightblue";   
+        tempClone.querySelector(`tr`).style.backgroundColor = "rgb(179, 233, 240)";   
     }
 }
 
@@ -302,13 +301,13 @@ function kegLvl(){
         }
 
         if(lvlArray[i] > 1250){
-            bar[i].setAttribute("fill", "green");
+            bar[i].setAttribute("fill", "rgb(113, 192, 89)");
         }
         else if (lvlArray[i] > 626 && 1200) {
-            bar[i].setAttribute("fill", "yellow");
+            bar[i].setAttribute("fill", "#f7f8ac");
         }
         else if (lvlArray[i] > 0 && 625){
-            bar[i].setAttribute("fill", "red");
+            bar[i].setAttribute("fill", "firebrick");
         } 
     }
 }
@@ -331,7 +330,7 @@ function getStorage(){
         //turn amountOf in to an array, to be used to loop through and make new divs
         let amountArr = [];
         amountArr.push(amountOf);
-        console.log(nameOf,amountArr)
+        // console.log(nameOf,amountArr)
 
         // create div to contain all the divs - or you could make it in the html and append to that
         const app = document.createElement("div");
@@ -344,7 +343,7 @@ function getStorage(){
 
             //change color of divs, depending on amount
             if(amountArr > 5){
-                myDiv.style.backgroundColor = "lightgreen";
+                myDiv.style.backgroundColor = "rgb(113, 192, 89)";
             }
 
             if(amountArr <= 5){
@@ -376,30 +375,32 @@ function getStorage(){
 
 // PART 7
 // En base på en anden planet
-// let firebase = {El_Hefe: 2, GitHop: 5};
+let firebase = {El_Hefe: 2, GitHop: 5};
 
-// beear = ["Hollaback Lager",
-//             "Steampunk",
-// 			"El Hefe",
-//             "El Hefe",
-//             "GitHop",
-//             "Steampunk",
-//             "Tis",
-//             "Tis"]
+console.log(beerSold)
 
-// // Databasen som man henter ind
-// beerSold = firebase;
+let beear = ["Hollaback Lager",
+            "Steampunk",
+			"El Hefe",
+            "El Hefe",
+            "GitHop",
+            "Steampunk",
+            "Tis",
+            "Tis"]
 
-// beear.forEach(element => {
-//     let newElem = element.split(' ').join('_');
+// Databasen som man henter ind
+let beerSold = firebase;
 
-//     if (beerSold[newElem] == undefined){
-// 		beerSold[newElem] = 1;
-// 	} else {
-//         beerSold[newElem]++;
-//     }
+beear.forEach(element => {
+    let newElem = element.split(' ').join('_');
 
-// });
+    if (beerSold[newElem] == undefined){
+		beerSold[newElem] = 1;
+	} else {
+        beerSold[newElem]++;
+    }
+
+});
 
 
 

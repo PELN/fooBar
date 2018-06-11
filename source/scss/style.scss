@@ -5,6 +5,8 @@ $breakpoint-desktop: 1024px;
 $breakpoint-largeScreen: 1824px;
 
 $containerColor: rgb(107, 197, 209);
+$boxsShadow: 0px 3px 15px rgba(0,0,0,0.2);
+
 
 @import 'preset';
 @import 'burger';
@@ -171,7 +173,23 @@ li:hover {
 // EMPLOYEES
 #employees{
     margin-top: 10vw;
+
+    h1{
+        font-size:1.5em;
+    }
+    
+    @media (min-width: $breakpoint-tablet) {
+        margin-top: 4vw;
+        padding-top:3vw;
+    }
+
+    @media (min-width: $breakpoint-desktop) {
+        margin-top: 4vw;
+        padding-top: 5vw;
+
+    }
 }
+
 
 #bartenderContainer{
     width: 90vw;
@@ -179,7 +197,6 @@ li:hover {
     margin-top: 5vw;
     margin-bottom: 10vw;
     margin-left: 4%;
-
 
     #bartenderName{
         margin-left: 15%;
@@ -200,7 +217,7 @@ li:hover {
         background-color: white;
         display: inline-block;
         padding: 5px;
-        box-shadow: 5px 5px;
+        box-shadow: $boxsShadow;
         justify-content: center;
         margin-right: 3%;
     }
@@ -242,12 +259,15 @@ li:hover {
 // circles
 #circleContainer {
     width: 93vw;
-    // border: 2px solid white;
-    margin-top: 5vw;
+
+    h1{
+        font-size:1.5em;
+        margin-bottom: 5vw;
+    }
 
     @media (min-width: $breakpoint-tablet) {
         width: 83vw;
-        margin-top: 10vw;
+
         h3 {
             margin-left: 25%;
         }
@@ -255,7 +275,7 @@ li:hover {
 
     @media (min-width: $breakpoint-desktop) {    
         width: 83vw;
-        margin-top: 10vw;
+
         h3 {
             margin-left: 25%;
         }
@@ -264,10 +284,9 @@ li:hover {
 #queueC {
     width: 40vw;
     height: 25vh;
-    border: 2px solid black;
     display: inline-block;
     padding: 5px;
-    box-shadow: 5px 5px;
+    box-shadow: $boxsShadow;
     background-color: white;
     margin-left: 3%;
     margin-bottom: 5vw;
@@ -303,6 +322,7 @@ li:hover {
             display: flex;
             justify-content: center;
             align-items: center;
+            // font-family: ;
         }
     }
 
@@ -311,10 +331,9 @@ li:hover {
 #serveC{
     width: 40vw;
     height: 25vh;
-    border: 2px solid black;
     display: inline-block;
     padding: 5px;
-    box-shadow: 5px 5px;
+    box-shadow: $boxsShadow;
     background-color: white;
     margin-left: 3%;
 
@@ -382,7 +401,7 @@ li:hover {
         height: auto;
         background-color: rgb(234, 250, 250);
         padding: 5px;
-        box-shadow: 5px 5px;
+        box-shadow: $boxsShadow;
         padding-bottom: 5vw;
         margin-left: 1vw;
         display: grid;
@@ -418,11 +437,9 @@ li:hover {
         width: 90vw;
         background-color: rgb(234, 250, 250);
         padding: 5px;
-        box-shadow: 5px 5px;
+        box-shadow: $boxsShadow;
         padding-bottom: 5vw;
         margin-left: 1vw;
-        // display: grid;
-        // justify-content: center;
 
         #serveOrder{
             width: 45vw;
@@ -508,7 +525,7 @@ th, td {
         justify-content: center;
         width: 40vw;
         padding: 5px;
-        box-shadow: 5px 5px;
+        box-shadow: $boxsShadow;
         margin-left: 1vw;
 
         #beerName{
@@ -525,14 +542,15 @@ th, td {
             height: 4vh;
             margin-bottom: 2vw;
             color:white;
-            background-color: plum;
+            background-color: rgb(230, 102, 18);
             margin-left: 10%;
             border:none;
     
             &:hover {
                 color:white;
-                background-color: orangered;
+                background-color:rgb(255, 160, 96);
                 transition: 0.3s;
+                cursor:pointer;
             }
         }
 
@@ -592,6 +610,7 @@ th, td {
     top: 0;
     margin-left: 4%;
     margin-top: 15%;
+    box-shadow: $boxsShadow;
     
     #modalBox{
         width: 80vw;
@@ -618,6 +637,7 @@ th, td {
         top:5vw;
         right:3vw;
         filter: invert(100%);
+        cursor:pointer;
         
         &:hover{
             filter:drop-shadow(2px 2px);
@@ -652,7 +672,7 @@ th, td {
             }
             
             #close{
-                width: 2.5vw;
+                width: 2vw;
                 height: 3vh;
 
             }
@@ -681,9 +701,10 @@ th, td {
     #tapBox{
         width: 45vw;
         background-color: white;
-        box-shadow: 5px 5px;
+        box-shadow: $boxsShadow;
         padding-bottom: 3vw;
         margin-bottom: 4vw;
+
     }
 
     #emptyKeg{
@@ -752,7 +773,7 @@ th, td {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     margin-bottom: 5vw;
     padding: 5vw 5vw 5vw 5vw;
-    background-color: rgba(255, 229, 157, 0.932);
+    // background-color: rgba(36, 30, 54, 0.623);
     margin-left: 10%;
 
     
@@ -775,8 +796,6 @@ th, td {
             font-size: 15px;
             margin-left: 30%;
         }
-
-
     }
 
     @media (min-width: $breakpoint-tablet) {
@@ -805,8 +824,9 @@ th, td {
     }
 
     @media (min-width: $breakpoint-desktop) {
-        width: 55vw;
-        margin-left: 10%;
+        width: 75vw;
+        margin-left: 1%;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 
         #storageBox{
             width: 10vw;
@@ -822,7 +842,7 @@ th, td {
 
 
 #app {
-    background-color: #c0ffee;
+    background-color: #f7f8ac;
     width: 10vw;
     height: auto;
     position: relative;
@@ -846,5 +866,17 @@ th, td {
         width: 9vw;
     }
 
+}
+
+#lineContainer{
+    width: 80vw;
+    border: 2px solid white;
+
+}
+
+line{
+    stroke-width: 10;
+    stroke-dasharray: 100;
+    stroke-dashoffset: 40;
 }
 
