@@ -518,36 +518,22 @@ th, td {
   transition: 0.5s ease-in-out; }
 
 #storageContainer {
-  width: 95vw;
+  width: 85vw;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 15px;
   margin-bottom: 5vw;
-  padding: 5vw 0 5vw 0;
+  padding: 5vw 5vw 5vw 5vw;
   background-color: rgba(255, 229, 157, 0.932); }
-  #storageContainer #storageBox {
-    width: 30vw;
-    height: 20vh;
-    background-color: white;
-    display: grid;
-    padding: 3vw 3vw 3vw 3vw;
-    justify-content: center;
-    box-shadow: 5px 5px;
-    margin-left: 4%;
-    border-radius: 50%; }
-    #storageContainer #storageBox #storageName {
-      font-size: 15px; }
-    #storageContainer #storageBox #storageAmount {
-      margin-left: 35%; }
-    #storageContainer #storageBox #beerkeg {
-      width: 20vw; }
-  @media (min-width: 768px) {
-    #storageContainer {
-      width: 85vw;
-      grid-template-columns: 1fr 1fr 1fr; }
-      #storageContainer #storageBox {
-        width: 15vw;
-        height: 18vh;
-        border-radius: 100%; }
-        #storageContainer #storageBox #beerkeg {
-          width: 5vw; } }
+
+#app {
+  background-color: #c0ffee;
+  width: 10vw;
+  position: relative; }
+
+#app div {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  margin-top: 1vw;
+  transition: all 0.6s; }

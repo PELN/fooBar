@@ -327,13 +327,36 @@ function getStorage(){
 
         clone.querySelector("#storageName").textContent =  nameOf;
         clone.querySelector("#storageAmount").textContent = amountOf;
-        
-        // if(amountOf > 4){
-        //     document.querySelector("#storageBox").style.backgroundColor = "red";
-        //     console.log(amountOf)
+    
+        //turn amountOf in to an array, to be used to loop through and make new divs
+        let amountArr = [];
+        amountArr.push(amountOf);
+        // console.log(nameOf,amountArr)
 
-        // }
+        // create div to contain all the divs - or you could make it in the html and append to that
+        const app = document.createElement("div");
+            app.setAttribute("id", "app");
 
+        //for each elem in ammountArr, create a new div
+        for(let i = 0; i < amountArr; i++) {
+            const myDiv = document.createElement("div");
+            // console.log(myDiv)
+
+            //change color of divs, depending on amount
+            if(amountArr > 5){
+                myDiv.style.backgroundColor = "lightgreen";
+            }
+
+            if(amountArr <= 5){
+                myDiv.style.backgroundColor = "firebrick";
+            }
+            //append myDiv to the app container
+            app.appendChild(myDiv);
+
+        };
+        //append app container to storageContainer
+        document.querySelector("#storageContainer").appendChild(app);
+        //clone to storageContainer 
         document.querySelector("#storageContainer").appendChild(clone);
 
     });
