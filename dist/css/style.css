@@ -381,10 +381,11 @@ th, td {
   width: 30vw; }
 
 #beerContainer {
-  width: 95vw;
+  width: 90vw;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  justify-content: center; }
+  justify-content: center;
+  margin-left: 4%; }
   @media (min-width: 768px) {
     #beerContainer {
       width: 80vw;
@@ -402,9 +403,10 @@ th, td {
     margin-bottom: 2vw;
     display: grid;
     justify-content: center;
-    width: 45vw;
+    width: 40vw;
     padding: 5px;
-    box-shadow: 5px 5px; }
+    box-shadow: 5px 5px;
+    margin-left: 1vw; }
     #beerContainer #beerBox #beerName {
       font-size: 3vw; }
     #beerContainer #beerBox img {
@@ -518,22 +520,71 @@ th, td {
   transition: 0.5s ease-in-out; }
 
 #storageContainer {
-  width: 85vw;
+  width: 65vw;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 15px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   margin-bottom: 5vw;
   padding: 5vw 5vw 5vw 5vw;
-  background-color: rgba(255, 229, 157, 0.932); }
+  background-color: rgba(255, 229, 157, 0.932);
+  margin-left: 10%; }
+  #storageContainer #storageBox {
+    width: 12vw;
+    height: auto;
+    margin-bottom: 2vw;
+    background-color: white;
+    margin-left: -25%; }
+    #storageContainer #storageBox #storageName {
+      font-size: 12px;
+      width: 10vw;
+      height: auto;
+      transform: rotate(-90deg);
+      margin-top: 10vw; }
+    #storageContainer #storageBox #storageAmount {
+      font-size: 15px;
+      margin-left: 30%; }
+  @media (min-width: 768px) {
+    #storageContainer {
+      width: 55vw;
+      margin-left: 10%; }
+      #storageContainer #storageBox {
+        width: 10vw;
+        height: 35vh;
+        margin-left: -30%; }
+        #storageContainer #storageBox #storageName {
+          font-size: 18px;
+          width: 10vw;
+          height: auto;
+          transform: rotate(-90deg);
+          margin-top: 15vw; }
+        #storageContainer #storageBox #storageAmount {
+          font-size: 20px;
+          margin-left: 30%; } }
+  @media (min-width: 1024px) {
+    #storageContainer {
+      width: 55vw;
+      margin-left: 10%; }
+      #storageContainer #storageBox {
+        width: 10vw; }
+        #storageContainer #storageBox #storageName {
+          font-size: 25px;
+          margin-top: 8vw; } }
 
 #app {
   background-color: #c0ffee;
   width: 10vw;
-  position: relative; }
+  height: auto;
+  position: relative;
+  margin-bottom: 2vw; }
 
 #app div {
   border-radius: 50%;
   width: 20px;
   height: 20px;
   margin-top: 1vw;
-  transition: all 0.6s; }
+  margin-left: 1vw;
+  transition: all 0.6s;
+  display: inline-block; }
+
+@media (min-width: 768px) {
+  #app {
+    width: 9vw; } }

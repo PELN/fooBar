@@ -331,7 +331,7 @@ function getStorage(){
         //turn amountOf in to an array, to be used to loop through and make new divs
         let amountArr = [];
         amountArr.push(amountOf);
-        // console.log(nameOf,amountArr)
+        console.log(nameOf,amountArr)
 
         // create div to contain all the divs - or you could make it in the html and append to that
         const app = document.createElement("div");
