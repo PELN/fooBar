@@ -164,7 +164,8 @@ li:hover {
       top: 3vw; } }
 
 #employees {
-  margin-top: 10vw; }
+  margin-top: 8vw;
+  padding-top: 4vw; }
   #employees h1 {
     font-size: 1.5em; }
   @media (min-width: 768px) {
@@ -173,7 +174,7 @@ li:hover {
       padding-top: 3vw; } }
   @media (min-width: 1024px) {
     #employees {
-      margin-top: 4vw;
+      margin-top: 3vw;
       padding-top: 5vw; } }
 
 #bartenderContainer {
@@ -642,11 +643,44 @@ th, td {
   #app {
     width: 9vw; } }
 
-#lineContainer {
-  width: 80vw;
-  border: 2px solid white; }
+#stats {
+  display: grid;
+  justify-content: center; }
+  #stats #sumContainer {
+    width: 50vw;
+    height: 30vh;
+    background: linear-gradient(to right, #7f7fd5, #86a8e7, #91eae4);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10vw;
+    margin-bottom: 10vw;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+    animation-name: pulse;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both; }
 
-line {
-  stroke-width: 10;
-  stroke-dasharray: 100;
-  stroke-dashoffset: 40; }
+@keyframes pulse {
+  0% {
+    transform: scale(1.1); }
+  50% {
+    transform: scale(1); }
+  100% {
+    transform: scale(1.1); } }
+    #stats #sumContainer #sum {
+      font-size: 10vw;
+      color: white; }
+    @media (min-width: 768px) {
+      #stats #sumContainer {
+        width: 25vw;
+        height: 30vh; }
+        #stats #sumContainer #sum {
+          font-size: 8vw; } }
+    @media (min-width: 1024px) {
+      #stats #sumContainer {
+        width: 20vw;
+        height: 30vh; }
+        #stats #sumContainer #sum {
+          font-size: 7vw; } }

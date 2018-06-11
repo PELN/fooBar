@@ -8,6 +8,9 @@ let fooData;
 let jsonData;
 let queueObjects;
 
+let currentArray = [];
+let largestCustomerId = 0;
+
 // BURGER MENU
 function openNav() {
     document.querySelector("#mySidenav").style.width = "100%";
@@ -134,14 +137,14 @@ function getDynamicJson() {
     //store the return from queueData in a variable/container, to use newOrder array
     let orderData = customerData(jsonData.queue);
     let servingData = customerData(jsonData.serving);
-    // console.log(servingData);
+
 
     orderData.forEach( newElement => {
         let template = document.querySelector("#tableTemp");
         let clone = template.cloneNode(true).content;
         // clone #tableTemp (template)
         // indsæt data fra orderLine i clonen (beertype, beercount)
-    
+        
         clone.querySelector(".id").textContent = "No: " + newElement.id;
         clone.querySelector(".beertype").textContent = newElement.type;
         clone.querySelector(".beercount").textContent = newElement.amount;
@@ -150,7 +153,12 @@ function getDynamicJson() {
 
         document.querySelector("#order").appendChild(clone);
     });
+    // wait for the next customer order which will be 1 greater than the current order ID
 
+
+    
+
+    let iterator = 0;
     servingData.forEach( serveElement => {
         let template = document.querySelector("#serveTemp");
         let clone = template.cloneNode(true).content;
@@ -161,9 +169,32 @@ function getDynamicJson() {
         oddEven(serveElement.id, clone);
         convertTime(serveElement.time, clone);
 
+        // if the current ID is greater than or equal to the largest ID seen before
+        // update the largest and then push the element to the array
+        if (serveElement.id >= largestCustomerId) {
+            largestCustomerId = serveElement.id;
+            currentArray.push(serveElement.amount);
+            console.log(currentArray)
+            if (iterator == servingData.length-1) {
+                largestCustomerId++;
+            }
+        }
+        iterator++;
         document.querySelector("#serveOrder").appendChild(clone);
     });
+
+    if (currentArray.length != 0){
+        function getSum(total, num) {
+            return total + num;
+        }
+        
+        document.querySelector("#sum").innerHTML = currentArray.reduce(getSum);
+    }
 }
+
+
+
+
 
 //find bartender information
 function getBartender(){
@@ -365,7 +396,6 @@ function getStorage(){
 
 
 
-
 //current beers sold
 
 
@@ -375,32 +405,32 @@ function getStorage(){
 
 // PART 7
 // En base på en anden planet
-let firebase = {El_Hefe: 2, GitHop: 5};
+// let firebase = {El_Hefe: 2, GitHop: 5};
 
-console.log(beerSold)
+// let beers = ["Hollaback Lager",
+//             "Steampunk",
+// 			"El Hefe",
+//             "El Hefe",
+//             "GitHop",
+//             "Steampunk",
+//             "Tis",
+//             "Tis"]
 
-let beear = ["Hollaback Lager",
-            "Steampunk",
-			"El Hefe",
-            "El Hefe",
-            "GitHop",
-            "Steampunk",
-            "Tis",
-            "Tis"]
+// // Databasen som man henter ind
+// let beerSold = firebase;
 
-// Databasen som man henter ind
-let beerSold = firebase;
+// currentArray.forEach(element => {
+//     //fordi der er mellemrum mellem navnene,skal den joine dem
+//     let newElem = element.split(' ').join('_');
+//     // console.log(element)
 
-beear.forEach(element => {
-    let newElem = element.split(' ').join('_');
-
-    if (beerSold[newElem] == undefined){
-		beerSold[newElem] = 1;
-	} else {
-        beerSold[newElem]++;
-    }
-
-});
+//     if (beerSold[newElem] == undefined){
+// 		beerSold[newElem] = 1;
+// 	} else {
+//         beerSold[newElem]++;
+//     }
+//     // document.querySelector("line").style.strokeDashoffset = 80;
+// });
 
 
 
