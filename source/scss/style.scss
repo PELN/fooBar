@@ -4,7 +4,7 @@ $breakpoint-tablet: 768px;
 $breakpoint-desktop: 1024px;
 $breakpoint-largeScreen: 1824px;
 
-$containerColor: rgb(18, 148, 137);
+$containerColor: rgb(107, 197, 209);
 
 @import 'preset';
 @import 'burger';
@@ -17,7 +17,6 @@ section:nth-child(odd){
 main {
     display: grid;
     grid-template-columns: 1fr;
-    // border: 4px solid rgb(34, 216, 34);
     width: 95vw;
 
     @media (min-width: $breakpoint-tablet) {
@@ -172,8 +171,6 @@ li:hover {
 // EMPLOYEES
 #employees{
     margin-top: 10vw;
-
-
 }
 
 #bartenderContainer{
@@ -362,7 +359,7 @@ li:hover {
 
 // QUEUE section
 #qSection {
-    width: 95vw;
+    width: 100vw;
     display: grid;
     grid-template-columns: 1fr;
     padding-bottom: 5vw;
@@ -439,7 +436,7 @@ li:hover {
 
             #serveOrder{
                 width: 16vw;
-                margin-left: 3%;
+                margin-left:10%;
             }
         }
         @media (min-width: $breakpoint-desktop) {    
@@ -478,8 +475,6 @@ th, td {
 }
 
 
-
-
 // Beer types
 #beerContainer{
     // border: 5px solid darkmagenta;
@@ -490,17 +485,19 @@ th, td {
     justify-content: center;
     margin-left: 4%;
     
+    
     @media (min-width: $breakpoint-tablet) {
-        width: 80vw;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        width: 70vw;
+        grid-template-columns: 1fr 1fr 1fr;
+        margin-left:8%;
     }
     @media (min-width: $breakpoint-desktop) {   
-        width: 80vw; 
+        width: 70vw; 
         grid-template-columns: 1fr 1fr 1fr 1fr;
 
     }
     @media (min-width: $breakpoint-largeScreen) {
-        width: 80vw;
+        width: 70vw;
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 
@@ -515,11 +512,12 @@ th, td {
         margin-left: 1vw;
 
         #beerName{
-            font-size: 3vw;
+            font-size: 4vw;
         }
         
         img{
-            width: 25vw;
+            width: 20vw;
+            margin-left: 25%;
         }
     
         button{
@@ -550,6 +548,7 @@ th, td {
 
             img{
                 width: 12vw;
+                margin-left: 15%;
             }
 
             button{
@@ -557,10 +556,25 @@ th, td {
             }
         }
         @media (min-width: $breakpoint-desktop) {
-            width: 20vw;
+            width: 18vw;
+
+            #beerName{
+                font-size: 20px;
+            }
+
+            img{
+                width: 12vw;
+                margin-left: 15%;
+            }
+
+            button{
+                width:12vw;
+                margin-left: 11%;
+            }
         }
         @media (min-width: $breakpoint-largeScreen) {
             width: 20vw;
+            
         }
         
     }
@@ -568,34 +582,83 @@ th, td {
 }
 
 #modalContainer{
-    border: 2px solid black;
-    // background-color: rgba(31, 30, 30, 0.815);
-    color: white;
+    background-color:  rgb(255, 239, 184);;
+    color: black;
     visibility: hidden;
-
-    width: 95vw;
+    width: 90vw;
     position: fixed;
     z-index: 120341239481;
     left: 0;
     top: 0;
-    background: rgba(0, 0, 0, 0.9);
+    margin-left: 4%;
+    margin-top: 15%;
     
     #modalBox{
-        width: 90vw;
-        border: 4px solid red;
-        color: white;
-        font-size: 14px;
+        width: 80vw;
+        color: black;
         padding: 3vw 3vw 3vw 3vw;
         z-index: 120341239481123123;
         display: grid;
         justify-content: center;
-    }    
+        margin-left: 2%;
+        margin-top: 4%;
+        padding-bottom: 10vw;
+        overflow: scroll;
+        font-size: 12px;
+        
+        img{
+            width:5vw;
+        }
+    }
 
     #close{
-        background-color: rgb(34, 216, 34);
-        width: 15vw;
-        height: 5vh;
+        width: 5vw;
+        height: 3vh;
+        position: absolute;
+        top:5vw;
+        right:3vw;
+        filter: invert(100%);
+        
+        &:hover{
+            filter:drop-shadow(2px 2px);
+            transition: 0.8s;
+        }
     }
+
+    @media (min-width: $breakpoint-tablet) {
+        width: 75vw;
+        margin-left: 20%;
+        margin-top:7%;
+
+        #modalBox{
+            width: 60vw;
+            margin-left: 6%;
+
+            #close{
+                width: 3vw;
+                height: 3vh;
+                top:3vw;
+                right:3vw;
+            }
+        }
+    }
+
+    @media (min-width: $breakpoint-desktop) {
+
+        #modalBox{
+
+            h1{
+            font-size: 25px;
+            }
+            
+            #close{
+                width: 2.5vw;
+                height: 3vh;
+
+            }
+        }
+    }
+
 }
 
 
