@@ -729,3 +729,55 @@ th, td {
   z-index: 99;
   transform: translateY(-30px);
   transition: 0.5s; }
+
+#bestContainer {
+  width: 70vw;
+  border: 2px solid red;
+  height: auto;
+  margin-left: 1%; }
+
+.graph .labels.x-labels {
+  text-anchor: middle; }
+
+.graph .labels.y-labels {
+  text-anchor: end; }
+
+.graph {
+  height: 500px;
+  width: 600px;
+  background-color: white;
+  border: 5px solid greenyellow; }
+
+.graph .grid {
+  stroke: #ccc;
+  stroke-dasharray: 0;
+  stroke-width: 1; }
+
+.labels {
+  font-size: 13px; }
+
+.label-title {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 12px;
+  fill: black; }
+
+.data {
+  fill: red;
+  stroke-width: 1; }
+
+svg.graph .points {
+  stroke: white;
+  stroke-width: 3; }
+
+svg.graph .first_set {
+  fill: #00554d; }
+
+svg.graph {
+  height: 500px;
+  width: 600px; }
+
+svg.graph .grid {
+  stroke: white;
+  stroke-dasharray: 1 2;
+  stroke-width: 1; }

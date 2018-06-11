@@ -960,7 +960,36 @@ th, td {
 
 
 
+// #graph {
+//     width:10vw;
+//     height: 20vh;
+//     border: 2px solid hotpink;
+// }
 
+// #beerType{
+//     font-size: 12px;
+// }
+
+// line {
+//     stroke-width: 20;
+//     stroke-dasharray: 100;
+//     stroke-dashoffset: 10;
+// }
+
+// #graphBox{
+//     width: 15vw;
+//     height: 30vh;
+//     border: 2px solid blue;
+//     display: grid;
+//     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+//     display: inline-block;
+// }
+
+
+
+
+
+// ALERT 
 #alert{
     width: 3vw;
     height: 3vw;
@@ -992,3 +1021,82 @@ th, td {
     transform: translateY(-30px);
     transition: 0.5s;
 }
+
+
+
+
+
+#bestContainer{
+    width: 70vw;
+    border: 2px solid red;
+    height: auto;
+    margin-left: 1%;
+}
+
+
+.graph .labels.x-labels {
+    text-anchor: middle;
+  }
+  
+  .graph .labels.y-labels {
+    text-anchor: end;
+  }
+  
+  
+  .graph {
+    height: 500px;
+    width: 600px;
+    background-color: white;
+    border: 5px solid greenyellow;
+  }
+  
+  .graph .grid {
+    stroke: #ccc;
+    stroke-dasharray: 0;
+    stroke-width: 1;
+  }
+  
+  .labels {
+    font-size: 13px;
+  }
+  
+  .label-title {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 12px;
+    fill: black;
+  }
+  
+  .data {
+    fill: red;
+    stroke-width: 1; 
+  }
+
+
+
+  svg.graph .points {
+    stroke: white;
+    stroke-width: 3;
+  }
+  svg.graph .first_set {
+    fill: #00554d;
+  }
+
+
+  svg.graph {
+    height: 500px;
+    width: 600px;
+  }
+
+
+  svg.graph .grid {
+    stroke: white;
+    stroke-dasharray: 1 2;
+    stroke-width: 1;
+  }
+
+
+
+//   svg.graph .surfaces {
+//     fill-opacity: 0.5;
+//   }

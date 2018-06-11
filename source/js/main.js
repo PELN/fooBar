@@ -10,7 +10,8 @@ let queueObjects;
 
 let currentArray = [];
 let largestCustomerId = 0;
-// An object
+
+// An object with all beers and their amount 
 let singleBeerSold = {};
 
 // BURGER MENU
@@ -121,6 +122,13 @@ setInterval(function(){
         document.querySelector("#storageContainer").children[i].remove();
     }
 
+    //reload graph data
+    let beerSold = document.querySelector("#bestContainer").children;
+    for(let i = beerSold.length- 1; i > 0; i--)
+    {
+        document.querySelector("#bestContainer").children[i].remove();
+    }
+
     getDynamicJson();
     kegLvl();
     getBartender();
@@ -158,45 +166,82 @@ function getDynamicJson() {
     // wait for the next customer order which will be 1 greater than the current order ID
 
 
-    
 
     let iterator = 0;
+
     servingData.forEach( serveElement => {
         let template = document.querySelector("#serveTemp");
         let clone = template.cloneNode(true).content;
-        
+
+        //for hvert element i serving data, clone det til template
         clone.querySelector(".id").textContent = "No: " + serveElement.id;
         clone.querySelector(".beertype").textContent = serveElement.type;
         clone.querySelector(".beercount").textContent = serveElement.amount;
         oddEven(serveElement.id, clone);
         convertTime(serveElement.time, clone);
-
-        // if the current ID is greater than or equal to the largest ID seen before
-        // update the largest and then push the element to the array
+ 
+        //find amount for hvert id - push til et array, så det kan addes sammen, for at få current beers sold
+        //if the current ID is greater than or equal to the largest ID seen before (counts from 0 on reload)
+        //then push the amount to currentArray
+        //both are 0 to begin with, so equal to is to get the first id
         if (serveElement.id >= largestCustomerId) {
+            // update the largest with the serveElm.id
             largestCustomerId = serveElement.id;
+            // and then push the element to the array
             currentArray.push(serveElement.amount);
-            console.log(currentArray)
+
+            //når iteratoren er løbet igennem alle servings, og fx er nået til 4, må næste serving være højere end 4, 
+            //servingData.length -1 for at få sidste element med, fordi man tæller fra 0 index
             if (iterator == servingData.length-1) {
+            //og skal derfor increment largestCustomerId, for at den tæller fra 
+                console.log(singleBeerSold)
                 largestCustomerId++;
             }
-
-            //fordi der er mellemrum mellem navnene,skal den joine dem
-            let newElem = serveElement.type//.split(' ').join('_');
+            
+            //opdater og gem amount i objektet singleBeerSold{} for hver beer type
+            let newElem = serveElement.type
+            //hvis typen er undefined, findes den ikke i objektet, og skal tilføjes med 1 amount
             if (singleBeerSold[newElem] == undefined){
                 singleBeerSold[newElem] = serveElement.amount;
+            //hvis typen allerede findes i objektet, skal den add'e amountet til typen (1 = 1 + 2 (=3))
             } else {
                 singleBeerSold[newElem] += serveElement.amount;
             }
-            console.log(singleBeerSold)
 
-            // document.querySelector("line").style.strokeDashoffset = 80;
+            // vises først, når de har været i serving
+            let text = document.querySelectorAll(".x-labels text");
+            let circleDot = document.querySelectorAll(".data circle");
 
-        }
+            for (let i = 0; i < text.length; i++) {
+                if (text[i].innerHTML == newElem){
+                    circleDot[i].setAttribute("cy", 400-singleBeerSold[newElem]*6);
+                    circleDot[i].setAttribute("fill", "lime");
+                }
+            }
+
+            // document.querySelector(".data circle").setAttribute("data-value", singleBeerSold[newElem]);
+            
+            // document.querySelector(".data circle").setAttribute("cy", singleBeerSold[newElem]);
+            // document.querySelector(".data circle").setAttribute("fill", "lime");
+            
+        } 
+        
         iterator++;
+
+        //nu har jeg et objekt med en oversigt over hver type beer og hvor mange af hver der er solgt
+        //det skal clones og appendes ind i en template
+        // let newTemplate = document.querySelector("#bestTemp");
+        // let newClone = newTemplate.cloneNode(true).content;
+        // newClone.querySelector("#beerType").textContent = singleBeerSold[newElem];
+        // document.querySelector("#bestContainer").appendChild(newClone);
+
+                
+               
+
         document.querySelector("#serveOrder").appendChild(clone);
     });
 
+    //regn ud hvor mange beers der currently er solgt / har været gennem serving (KILDE)
     if (currentArray.length != 0){
         function getSum(total, num) {
             return total + num;
@@ -383,7 +428,7 @@ function getStorage(){
 
         // create div to contain all the divs - or you could make it in the html and append to that
         const app = document.createElement("div");
-            app.setAttribute("id", "app");
+        app.setAttribute("id", "app");
 
         //for each elem in ammountArr, create a new div
         for(let i = 0; i < amountArr; i++) {
