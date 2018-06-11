@@ -16,15 +16,10 @@
     <div id="sidebar">
     <nav>
         <a href="#employees"><li><img id="icon" src="source/assets/people.png">EMPLOYEES</li></a>
-        <!-- <div class="line"></div> -->
         <a href="#qSection"><li><img id="icon" src="source/assets/queueicon.png">QUEUE</li></a>
-        <!-- <div class="line"></div> -->
         <a href="#tapinfo"><li><img id="icon" src="source/assets/beertapicon.png">TAP INFO</li></a>
-        <!-- <div class="line"></div> -->
         <a href="#beerinfo"><li><img id="icon" src="source/assets/beericon.png">BEER INFO</li></a>
-        <!-- <div class="line"></div> -->
         <a href="#stats"><li><img id="icon" src="source/assets/staticon.png">STATS</li></a>
-        <!-- <div class="line"></div> -->
     </nav>
 </div>
 
@@ -53,7 +48,11 @@
                         <h3 id="status">STATUS</h3>
                     </div>
                 </template>
+
+                
         </div>
+
+
 </section>
 
 
@@ -164,12 +163,14 @@
                 <div id="storageBox"> 
                     <h2 id="storageAmount">AMOUNT</h2>
                     <h2 id="storageName">NAME</h2>
+
+                            <div id="orderMore">ONE OR MORE KEGS ARE RUNNING LOW</div>
                 </div>
             </template>
         </div>
 </section>
 
-
+<img id="alert" src="source/assets/aleroran.png">
 
 
 
@@ -195,10 +196,15 @@
     <template id="modalTemp">
         <div id="modalBox">
             <h1 id="beerName">name</h1>
+            <h3>AROMA</h3><img src="source/assets/aromaicon.png">
             <p id="aroma"></p>
+            <h3>APPEARANCE</h3><img src="source/assets/aromaicon.png">
             <p id="appearance"></p>
+            <h3>FLAVOR</h3><img src="source/assets/aromaicon.png">
             <p id="flavor"></p>
+            <h3>MOUTHFEEL</h3><img src="source/assets/aromaicon.png">
             <p id="mouthfeel"></p>
+            <h3>OVER ALL IMPRESSION</h3><img src="source/assets/aromaicon.png">
             <p id="overallImpression"></p>
             <img id="close" src="source/assets/cross.png">
             <!-- <button id="close">Close</button> -->
@@ -241,7 +247,7 @@
         </template>
     </div> -->
 
-    
+
 
 <!-- <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
     <polyline points="100,100 100,200 100,100"/>

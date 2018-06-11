@@ -33,7 +33,7 @@ main {
 }
 
 header {
-    background-color: rgb(24, 23, 23);
+    background-color: rgb(32, 31, 31);
     color: white;
     height: 7vh;
     width: 100%;
@@ -221,6 +221,7 @@ li:hover {
         box-shadow: $boxsShadow;
         justify-content: center;
         margin-right: 3%;
+        transition: 0.5s;
     }
 
 
@@ -254,7 +255,32 @@ li:hover {
             }
         }   
     }
+
 }
+
+
+
+#spinner {
+    margin: 100px auto 0;
+    width: 70px;
+    text-align: center;
+    visibility: hidden;
+  }
+  
+  #spinner > div {
+    width: 18px;
+    height: 18px;
+    background-color: #333;
+  
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  }
+  
+
+
+
 
 
 // circles
@@ -543,7 +569,7 @@ th, td {
             height: 4vh;
             margin-bottom: 2vw;
             color:white;
-            background-color: rgb(230, 102, 18);
+            background-color: rgb(243, 116, 31);
             margin-left: 10%;
             border:none;
     
@@ -601,7 +627,7 @@ th, td {
 }
 
 #modalContainer{
-    background-color:  rgb(255, 239, 184);;
+    background-color:  rgb(247, 239, 215);;
     color: black;
     visibility: hidden;
     width: 90vw;
@@ -712,11 +738,11 @@ th, td {
         width:20vw;
         height: 10vh;
         border: 2px solid orange;
-        background-color: yellow;
+        background-color: rgba(253, 253, 131, 0.822);
         display: none;
 
         #empty{
-            color: red;
+            color: firebrick;
             font-size: 25px;
             }
     }
@@ -869,17 +895,7 @@ th, td {
 
 }
 
-// #lineContainer{
-//     width: 80vw;
-//     border: 2px solid white;
 
-// }
-
-// line{
-//     stroke-width: 10;
-//     stroke-dasharray: 100;
-//     stroke-dashoffset: 40;
-// }
 
 #stats{
     display: grid;
@@ -889,7 +905,7 @@ th, td {
 #sumContainer{
     width: 50vw;
     height: 30vh;
-    background: linear-gradient(to right, #7f7fd5, #86a8e7, #91eae4);
+    background: linear-gradient(to right, #f46b45, #eea849); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -931,7 +947,7 @@ th, td {
 
     @media (min-width: $breakpoint-desktop) {
         width: 20vw;
-        height: 30vh;
+        height: 35vh;
 
         #sum {
             font-size: 7vw;
@@ -940,5 +956,39 @@ th, td {
 
 }
 
+}
 
+
+
+
+#alert{
+    width: 3vw;
+    height: 3vw;
+    position: fixed;
+    top:2;
+    right: 0;
+    margin-right: 1vw;
+    margin-top: 1vw;
+    z-index: 9999;
+    box-shadow: $boxsShadow;
+
+    cursor: pointer;
+    &:hover{
+        transform: scale(0.9);
+        transition: 0.2s;
+    }
+}
+
+#orderMore{
+    width: 20vw;
+    height: 10vh;
+    padding: 3vw 3vw 3vw 3vw;
+    background-color: white;
+    visibility: hidden;
+    position: fixed;
+    top:3vw;
+    right:0;
+    z-index: 99;
+    transform: translateY(-30px);
+    transition: 0.5s;
 }

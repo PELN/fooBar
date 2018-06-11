@@ -10,6 +10,8 @@ let queueObjects;
 
 let currentArray = [];
 let largestCustomerId = 0;
+// An object
+let singleBeerSold = {};
 
 // BURGER MENU
 function openNav() {
@@ -178,6 +180,18 @@ function getDynamicJson() {
             if (iterator == servingData.length-1) {
                 largestCustomerId++;
             }
+
+            //fordi der er mellemrum mellem navnene,skal den joine dem
+            let newElem = serveElement.type//.split(' ').join('_');
+            if (singleBeerSold[newElem] == undefined){
+                singleBeerSold[newElem] = serveElement.amount;
+            } else {
+                singleBeerSold[newElem] += serveElement.amount;
+            }
+            console.log(singleBeerSold)
+
+            // document.querySelector("line").style.strokeDashoffset = 80;
+
         }
         iterator++;
         document.querySelector("#serveOrder").appendChild(clone);
@@ -194,8 +208,6 @@ function getDynamicJson() {
 
 
 
-
-
 //find bartender information
 function getBartender(){
     let bartender = jsonData.bartenders;
@@ -209,6 +221,12 @@ function getBartender(){
         
         clone.querySelector("#bartenderName").textContent = name;
         clone.querySelector("#status").textContent = "STATUS: " + status;
+
+        if(status == "WORKING"){
+            clone.querySelector("#bartenderBox").style.backgroundColor = "#f7f8ac";
+            // clone.querySelector("#bartenderBox").style.color = "white";
+        }
+
 
         document.querySelector("#bartenderContainer").appendChild(clone);
     });
@@ -382,55 +400,28 @@ function getStorage(){
             }
             //append myDiv to the app container
             app.appendChild(myDiv);
-
         };
+
+        document.querySelector("#alert").addEventListener("click", ()=>{
+            if (amountOf <= 2){
+                document.querySelector("#orderMore").style.visibility = "visible";
+                document.querySelector("#orderMore").style.transform = "translateY(10px)";
+            }
+        });
+       
+
         //append app container to storageContainer
         document.querySelector("#storageContainer").appendChild(app);
         //clone to storageContainer 
         document.querySelector("#storageContainer").appendChild(clone);
 
     });
+
 }
 
 
 
 
-
-//current beers sold
-
-
-//current servings
-
-
-
-// PART 7
-// En base på en anden planet
-// let firebase = {El_Hefe: 2, GitHop: 5};
-
-// let beers = ["Hollaback Lager",
-//             "Steampunk",
-// 			"El Hefe",
-//             "El Hefe",
-//             "GitHop",
-//             "Steampunk",
-//             "Tis",
-//             "Tis"]
-
-// // Databasen som man henter ind
-// let beerSold = firebase;
-
-// currentArray.forEach(element => {
-//     //fordi der er mellemrum mellem navnene,skal den joine dem
-//     let newElem = element.split(' ').join('_');
-//     // console.log(element)
-
-//     if (beerSold[newElem] == undefined){
-// 		beerSold[newElem] = 1;
-// 	} else {
-//         beerSold[newElem]++;
-//     }
-//     // document.querySelector("line").style.strokeDashoffset = 80;
-// });
 
 
 
