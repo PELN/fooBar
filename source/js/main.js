@@ -8,6 +8,7 @@ let fooData;
 let jsonData;
 let queueObjects;
 
+// empty array, fill up with amount
 let currentArray = [];
 let largestCustomerId = 0;
 
@@ -228,16 +229,6 @@ function getDynamicJson() {
         
         iterator++;
 
-        //nu har jeg et objekt med en oversigt over hver type beer og hvor mange af hver der er solgt
-        //det skal clones og appendes ind i en template
-        // let newTemplate = document.querySelector("#bestTemp");
-        // let newClone = newTemplate.cloneNode(true).content;
-        // newClone.querySelector("#beerType").textContent = singleBeerSold[newElem];
-        // document.querySelector("#bestContainer").appendChild(newClone);
-
-                
-               
-
         document.querySelector("#serveOrder").appendChild(clone);
     });
 
@@ -246,7 +237,6 @@ function getDynamicJson() {
         function getSum(total, num) {
             return total + num;
         }
-        
         document.querySelector("#sum").innerHTML = currentArray.reduce(getSum);
     }
 }
