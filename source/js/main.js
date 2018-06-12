@@ -268,7 +268,7 @@ function getBartender(){
         clone.querySelector("#status").textContent = "STATUS: " + status;
 
         if(status == "WORKING"){
-            clone.querySelector("#bartenderBox").style.backgroundColor = "#f7f8ac";
+            clone.querySelector("#bartenderBox").style.backgroundColor = "#fdc04e";
             // clone.querySelector("#bartenderBox").style.color = "white";
         }
 

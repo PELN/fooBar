@@ -221,21 +221,6 @@ li:hover {
           margin-left: 15%;
           padding-bottom: 3vw; } }
 
-#spinner {
-  margin: 100px auto 0;
-  width: 70px;
-  text-align: center;
-  visibility: hidden; }
-
-#spinner > div {
-  width: 18px;
-  height: 18px;
-  background-color: #333;
-  border-radius: 100%;
-  display: inline-block;
-  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
-  animation: sk-bouncedelay 1.4s infinite ease-in-out both; }
-
 #circleContainer {
   width: 93vw; }
   #circleContainer h1 {
@@ -500,10 +485,7 @@ th, td {
     margin-left: 2%;
     margin-top: 4%;
     padding-bottom: 10vw;
-    overflow: scroll;
     font-size: 12px; }
-    #modalContainer #modalBox img {
-      width: 5vw; }
   #modalContainer #close {
     width: 5vw;
     height: 3vh;
@@ -661,23 +643,26 @@ th, td {
 
 #stats {
   display: grid;
-  justify-content: center; }
-  #stats #sumContainer {
-    width: 50vw;
-    height: 30vh;
-    background: linear-gradient(to right, #f46b45, #eea849);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10vw;
-    margin-bottom: 10vw;
-    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
-    animation-name: pulse;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-    animation-fill-mode: both; }
+  justify-content: center;
+  margin-top: 5vw; }
+  #stats #beerSum {
+    width: 70vw; }
+    #stats #beerSum #sumContainer {
+      width: 50vw;
+      height: 30vh;
+      background: linear-gradient(to right, #f46b45, #eea849);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 10vw;
+      margin-bottom: 15vw;
+      margin-left: 15%;
+      box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+      animation-name: pulse;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      animation-fill-mode: both; }
 
 @keyframes pulse {
   0% {
@@ -686,50 +671,86 @@ th, td {
     transform: scale(1); }
   100% {
     transform: scale(1.1); } }
-    #stats #sumContainer #sum {
-      font-size: 10vw;
-      color: white; }
-    @media (min-width: 768px) {
-      #stats #sumContainer {
-        width: 25vw;
-        height: 28vh;
-        margin-left: 35%; }
-        #stats #sumContainer #sum {
-          font-size: 8vw; } }
-    @media (min-width: 1024px) {
-      #stats #sumContainer {
-        width: 20vw;
-        height: 35vh; }
-        #stats #sumContainer #sum {
-          font-size: 7vw; } }
+      #stats #beerSum #sumContainer #sum {
+        font-size: 10vw;
+        color: white; }
+      @media (min-width: 768px) {
+        #stats #beerSum #sumContainer {
+          width: 20vw;
+          height: 20vh;
+          margin-top: 3vw;
+          margin-bottom: 3vw;
+          margin-left: 35%; }
+          #stats #beerSum #sumContainer #sum {
+            font-size: 8vw; } }
+      @media (min-width: 1024px) {
+        #stats #beerSum #sumContainer {
+          width: 20vw;
+          height: 30vh;
+          margin-top: 2vw;
+          margin-bottom: 3vw; }
+          #stats #beerSum #sumContainer #sum {
+            font-size: 7vw; } }
+  @media (min-width: 768px) {
+    #stats {
+      width: 40vw;
+      margin-left: 25%; } }
+  @media (min-width: 1024px) {
+    #stats {
+      width: 25vw;
+      margin-left: 35%;
+      margin-bottom: 10vw; } }
 
 #alert {
-  width: 3vw;
-  height: 3vw;
+  width: 7vw;
+  height: 7vw;
   position: fixed;
-  top: 2;
+  top: 0;
   right: 0;
-  margin-right: 1vw;
+  margin-right: 2vw;
   margin-top: 1vw;
   z-index: 9999;
-  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
-  cursor: pointer; }
-  #alert:hover {
-    transform: scale(0.9);
-    transition: 0.2s; }
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2); }
 
 #orderMore {
-  width: 20vw;
-  height: 10vh;
+  width: 40vw;
+  height: 8vh;
   padding: 3vw 3vw 3vw 3vw;
   background-color: white;
   visibility: hidden;
   position: fixed;
-  top: 3vw;
+  top: 9.5vw;
   right: 0;
   z-index: 99;
   transform: translateY(-30px);
   transition: 0.5s; }
+
+@media (min-width: 768px) {
+  #alert {
+    width: 3vw;
+    height: 3vw;
+    position: fixed;
+    top: 2;
+    right: 0;
+    margin-right: 1vw;
+    margin-top: 1vw;
+    z-index: 9999;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+    cursor: pointer; }
+    #alert:hover {
+      transform: scale(0.9);
+      transition: 0.2s; }
+  #orderMore {
+    width: 20vw;
+    height: 7vh;
+    top: 3vw;
+    right: 0; } }
+
+@media (min-width: 1024px) {
+  #alert {
+    width: 3vw;
+    height: 3vw;
+    margin-top: 0.4vw; } }
 
 #bestContainer {
   width: 95vw;
@@ -789,16 +810,13 @@ svg.graph .surfaces {
 @media (min-width: 768px) {
   #bestContainer {
     width: 80vw;
-    margin-left: 2%; }
-  .graph {
-    margin-left: 5%; } }
+    margin-left: 2%;
+    display: grid;
+    justify-content: center; } }
 
 @media (min-width: 1024px) {
   #bestContainer {
     width: 80vw;
-    margin-left: 1%; }
-  .graph {
-    height: 500px;
-    width: 680;
-    background-color: white;
-    margin-left: 20%; } }
+    margin-left: 3%;
+    display: grid;
+    justify-content: center; } }

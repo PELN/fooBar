@@ -260,28 +260,6 @@ li:hover {
 
 
 
-#spinner {
-    margin: 100px auto 0;
-    width: 70px;
-    text-align: center;
-    visibility: hidden;
-  }
-  
-  #spinner > div {
-    width: 18px;
-    height: 18px;
-    background-color: #333;
-  
-    border-radius: 100%;
-    display: inline-block;
-    -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
-    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
-  }
-  
-
-
-
-
 
 // circles
 #circleContainer {
@@ -649,12 +627,7 @@ th, td {
         margin-left: 2%;
         margin-top: 4%;
         padding-bottom: 10vw;
-        overflow: scroll;
         font-size: 12px;
-        
-        img{
-            width:5vw;
-        }
     }
 
     #close{
@@ -897,65 +870,94 @@ th, td {
 
 
 
+
+
+// BEER SUM - CURRENT BEER SOLD
 #stats{
     display: grid;
     justify-content: center;
+    // background: linear-gradient(to right, #5bf1b3, #49e3ee);    
+    margin-top: 5vw;
 
+    #beerSum{
+    width: 70vw;
+    // display: grid;
+    // justify-content: center;
 
-#sumContainer{
-    width: 50vw;
-    height: 30vh;
-    background: linear-gradient(to right, #f46b45, #eea849); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10vw;
-    margin-bottom: 10vw;
-    box-shadow: $boxsShadow;
+        #sumContainer{
+            width: 50vw;
+            height: 30vh;
+            background: linear-gradient(to right, #f46b45, #eea849); 
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10vw;
+            margin-bottom: 15vw;
+            margin-left: 15%;
+            box-shadow: $boxsShadow;
+            
+            animation-name: pulse;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-fill-mode: both;
 
-    animation-name: pulse;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-    animation-fill-mode: both;
+            @keyframes pulse{
+                0%{
+                    transform:scale(1.1);
+                }
+                50%{
+                    transform:scale(1)
+                }
+                100%{
+                    transform:scale(1.1)
+                }
+            }
 
-    @keyframes pulse{
-        0%{
-            transform:scale(1.1);
+            #sum {
+                font-size: 10vw;
+                color: white;
+            }
+
+            @media (min-width: $breakpoint-tablet) {
+                width: 20vw;
+                height: 20vh;
+                margin-top: 3vw;
+                margin-bottom: 3vw;
+                margin-left: 35%;
+
+                #sum {
+                    font-size: 8vw;
+                }
+            }
+
+            @media (min-width: $breakpoint-desktop) {
+                width: 20vw;
+                height: 30vh;
+                margin-top: 2vw;
+                margin-bottom: 3vw;
+
+                #sum {
+                    font-size: 7vw;
+                }
+            }
+
         }
-        50%{
-            transform:scale(1)
-        }
-        100%{
-            transform:scale(1.1)
-        }
-    }
 
-    #sum {
-        font-size: 10vw;
-        color: white;
     }
 
     @media (min-width: $breakpoint-tablet) {
-        width: 25vw;
-        height: 28vh;
-        margin-left: 35%;
-
-        #sum {
-            font-size: 8vw;
-        }
+        // border: 2px solid palegreen;
+        width:40vw;
+        margin-left: 25%;
     }
-
+    
     @media (min-width: $breakpoint-desktop) {
-        width: 20vw;
-        height: 35vh;
-
-        #sum {
-            font-size: 7vw;
-        }
+        // border: 2px solid orangered;
+        width:25vw;
+        margin-left: 35%;
+        margin-bottom: 10vw;
     }
-
-}
 
 }
 
@@ -964,31 +966,25 @@ th, td {
 
 // ALERT 
 #alert{
-    width: 3vw;
-    height: 3vw;
+    width: 7vw;
+    height: 7vw;
     position: fixed;
-    top:2;
+    top:0;
     right: 0;
-    margin-right: 1vw;
+    margin-right: 2vw;
     margin-top: 1vw;
     z-index: 9999;
     box-shadow: $boxsShadow;
-
-    cursor: pointer;
-    &:hover{
-        transform: scale(0.9);
-        transition: 0.2s;
-    }
 }
 
 #orderMore{
-    width: 20vw;
-    height: 10vh;
+    width: 40vw;
+    height: 8vh;
     padding: 3vw 3vw 3vw 3vw;
     background-color: white;
     visibility: hidden;
     position: fixed;
-    top:3vw;
+    top:9.5vw;
     right:0;
     z-index: 99;
     transform: translateY(-30px);
@@ -997,6 +993,51 @@ th, td {
 
 
 
+    @media (min-width: $breakpoint-tablet) {
+        #alert{
+            width: 3vw;
+            height: 3vw;
+            position: fixed;
+            top:2;
+            right: 0;
+            margin-right: 1vw;
+            margin-top: 1vw;
+            z-index: 9999;
+            box-shadow: $boxsShadow;
+        
+            cursor: pointer;
+            &:hover{
+                transform: scale(0.9);
+                transition: 0.2s;
+            }
+        }
+        
+        #orderMore{
+            width: 20vw;
+            height: 7vh;
+            top:3vw;
+            right:0;
+        }
+    }
+
+    @media (min-width: $breakpoint-desktop) {
+        #alert{
+            width: 3vw;
+            height: 3vw;
+            margin-top: 0.4vw;
+        }
+        
+           
+    }
+
+
+
+
+
+
+
+
+// GRAPH 
 #bestContainer{
     width: 95vw;
     // border: 2px solid rgb(128, 0, 79);
@@ -1004,7 +1045,6 @@ th, td {
     margin-left: 1.5%;
     overflow:hidden;
     overflow: scroll;
-    
 }
 
 .graph .labels.x-labels {
@@ -1021,7 +1061,6 @@ th, td {
     background-color: white;
     // border: 5px solid greenyellow;
     overflow:hidden;
-
   }
   
   .graph .grid {
@@ -1077,25 +1116,20 @@ th, td {
     #bestContainer{
         width: 80vw;
         margin-left: 2%;
+        display: grid;
+        justify-content: center;
     }
     
-    .graph {
-    margin-left: 5%;
-    }
+ 
 }
 
 @media (min-width: $breakpoint-desktop) {
 
     #bestContainer{
         width: 80vw;
-        margin-left: 1%;
+        margin-left: 3%;
+        display: grid;
+        justify-content: center;
     }
-    
-      .graph {
-        height: 500px;
-        width: 680;
-        background-color: white;
-        margin-left: 20%;
-      }
 
 }
