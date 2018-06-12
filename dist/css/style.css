@@ -692,7 +692,8 @@ th, td {
     @media (min-width: 768px) {
       #stats #sumContainer {
         width: 25vw;
-        height: 30vh; }
+        height: 28vh;
+        margin-left: 35%; }
         #stats #sumContainer #sum {
           font-size: 8vw; } }
     @media (min-width: 1024px) {
@@ -731,10 +732,11 @@ th, td {
   transition: 0.5s; }
 
 #bestContainer {
-  width: 70vw;
-  border: 2px solid #80004f;
+  width: 95vw;
   height: auto;
-  margin-left: 1%; }
+  margin-left: 1.5%;
+  overflow: hidden;
+  overflow: scroll; }
 
 .graph .labels.x-labels {
   text-anchor: middle; }
@@ -746,7 +748,7 @@ th, td {
   height: 500px;
   width: 600px;
   background-color: white;
-  border: 5px solid greenyellow; }
+  overflow: hidden; }
 
 .graph .grid {
   stroke: #ccc;
@@ -754,7 +756,7 @@ th, td {
   stroke-width: 1; }
 
 .labels {
-  font-size: 13px; }
+  font-size: 10px; }
 
 .label-title {
   font-weight: bold;
@@ -770,14 +772,33 @@ svg.graph .points {
   stroke: white;
   stroke-width: 3; }
 
-svg.graph .first_set {
-  fill: #00554d; }
-
 svg.graph {
   height: 500px;
-  width: 600px; }
+  width: 600px;
+  padding-left: 1vw;
+  overflow: hidden; }
 
 svg.graph .grid {
-  stroke: white;
+  stroke: black;
   stroke-dasharray: 1 2;
   stroke-width: 1; }
+
+svg.graph .surfaces {
+  fill-opacity: 0.5; }
+
+@media (min-width: 768px) {
+  #bestContainer {
+    width: 80vw;
+    margin-left: 2%; }
+  .graph {
+    margin-left: 5%; } }
+
+@media (min-width: 1024px) {
+  #bestContainer {
+    width: 80vw;
+    margin-left: 1%; }
+  .graph {
+    height: 500px;
+    width: 680;
+    background-color: white;
+    margin-left: 20%; } }

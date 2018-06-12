@@ -219,17 +219,79 @@
 
 <section id="stats">
 
-
-
     <h1>CURRENT BEERS SOLD</h1>
     <div id="sumContainer">
-        <h1 id="sum"></h1>
-        
+        <h1 id="sum"></h1> 
     </div>
 
+    <h1>BEST-SELLING BEER</h1>
+    <div id="bestContainer">
+
+        <svg version="1.2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="graph" aria-labelledby="title" role="img">
+            <title id="title">BEST SELLING BEER</title>
+        
+        <g class="grid x-grid" id="xGrid">
+            <line x1="90" x2="90" y1="5" y2="400"></line>
+        </g>
+        <g class="grid y-grid" id="yGrid">
+            <line x1="90" x2="600" y1="400" y2="400"></line>
+        </g>
+        
+        <g class="labels x-labels">
+                <text x="100" y="420">El Hefe</text>
+                <text x="150" y="420">Fairy Tale Ale</text>
+                <text x="200" y="420">GitHop</text>
+                <text x="250" y="420">Hollaback Lager</text>
+                <text x="300" y="420">Hoppily Ever After</text>
+                <text x="350" y="420">Mowintime</text>
+                <text x="400" y="420">Row 26</text>
+                <text x="450" y="420">Ruined Childhood</text>
+                <text x="500" y="420">Sleighride</text>
+                <text x="550" y="420">Steampunk</text>
+
+                <text x="300" y="440" class="label-title">Beer Type</text>
+        </g>
+
+            <g class="labels y-labels">
+                <!-- startpos 0 = 400px, slutpos 50 = 100px -->
+                <!-- startpos - slutpos = 300px -->
+                <!-- 300px / 50 = 6px -->
+                <!-- Hver ny beer added skal rykke sig 6px -->
+                <text x="80" y="100">50</text>
+                <text x="80" y="160">40</text>
+                <text x="80" y="220">30</text>
+                <text x="80" y="280">20</text>
+                <text x="80" y="340">10</text>
+                <text x="80" y="400">0</text>
+                <text x="50" y="200" class="label-title">Amount</text>
+            </g>
+
+        <g class="data" data-setname="dataset">
+                <circle cx="100" cy="400" data-value="7.2" r="4"></circle>
+                <circle cx="150" cy="400" data-value="8.1" r="4"></circle>
+                <circle cx="200" cy="400" data-value="7.7" r="4"></circle>
+                <circle cx="250" cy="400" data-value="6.8" r="4"></circle>
+                <circle cx="300" cy="400" data-value="6.7" r="4"></circle>
+                <circle cx="350" cy="400" data-value="6.7" r="4"></circle>
+                <circle cx="400" cy="400" data-value="6.7" r="4"></circle>
+                <circle cx="450" cy="400" data-value="6.7" r="4"></circle>
+                <circle cx="500" cy="400" data-value="6.7" r="4"></circle>
+                <circle cx="550" cy="400" data-value="6.7" r="4"></circle>
+            </g>
+
+            <!-- animate path -->
+            <!-- <g class="surfaces">
+                    <path class="first_set" d="M113,360 L113,192 L259,171 L405,179 L551,200 L697,204 L697,360 Z"></path>
+                </g> -->
+
+        </svg>
+
+    </div>
 
 </section>
 
+
+</main>
 
 
 <!-- <div id="bestContainer">
@@ -242,77 +304,6 @@
             </div>
         </template>
 </div> -->
-
-
-<div id="bestContainer">
-
-    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="graph" aria-labelledby="title" role="img">
-        <title id="title">BEST SELLING BEER</title>
-    
-    <g class="grid x-grid" id="xGrid">
-        <line x1="90" x2="90" y1="5" y2="371"></line>
-    </g>
-    <g class="grid y-grid" id="yGrid">
-        <line x1="90" x2="600" y1="370" y2="370"></line>
-    </g>
-    
-    <g class="labels x-labels">
-            <text x="100" y="420">El Hefe</text>
-            <text x="150" y="420">Fairy Tale Ale</text>
-            <text x="200" y="420">GitHop</text>
-            <text x="250" y="420">Hollaback Lager</text>
-            <text x="300" y="420">Hoppily Ever After</text>
-            <text x="350" y="420">Mowintime</text>
-            <text x="400" y="420">Row 26</text>
-            <text x="450" y="420">Ruined Childhood</text>
-            <text x="500" y="420">Sleighride</text>
-            <text x="550" y="420">Steampunk</text>
-
-            <text x="400" y="440" class="label-title">Beer Type</text>
-    </g>
-
-        <g class="labels y-labels">
-            <!-- startpos 0 = 400px, slutpos 50 = 100px -->
-            <!-- startpos - slutpos = 300px -->
-            <!-- 300px / 50 = 6px -->
-            <!-- Hver ny beer added skal rykke sig 6px -->
-            <text x="80" y="100">50</text>
-            <text x="80" y="160">40</text>
-            <text x="80" y="220">30</text>
-            <text x="80" y="280">20</text>
-            <text x="80" y="340">10</text>
-            <text x="80" y="400">0</text>
-            <text x="50" y="200" class="label-title">Amount</text>
-        </g>
-
-    <g class="data" data-setname="dataset">
-            <circle cx="100" cy="400" data-value="7.2" r="4"></circle>
-            <circle cx="150" cy="400" data-value="8.1" r="4"></circle>
-            <circle cx="200" cy="400" data-value="7.7" r="4"></circle>
-            <circle cx="250" cy="400" data-value="6.8" r="4"></circle>
-            <circle cx="300" cy="400" data-value="6.7" r="4"></circle>
-            <circle cx="350" cy="400" data-value="6.7" r="4"></circle>
-            <circle cx="400" cy="400" data-value="6.7" r="4"></circle>
-            <circle cx="450" cy="400" data-value="6.7" r="4"></circle>
-            <circle cx="500" cy="400" data-value="6.7" r="4"></circle>
-            <circle cx="550" cy="400" data-value="6.7" r="4"></circle>
-        </g>
-
-        <!-- animate path -->
-        <!-- <g class="surfaces">
-                <path class="first_set" d="M113,360 L113,192 L259,171 L405,179 L551,200 L697,204 L697,360 Z"></path>
-            </g> -->
-
-    </svg>
-
-</div>
-
-
-
-</main>
-
-
-
 
 
 <!-- <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
