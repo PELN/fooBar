@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>FooBar</title>
     <link rel="stylesheet" type="text/css" href="dist/css/style.css">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -37,6 +37,8 @@
         <span style="font-size:30px;cursor:pointer;color:white" onclick="openNav()">&#9776; </span>
 </div>
 
+<img id="alert" src="source/assets/aleroran.png">
+
 <main>
 
 <section id="employees">
@@ -48,12 +50,8 @@
                         <img src="source/assets/bartender.png">
                         <h3 id="status">STATUS</h3>
                     </div>
-                </template>
-
-                
+                </template>  
         </div>
-
-
 </section>
 
 
@@ -141,9 +139,9 @@
                                     </g>
                         
                                     <g text-anchor='middle'>
-                                        <text text-anchor='start' fill='#0074d9' x='0' y='60'>0</text>
-                                        <text fill='#0074d9' x='50%' y='60'>1250 CL</text>
-                                        <text text-anchor='end' fill='#0074d9' x='100%' y='60'>2500 CL</text>
+                                        <text text-anchor='start' fill='#39AEA9' x='0' y='60'>0</text>
+                                        <text fill='#39AEA9' x='50%' y='60'>1250 CL</text>
+                                        <text text-anchor='end' fill='#39AEA9' x='100%' y='60'>2500 CL</text>
                                     </g>
                                 </svg>
                             </div>
@@ -154,164 +152,137 @@
                     </div>
                 </template>
         </div>
-</section>
 
 
-<section id="storage">
         <h1>STORAGE</h1>
         <div id="storageContainer">
             <template id="storTemp">
                 <div id="storageBox"> 
                     <h2 id="storageAmount">AMOUNT</h2>
                     <h2 id="storageName">NAME</h2>
-
-                            <div id="orderMore">ONE OR MORE KEGS ARE RUNNING LOW IN STORAGE</div>
+                    <div id="orderMore">ONE OR MORE KEGS ARE RUNNING LOW IN STORAGE</div>
                 </div>
             </template>
         </div>
+
 </section>
 
-<img id="alert" src="source/assets/aleroran.png">
 
 
 
 <section id="beerinfo">
-<!-- udvalg af øl med billeder + navn + read more -->
-<h1>SELECTION OF BEER</h1>
-<!-- <img src="source/assets/on-tap.png"> -->
-<div id="beerContainer">
-        <template id="beerTemp">
-            <div id="beerBox">
-                <h1 id="beerName">beer name</h1>
-                <img class="beerImg" src="">
-                <p id="beerCat"></p>
-                <p id="beerAlc"></p>
-                <button id="read">BEER INFO</button>
+    <h1>SELECTION OF BEER</h1>
+    <div id="beerContainer">
+            <template id="beerTemp">
+                <div id="beerBox">
+                    <h1 id="beerName">beer name</h1>
+                    <img class="beerImg" src="">
+                    <p id="beerCat"></p>
+                    <p id="beerAlc"></p>
+                    <button id="read">BEER INFO</button>
+                </div>
+            </template>
+    </div>
+
+    <!-- MODAL VINDUE TIL TAPS READ MORE -->
+    <div id="modalContainer">
+        <template id="modalTemp">
+            <div id="modalBox">
+                <h1 id="beerName">name</h1>
+                <p id="aroma"></p>
+                <p id="appearance"></p>
+                <p id="flavor"></p>
+                <p id="mouthfeel"></p>
+                <p id="overallImpression"></p>
+                <img id="close" src="source/assets/cross.png">
             </div>
         </template>
-</div>
-
-
-<!-- MODAL VINDUE TIL TAPS READ MORE -->
-<div id="modalContainer">
-    <template id="modalTemp">
-        <div id="modalBox">
-            <h1 id="beerName">name</h1>
-            <p id="aroma"></p>
-            <p id="appearance"></p>
-            <p id="flavor"></p>
-            <p id="mouthfeel"></p>
-            <p id="overallImpression"></p>
-            <img id="close" src="source/assets/cross.png">
-            <!-- <button id="close">Close</button> -->
-        </div>
-    </template>
-</div>
+    </div>
 </section>
 
 
 
 
 <section id="stats">
+    <div id="circleSum">
+        <div id="display">
         <h1>CURRENT BEERS SOLD</h1>
+        </div>
 
-    <div id="beerSum">
-        <div id="sumContainer">
-            <h1 id="sum"></h1> 
+        <div id="beerSum">
+            <div id="sumContainer">
+                <h1 id="sum"></h1> 
+            </div>
         </div>
     </div>
 
+    <div id="bestContainer">
+        <svg version="1.2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="graph" aria-labelledby="title" role="img">
+            <title id="title">BEST SELLING BEER</title>
+        
+        <g class="grid x-grid" id="xGrid">
+            <line x1="90" x2="90" y1="5" y2="400"></line>
+        </g>
+        <g class="grid y-grid" id="yGrid">
+            <line x1="90" x2="800" y1="400" y2="400"></line>
+        </g>
+        
+        <g class="labels x-labels">
+                <text x="100" y="420">El Hefe</text>
+                <text x="170" y="420">Fairy Tale Ale</text>
+                <text x="240" y="420">GitHop</text>
+                <text x="310" y="420">Hollaback Lager</text>
+                <text x="380" y="420">Hoppily Ever After</text>
+                <text x="450" y="420">Mowintime</text>
+                <text x="520" y="420">Row 26</text>
+                <text x="590" y="420">Ruined Childhood</text>
+                <text x="660" y="420">Sleighride</text>
+                <text x="730" y="420">Steampunk</text>
 
+                <text x="300" y="440" class="label-title">Beer Type</text>
+        </g>
 
+            <g class="labels y-labels">
+                <!-- startpos 0 = 400px, slutpos 50 = 100px -->
+                <!-- startpos - slutpos = 300px -->
+                <!-- 300px / 50 = 6px -->
+                <!-- Hver ny beer added skal rykke sig 6px -->
+                <text x="80" y="40">100</text>
+                <text x="80" y="100">50</text>
+                <text x="80" y="160">40</text>
+                <text x="80" y="220">30</text>
+                <text x="80" y="280">20</text>
+                <text x="80" y="340">10</text>
+                <text x="80" y="400">0</text>
+                <text x="50" y="200" class="label-title">Amount</text>
+            </g>
+
+        <g class="data" data-setname="dataset">
+                <circle cx="100" cy="400" data-value="7.2" r="4"></circle>
+                <circle cx="170" cy="400" data-value="8.1" r="4"></circle>
+                <circle cx="240" cy="400" data-value="7.7" r="4"></circle>
+                <circle cx="310" cy="400" data-value="6.8" r="4"></circle>
+                <circle cx="380" cy="400" data-value="6.7" r="4"></circle>
+                <circle cx="450" cy="400" data-value="6.7" r="4"></circle>
+                <circle cx="520" cy="400" data-value="6.7" r="4"></circle>
+                <circle cx="590" cy="400" data-value="6.7" r="4"></circle>
+                <circle cx="660" cy="400" data-value="6.7" r="4"></circle>
+                <circle cx="730" cy="400" data-value="6.7" r="4"></circle>
+            </g>
+
+            <!-- animate path -->
+            <!-- <g class="surfaces">
+                    <path class="first_set" d="M113,360 L113,192 L259,171 L405,179 L551,200 L697,204 L697,360 Z"></path>
+                </g> -->
+        </svg>
+    </div>
 </section>
-
-<h1>BEST-SELLING BEER</h1>
-<div id="bestContainer">
-
-    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="graph" aria-labelledby="title" role="img">
-        <title id="title">BEST SELLING BEER</title>
-    
-    <g class="grid x-grid" id="xGrid">
-        <line x1="90" x2="90" y1="5" y2="400"></line>
-    </g>
-    <g class="grid y-grid" id="yGrid">
-        <line x1="90" x2="600" y1="400" y2="400"></line>
-    </g>
-    
-    <g class="labels x-labels">
-            <text x="100" y="420">El Hefe</text>
-            <text x="150" y="420">Fairy Tale Ale</text>
-            <text x="200" y="420">GitHop</text>
-            <text x="250" y="420">Hollaback Lager</text>
-            <text x="300" y="420">Hoppily Ever After</text>
-            <text x="350" y="420">Mowintime</text>
-            <text x="400" y="420">Row 26</text>
-            <text x="450" y="420">Ruined Childhood</text>
-            <text x="500" y="420">Sleighride</text>
-            <text x="550" y="420">Steampunk</text>
-
-            <text x="300" y="440" class="label-title">Beer Type</text>
-    </g>
-
-        <g class="labels y-labels">
-            <!-- startpos 0 = 400px, slutpos 50 = 100px -->
-            <!-- startpos - slutpos = 300px -->
-            <!-- 300px / 50 = 6px -->
-            <!-- Hver ny beer added skal rykke sig 6px -->
-            <text x="80" y="100">50</text>
-            <text x="80" y="160">40</text>
-            <text x="80" y="220">30</text>
-            <text x="80" y="280">20</text>
-            <text x="80" y="340">10</text>
-            <text x="80" y="400">0</text>
-            <text x="50" y="200" class="label-title">Amount</text>
-        </g>
-
-    <g class="data" data-setname="dataset">
-            <circle cx="100" cy="400" data-value="7.2" r="4"></circle>
-            <circle cx="150" cy="400" data-value="8.1" r="4"></circle>
-            <circle cx="200" cy="400" data-value="7.7" r="4"></circle>
-            <circle cx="250" cy="400" data-value="6.8" r="4"></circle>
-            <circle cx="300" cy="400" data-value="6.7" r="4"></circle>
-            <circle cx="350" cy="400" data-value="6.7" r="4"></circle>
-            <circle cx="400" cy="400" data-value="6.7" r="4"></circle>
-            <circle cx="450" cy="400" data-value="6.7" r="4"></circle>
-            <circle cx="500" cy="400" data-value="6.7" r="4"></circle>
-            <circle cx="550" cy="400" data-value="6.7" r="4"></circle>
-        </g>
-
-        <!-- animate path -->
-        <!-- <g class="surfaces">
-                <path class="first_set" d="M113,360 L113,192 L259,171 L405,179 L551,200 L697,204 L697,360 Z"></path>
-            </g> -->
-
-    </svg>
-
-</div>
 
 
 </main>
 
 
-<!-- <div id="bestContainer">
-        <template id="bestTemp">
-            <div id="graphBox">
-                <svg id="graph" viewBox="100 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                      <line x1="100" y1="80" x2="100" y2="20" stroke="black" />
-                </svg>
-                <h3 id="beerType"></h3>
-            </div>
-        </template>
-</div> -->
-
-
-<!-- <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-    <polyline points="100,100 100,200 100,100"/>
-</svg>
- -->
-
-
-    <script src="source/js/test.js"></script>
+    <script src="source/js/main.js"></script>
     <script src="http://petlatkea.dk/2018/front/foobar.js"></script>
 
 </body>

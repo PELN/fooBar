@@ -4,9 +4,19 @@ $breakpoint-tablet: 768px;
 $breakpoint-desktop: 1024px;
 $breakpoint-largeScreen: 1824px;
 
-$containerColor: rgb(107, 197, 209);
-$boxsShadow: 0px 3px 15px rgba(0,0,0,0.2);
+@import url(https://fonts.googleapis.com/css?family=Roboto);
 
+$myFont: 'Roboto', sans-serif;
+$containerColor: rgb(231, 233, 221);
+$boxsShadow: 0px 3px 15px rgba(0,0,0,0.2);
+$matBlue: #60848B;
+$turkish: #39AEA9;
+$greenish: #A9D8B1;
+$yellowish: #F2EDAF;
+$darkish: #413B3B;
+$reddish: #EA4F67;
+$lightturk: rgba(106, 180, 178, 0.589);
+$lightmat: rgba(96, 132, 139, 0.507);
 
 @import 'preset';
 @import 'burger';
@@ -14,12 +24,15 @@ $boxsShadow: 0px 3px 15px rgba(0,0,0,0.2);
 section:nth-child(odd){
     background-color: $containerColor;
     width:100%;
+    font-family: $myFont;
 }
 
 main {
     display: grid;
     grid-template-columns: 1fr;
     width: 95vw;
+    font-family: $myFont;
+
 
     @media (min-width: $breakpoint-tablet) {
         width:85vw;
@@ -39,6 +52,7 @@ header {
     width: 100%;
     position: fixed;
     z-index: 1;
+    font-family: $myFont;
 }
 
 #icon{
@@ -56,7 +70,7 @@ li{
     position: fixed;
     width:80vw;
     height: 5vh;
-    background-color: grey;
+    background-color:#2C2828;
     // z-index: 99;
 }
 
@@ -68,6 +82,7 @@ li:hover {
 #title{
     margin-left: 35%;
 }
+
 
 
 // header + nav for ipad + desktop
@@ -85,26 +100,33 @@ li:hover {
         #title{
             margin-left: 10%;
             font-size: 3vw;
-            color: red;
         }
     }
     
     #sidebar{
         width: 15vw;
         height: 100vh;
-        background-color: rgb(35, 35, 39);
+        background-color: $darkish;
         position: fixed;
         display: grid;
         grid-template-columns: 1fr;
-    
+        background-color: rgb(35, 35, 39);
+
             a{
                 color: white;
                 text-decoration: none;
+                &.active {
+                    font-size: 16px;
+                    transition: all 0.3s ease;
+                    background-color: rgba(19, 19, 18, 0.753);
+                    padding-bottom: 6vw;
+                }
             }
         
+
             li{
                 list-style: none;
-                padding-top: 1vw;
+                padding-top: 3vw;
                 padding-bottom: 3vw;
                 width: 15vw;
                 position: relative;
@@ -114,14 +136,6 @@ li:hover {
             #icon{
                 width:2vw;
                 padding-right: 1vw;
-            }
-
-            .line{
-                width:15vw;
-                height: 2px;
-                background-color: rgba(255, 255, 255, 0.116);
-                position: relative;
-                top: 46px;
             }
         } 
     }
@@ -140,7 +154,7 @@ li:hover {
         #title{
             margin-left: 10%;
             font-size: 2vw;
-            color: yellow;
+            // color: yellow;
         }
     }
 
@@ -296,6 +310,7 @@ li:hover {
     margin-left: 3%;
     margin-bottom: 5vw;
 
+
     @media (min-width: $breakpoint-tablet) {
         width: 30vw;
         height: 30vh;
@@ -307,9 +322,11 @@ li:hover {
         height: 20vw;
         float: left;
         margin-left:10%;
-        background-color: lightgreen;
+        background-color: #A9D8B1;
         border-radius: 50%;
         border: 5px solid white;
+        box-shadow: $boxsShadow;
+
 
         @media (min-width: $breakpoint-tablet) {
             width:12vw;
@@ -354,9 +371,10 @@ li:hover {
         height: 20vw;
         float: left;
         margin-left: 20%;
-        background-color:lightgreen;
+        background-color:#A9D8B1;
         border-radius: 50%;
         border: 5px solid white;
+        box-shadow: $boxsShadow;
 
 
             @media (min-width: $breakpoint-tablet) {
@@ -404,7 +422,7 @@ li:hover {
         margin-top: 5vw;
         width: 90vw;
         height: auto;
-        background-color: rgb(234, 250, 250);
+        background-color: rgb(247, 253, 253);
         padding: 5px;
         box-shadow: $boxsShadow;
         padding-bottom: 5vw;
@@ -440,7 +458,7 @@ li:hover {
     #serveContainer {
         margin-top: 5vw;
         width: 90vw;
-        background-color: rgb(234, 250, 250);
+        background-color: rgb(247, 253, 253);
         padding: 5px;
         box-shadow: $boxsShadow;
         padding-bottom: 5vw;
@@ -547,7 +565,7 @@ th, td {
             height: 4vh;
             margin-bottom: 2vw;
             color:white;
-            background-color: rgb(243, 116, 31);
+            background-color: $matBlue;
             margin-left: 10%;
             border:none;
     
@@ -605,7 +623,7 @@ th, td {
 }
 
 #modalContainer{
-    background-color:  rgb(247, 239, 215);;
+    background-color: rgb(252, 252, 252);
     color: black;
     visibility: hidden;
     width: 90vw;
@@ -715,9 +733,9 @@ th, td {
         display: none;
 
         #empty{
-            color: firebrick;
+            color: #EA4F67;
             font-size: 25px;
-            }
+        }
     }
 
     @media (min-width: $breakpoint-tablet) {
@@ -773,8 +791,9 @@ th, td {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     margin-bottom: 5vw;
     padding: 5vw 5vw 5vw 5vw;
-    // background-color: rgba(36, 30, 54, 0.623);
+    // background-color: rgb(221, 237, 238);
     margin-left: 10%;
+    box-shadow: $boxsShadow;
 
     
     #storageBox{
@@ -842,7 +861,7 @@ th, td {
 
 
 #app {
-    background-color: #f7f8ac;
+    background-color:rgb(245, 237, 175);
     width: 10vw;
     height: auto;
     position: relative;
@@ -870,8 +889,6 @@ th, td {
 
 
 
-
-
 // BEER SUM - CURRENT BEER SOLD
 #stats{
     display: grid;
@@ -879,15 +896,31 @@ th, td {
     // background: linear-gradient(to right, #5bf1b3, #49e3ee);    
     margin-top: 5vw;
 
+    #circleSum{
+        width:70vw;
+        // border: 1px solid rgb(226, 218, 218);
+        background-color:rgba(252, 252, 252, 0.87);
+        margin-left: 15%;
+        margin-top: 10%;
+        margin-bottom: 10%;
+        box-shadow: $boxsShadow;
+    }
+    
+    #display{
+        width:70vw;
+        background-color: white;
+        height: 8vh;
+        padding-top: 0.1vw;
+    }
+
+
     #beerSum{
     width: 70vw;
-    // display: grid;
-    // justify-content: center;
 
         #sumContainer{
             width: 50vw;
             height: 30vh;
-            background: linear-gradient(to right, #f46b45, #eea849); 
+            background: $turkish; 
             border-radius: 50%;
             display: flex;
             justify-content: center;
@@ -932,7 +965,7 @@ th, td {
             }
 
             @media (min-width: $breakpoint-desktop) {
-                width: 20vw;
+                width: 19vw;
                 height: 30vh;
                 margin-top: 2vw;
                 margin-bottom: 3vw;
@@ -947,16 +980,14 @@ th, td {
     }
 
     @media (min-width: $breakpoint-tablet) {
-        // border: 2px solid palegreen;
-        width:40vw;
-        margin-left: 25%;
+        #circleSum{
+            width:70vw;
+            margin-left: 10%;
+        }
     }
     
     @media (min-width: $breakpoint-desktop) {
-        // border: 2px solid orangered;
-        width:25vw;
-        margin-left: 35%;
-        margin-bottom: 10vw;
+        
     }
 
 }
@@ -1045,6 +1076,7 @@ th, td {
     margin-left: 1.5%;
     overflow:hidden;
     overflow: scroll;
+    margin-bottom: 10vw;
 }
 
 .graph .labels.x-labels {
@@ -1058,9 +1090,9 @@ th, td {
   .graph {
     height: 500px;
     width: 600px;
-    background-color: white;
-    // border: 5px solid greenyellow;
+    background-color: rgba(252, 252, 252, 0.87);
     overflow:hidden;
+    box-shadow: $boxsShadow;
   }
   
   .graph .grid {
@@ -1081,19 +1113,19 @@ th, td {
   }
   
   .data {
-    fill: red;
-    stroke-width: 1; 
+    fill: #EA4F67;
+    stroke-width: 15;
   }
 
 
   svg.graph .points {
     stroke: white;
-    stroke-width: 3;
+    stroke-width: 15;
   }
 
   svg.graph {
     height: 500px;
-    width: 600px;
+    width: 800px;
     padding-left: 1vw;
     overflow:hidden;
   }
@@ -1104,12 +1136,9 @@ th, td {
     stroke-width: 1;
   }
 
-
-
-  svg.graph .surfaces {
-    fill-opacity: 0.5;
-  }
-
+//   svg.graph .surfaces {
+//     fill-opacity: 0.5;
+//   }
 
 @media (min-width: $breakpoint-tablet) {
 
@@ -1119,8 +1148,6 @@ th, td {
         display: grid;
         justify-content: center;
     }
-    
- 
 }
 
 @media (min-width: $breakpoint-desktop) {
@@ -1133,3 +1160,4 @@ th, td {
     }
 
 }
+

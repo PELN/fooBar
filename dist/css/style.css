@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
 body {
   margin: 0;
   background-color: rgba(248, 247, 242, 0.932);
@@ -44,13 +45,15 @@ h1 {
     margin-left: 50px; }
 
 section:nth-child(odd) {
-  background-color: #6bc5d1;
-  width: 100%; }
+  background-color: #e7e9dd;
+  width: 100%;
+  font-family: "Roboto", sans-serif; }
 
 main {
   display: grid;
   grid-template-columns: 1fr;
-  width: 95vw; }
+  width: 95vw;
+  font-family: "Roboto", sans-serif; }
   @media (min-width: 768px) {
     main {
       width: 85vw;
@@ -66,7 +69,8 @@ header {
   height: 7vh;
   width: 100%;
   position: fixed;
-  z-index: 1; }
+  z-index: 1;
+  font-family: "Roboto", sans-serif; }
 
 #icon {
   width: 2vw;
@@ -81,7 +85,7 @@ li {
   position: fixed;
   width: 80vw;
   height: 5vh;
-  background-color: grey; }
+  background-color: #2C2828; }
 
 li:hover {
   background-color: #181717;
@@ -102,34 +106,33 @@ li:hover {
     z-index: 9999; }
     header #title {
       margin-left: 10%;
-      font-size: 3vw;
-      color: red; }
+      font-size: 3vw; }
   #sidebar {
     width: 15vw;
     height: 100vh;
-    background-color: #232327;
+    background-color: #413B3B;
     position: fixed;
     display: grid;
-    grid-template-columns: 1fr; }
+    grid-template-columns: 1fr;
+    background-color: #232327; }
     #sidebar a {
       color: white;
       text-decoration: none; }
+      #sidebar a.active {
+        font-size: 16px;
+        transition: all 0.3s ease;
+        background-color: rgba(19, 19, 18, 0.753);
+        padding-bottom: 6vw; }
     #sidebar li {
       list-style: none;
-      padding-top: 1vw;
+      padding-top: 3vw;
       padding-bottom: 3vw;
       width: 15vw;
       position: relative;
       top: 5vw; }
     #sidebar #icon {
       width: 2vw;
-      padding-right: 1vw; }
-    #sidebar .line {
-      width: 15vw;
-      height: 2px;
-      background-color: rgba(255, 255, 255, 0.116);
-      position: relative;
-      top: 46px; } }
+      padding-right: 1vw; } }
 
 @media (min-width: 1024px) {
   header {
@@ -143,8 +146,7 @@ li:hover {
     z-index: 9999; }
     header #title {
       margin-left: 10%;
-      font-size: 2vw;
-      color: yellow; }
+      font-size: 2vw; }
   #sidebar {
     width: 15vw;
     height: 100vh;
@@ -255,9 +257,10 @@ li:hover {
       height: 20vw;
       float: left;
       margin-left: 10%;
-      background-color: lightgreen;
+      background-color: #A9D8B1;
       border-radius: 50%;
-      border: 5px solid white; }
+      border: 5px solid white;
+      box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2); }
       @media (min-width: 768px) {
         #circleContainer #queueC #qCircle {
           width: 12vw;
@@ -291,9 +294,10 @@ li:hover {
       height: 20vw;
       float: left;
       margin-left: 20%;
-      background-color: lightgreen;
+      background-color: #A9D8B1;
       border-radius: 50%;
-      border: 5px solid white; }
+      border: 5px solid white;
+      box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2); }
       @media (min-width: 768px) {
         #circleContainer #serveC #serveCircle {
           width: 12vw;
@@ -330,7 +334,7 @@ li:hover {
     margin-top: 5vw;
     width: 90vw;
     height: auto;
-    background-color: #eafafa;
+    background-color: #f7fdfd;
     padding: 5px;
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
     padding-bottom: 5vw;
@@ -354,7 +358,7 @@ li:hover {
   #qSection #serveContainer {
     margin-top: 5vw;
     width: 90vw;
-    background-color: #eafafa;
+    background-color: #f7fdfd;
     padding: 5px;
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
     padding-bottom: 5vw;
@@ -428,7 +432,7 @@ th, td {
       height: 4vh;
       margin-bottom: 2vw;
       color: white;
-      background-color: #f3741f;
+      background-color: #60848B;
       margin-left: 10%;
       border: none; }
       #beerContainer #beerBox button:hover {
@@ -464,7 +468,7 @@ th, td {
         width: 20vw; } }
 
 #modalContainer {
-  background-color: #f7efd7;
+  background-color: #fcfcfc;
   color: black;
   visibility: hidden;
   width: 90vw;
@@ -540,7 +544,7 @@ th, td {
     background-color: rgba(253, 253, 131, 0.822);
     display: none; }
     #tapsContainer #emptyKeg #empty {
-      color: firebrick;
+      color: #EA4F67;
       font-size: 25px; }
   @media (min-width: 768px) {
     #tapsContainer {
@@ -577,7 +581,8 @@ th, td {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   margin-bottom: 5vw;
   padding: 5vw 5vw 5vw 5vw;
-  margin-left: 10%; }
+  margin-left: 10%;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2); }
   #storageContainer #storageBox {
     width: 12vw;
     height: auto;
@@ -622,7 +627,7 @@ th, td {
           margin-top: 8vw; } }
 
 #app {
-  background-color: #f7f8ac;
+  background-color: #f5edaf;
   width: 10vw;
   height: auto;
   position: relative;
@@ -645,12 +650,24 @@ th, td {
   display: grid;
   justify-content: center;
   margin-top: 5vw; }
+  #stats #circleSum {
+    width: 70vw;
+    background-color: rgba(252, 252, 252, 0.87);
+    margin-left: 15%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2); }
+  #stats #display {
+    width: 70vw;
+    background-color: white;
+    height: 8vh;
+    padding-top: 0.1vw; }
   #stats #beerSum {
     width: 70vw; }
     #stats #beerSum #sumContainer {
       width: 50vw;
       height: 30vh;
-      background: linear-gradient(to right, #f46b45, #eea849);
+      background: #39AEA9;
       border-radius: 50%;
       display: flex;
       justify-content: center;
@@ -685,21 +702,16 @@ th, td {
             font-size: 8vw; } }
       @media (min-width: 1024px) {
         #stats #beerSum #sumContainer {
-          width: 20vw;
+          width: 19vw;
           height: 30vh;
           margin-top: 2vw;
           margin-bottom: 3vw; }
           #stats #beerSum #sumContainer #sum {
             font-size: 7vw; } }
   @media (min-width: 768px) {
-    #stats {
-      width: 40vw;
-      margin-left: 25%; } }
-  @media (min-width: 1024px) {
-    #stats {
-      width: 25vw;
-      margin-left: 35%;
-      margin-bottom: 10vw; } }
+    #stats #circleSum {
+      width: 70vw;
+      margin-left: 10%; } }
 
 #alert {
   width: 7vw;
@@ -757,7 +769,8 @@ th, td {
   height: auto;
   margin-left: 1.5%;
   overflow: hidden;
-  overflow: scroll; }
+  overflow: scroll;
+  margin-bottom: 10vw; }
 
 .graph .labels.x-labels {
   text-anchor: middle; }
@@ -768,8 +781,9 @@ th, td {
 .graph {
   height: 500px;
   width: 600px;
-  background-color: white;
-  overflow: hidden; }
+  background-color: rgba(252, 252, 252, 0.87);
+  overflow: hidden;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2); }
 
 .graph .grid {
   stroke: #ccc;
@@ -786,16 +800,16 @@ th, td {
   fill: black; }
 
 .data {
-  fill: red;
-  stroke-width: 1; }
+  fill: #EA4F67;
+  stroke-width: 15; }
 
 svg.graph .points {
   stroke: white;
-  stroke-width: 3; }
+  stroke-width: 15; }
 
 svg.graph {
   height: 500px;
-  width: 600px;
+  width: 800px;
   padding-left: 1vw;
   overflow: hidden; }
 
@@ -803,9 +817,6 @@ svg.graph .grid {
   stroke: black;
   stroke-dasharray: 1 2;
   stroke-width: 1; }
-
-svg.graph .surfaces {
-  fill-opacity: 0.5; }
 
 @media (min-width: 768px) {
   #bestContainer {
