@@ -9,11 +9,9 @@ let fooData;
 let jsonData;
 let queueObjects;
 
-// An array with all beer amounts
 let currentArray = [];
 let largestCustomerId = 0;
 
-// An object with all beers and their amount for the graph
 let singleBeerSold = {};
 
 // **************************************** BURGER MENU ************************************************
@@ -42,7 +40,6 @@ function closeNav() {
 		$(this).addClass('active');
 
 		var target = this.hash,
-			// li = target;
 		$target = $(target);
 		$('html, body').stop().animate({
 			'scrollTop': $target.offset().top + 2
@@ -88,11 +85,9 @@ async function getConstJson() {
             clone.querySelector("#beerName").textContent = eachName;
             clone.querySelector("img").src = "source/assets/" + eachImg;
             clone.querySelector("#beerCat").textContent = "Category: " + eachCat;
-            clone.querySelector("#beerAlc").textContent = "Alc: " + eachAlc;
+            clone.querySelector("#beerAlc").textContent = "Alc: " + eachAlc;            
 
-            //click on 'read' button, open modal window with description
-            //there is a bug - when you click on one read more, closes it, and click another one, it saves the one from before and displays 2 elements. 
-            //maybe it can be fixed by reloading after closed modal?
+            //click on read, open modal
             clone.querySelector("#read").addEventListener("click", ()=>{
                 document.querySelector("#modalContainer").style.visibility = "visible";
 
@@ -114,7 +109,7 @@ async function getConstJson() {
                 descClone.querySelector("#mouthfeel").textContent = "Mouthfeel: " + mouthfeel;
                 descClone.querySelector("#overallImpression").textContent = "Overall Impression: " + overallImpression;
                 
-                //close button, close window
+                //close button, close modal
                 descClone.querySelector("#close").addEventListener("click", ()=>{
                     document.querySelector("#modalContainer").style.visibility = "hidden";
                 });
@@ -194,17 +189,16 @@ function getDynamicJson() {
     getSAmount(jsonData.serving);
 
     //store the return from customerData in a variable, to use newOrder array
-    //which gives me amount of each order
     let orderData = customerData(jsonData.queue);
     let servingData = customerData(jsonData.serving);
+    // console.log("order data",orderData)
 
-    //clone each order element to template
+    
+    //clone each order element to template, with the new array
     orderData.forEach( newElement => {
         let template = document.querySelector("#tableTemp");
         let clone = template.cloneNode(true).content;
         
-        console.log("YEsss",orderData)
-
         clone.querySelector(".id").textContent = "No: " + newElement.id;
         clone.querySelector(".beertype").textContent = newElement.type;
         clone.querySelector(".beercount").textContent = newElement.amount;
@@ -215,7 +209,7 @@ function getDynamicJson() {
     });
 
 
-    //for hver servingData, loop gennem elementer clone dem
+    //for hver servingData, loop gennem elementer, clone dem
     for (let i = 0; i < servingData.length; i++) {
         let template = document.querySelector("#serveTemp");
         let clone = template.cloneNode(true).content;
@@ -228,7 +222,6 @@ function getDynamicJson() {
 
 
         // ********************************* CURRENT BEERS SOLD ************************************
-        // Make global var: largestCustomerId and an empty global array: currentArray
         // loop through every id in servingData, and compare with largestCustomerId
         if (servingData[i].id >= largestCustomerId) {
             // update largestCustomerId with the newest servingData.id
@@ -236,14 +229,12 @@ function getDynamicJson() {
             // push the amount of the id to the array
             currentArray.push(servingData[i].amount);
 
-            // når iteratoren (i) er lig servingData.length-1
-            // så er den nået til det sidste element i servingData
-            // hvilket betyder at den skal få largestCustomerID til at
-            // være det lig det næste element i køen
+            // når iteratoren (i) er lig servingData.length-1 - er den nået til sidste element i servingData
+            // hvilket betyder at den skal få largestCustomerID til at være det lig det næste element i køen
             if (i == servingData.length-1) {
                     largestCustomerId++;
             }
-            //DO THE MATH 
+            // ********** DO THE MATH ***********
 
             // ********************************* BEST SELLING BEER - GRAPH ************************************
             //opdater og gem amount i objektet singleBeerSold{} for hver beer.type
@@ -257,8 +248,7 @@ function getDynamicJson() {
                 singleBeerSold[newElem] += amountElem;
             }
 
-            //her skal punkterne i grafen rykke sig, hvis newElem/amount of type stiger i singleBeerSold objektet
-            //punkterne rykkes først, når de har været i serving
+            //punkterne i grafen skal rykke sig, hvis newElem/amount of type stiger i singleBeerSold objektet
             let text = document.querySelectorAll(".x-labels text");
             let circleDot = document.querySelectorAll(".data circle");
 
@@ -275,13 +265,11 @@ function getDynamicJson() {
                 }
             }
         }
-        //append clones
         document.querySelector("#serveOrder").appendChild(clone);
     }
 
     // ************************** DO THE MATH ON CURRENT BEERS SOLD ******************************** 
     //Summen af currentArray: regn ud hvor mange beers der currently er solgt/har været gennem serving (KILDE) 
-    //hvis længden af currentArray ikke er lig 0, skal den køre en function - der regner summen af arrayet ud
     if (currentArray.length != 0){
         function getSum(total, num) {
             return total + num;
@@ -291,40 +279,42 @@ function getDynamicJson() {
 }
 
 
-//find præcise amount af hver beer type
-//customerData tager argunentet jsonData.queue og jsondata.serve (eller forventer et json array), fra getDynamicJson, kan nu bruges som specificData
+// ********************************* EXACT AMOUNT OF BEER ************************************
 function customerData(specificData){
-    //lav et tomt array, der skal indeholde et array af objekter
     let newOrder = [];
-    console.log(specificData)
-    //for each specifikke element i arrayet, lav et objekt - det skal overskrives og pushes til newOrder array
+    // console.log("Specific data",specificData)
+
+    //for each element i arrayet, lav et objekt
     specificData.forEach(element => {
         let orderLine = {id: 0, time: 0, type: null, amount: 0};
-        //for hvert element's order i specificData arrayet (beertypes) kan jeg sammenligne dem med orderline objektets type
+
         element.order.forEach(orderElement => {
-            //hvis orderElementet (beer typen) er det samme som orderLine.type i objektet
-            //increase amount for hver type
+
+            //increase amount for hver eksisterende type
             if( orderElement === orderLine.type ) {
                 orderLine.amount++;
 
             } else {
+
                 //hvis typen findes i objektet skal den overskrive og pushe orderLine til arrayet
                 if( orderLine.type!==null ) {
                     newOrder.push( orderLine );
                 }
 
-                //ellers findes den ikke i objektet (altså lig med null) (er den altid første gang), og skal pushe elementets værdier og sætte amount til 1
+                //ellers findes typen ikke i objektet 
                 orderLine = {id: element.id, time: element.startTime, type: orderElement, amount: 1};
             }
         });
-        //og til sidst pushes det til arrayet
+        //push det overskrevne orderLine til arrayet
         newOrder.push( orderLine );
     });
-    //store the return in getDynamicJson, to use the newOrder array
+    //opbevar newOrder i getDynamicJson
     return newOrder;
 }
 
 
+
+// ********************************* CONVERT TIME ************************************
 function convertTime(customerTime, tempClone) {
     let time = new Date(customerTime);
         let hours = (time.getHours() < 10) ? "0" + time.getHours() : time.getHours();
@@ -336,13 +326,11 @@ function convertTime(customerTime, tempClone) {
 }
 
 
+// ********************************* ODD / EVEN NUMBER ************************************
 // funktion der deler tallene op i odd and even, så jeg kan ændre farverne 
 function oddEven(customerId, tempClone){
-    // If orderLine.id is an even number then set background to pink
-    // modulo tager orderline.id og dividerer med 2 og returnerer så resten der er tilbage
-    // Hvis resten er lig med 0 må det betyde at orderLine.id er et lige tal.
-    // hvor mange gange kan 2 være i id nummeret - resten af det afgør om det er odd/even
-    // alle lige tal går op i 2 , alle ulige tal gør ikke
+    // modulo operator tager et id/orderline.id og dividerer med 2, og returnerer resten der er tilbage (hvor mange gange kan 2 være i id nummeret? resten afgør om det er odd/even)
+    // alle lige tal går op i 2 , alle ulige tal gør ikke. Hvis resten er lig med 0 må det betyde at orderLine.id er et lige tal
     if (customerId%2==0) {
         tempClone.querySelector(`tr`).style.backgroundColor = "rgba(106, 180, 178, 0.589)";
     } else { // odd 
@@ -351,6 +339,7 @@ function oddEven(customerId, tempClone){
 }
 
 
+// ********************************* AMOUNT OF PEOPLE IN QUEUE ************************************
 // find amount of people in queue
 function getQAmount(queue){
     //skal ikke clones fordi det kun bliver sat ind ét sted
@@ -364,6 +353,7 @@ function getQAmount(queue){
     }
 }
 
+// ********************************* AMOUNT OF PEOPLE IN SERVING ************************************
 // find amount of people in serving
 function getSAmount(serving){
     document.querySelector("#serveNumb").textContent = serving.length;
@@ -377,7 +367,7 @@ function getSAmount(serving){
 }
 
 
-
+// ********************************* BARTENDER INFO ************************************
 //find bartender information
 function getBartender(){
     let bartender = jsonData.bartenders;
@@ -394,13 +384,14 @@ function getBartender(){
 
         if(status == "WORKING"){
             clone.querySelector("#bartenderBox").style.backgroundColor = "rgb(245, 237, 175)";
-            // clone.querySelector("#bartenderBox").style.color = "white";
         }
         document.querySelector("#bartenderContainer").appendChild(clone);
     });
 }
 
 
+
+// ********************************* TAP LEVEL ************************************
 //find keg level on each tap //call the function in the interval and in getconstjson
 function kegLvl(){
     let taps = jsonData.taps;
@@ -416,7 +407,6 @@ function kegLvl(){
 
         let template = document.querySelector("#tapTemp");
         let clone = template.cloneNode(true).content;
-        // console.log(clone.querySelector("#beer").textContent)
 
         clone.querySelector("#beer").textContent =  beer;
         clone.querySelector("#level").textContent =  "Current level: " + level;
@@ -440,7 +430,6 @@ function kegLvl(){
         if (bar[i] != null){
             //bredden af svg'en er 100%, og det skal konverteres til %
             //tæl gennem lvlArray, og lav tallet om til procent ved at dividere level med capacity og gang det med 100
-            // level / capacity * 100, for at få procent
             bar[i].style = `width:${lvlArray[i] / 2500 * 100}%`;
         }
 
@@ -457,6 +446,8 @@ function kegLvl(){
 }
 
 
+
+// ********************************* TAP / KEG STORAGE ************************************
 //tap storage
 function getStorage(){
     let storage = jsonData.storage;
@@ -505,9 +496,7 @@ function getStorage(){
             }
         });
        
-        //append app container to storageContainer
         document.querySelector("#storageContainer").appendChild(app);
-        //clone to storageContainer 
         document.querySelector("#storageContainer").appendChild(clone);
 
     });
