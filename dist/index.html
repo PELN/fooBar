@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FooBar</title>
+    <link rel="stylesheet" type="text/css" href="/dist/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <header>
+            <h4 id="title">FooBar Dashboard</h4>
+    </header>
+
+    <div id="sidebar">
+    <nav>
+        <a href="#employees"><li><img id="icon" src="/dist/assets/people.png">EMPLOYEES</li></a>
+        <a href="#qSection"><li><img id="icon" src="/dist/assets/queueicon.png">QUEUE</li></a>
+        <a href="#tapinfo"><li><img id="icon" src="/dist/assets/beertapicon.png">TAP INFO</li></a>
+        <a href="#beerinfo"><li><img id="icon" src="/dist/assets/beericon.png">BEER INFO</li></a>
+        <a href="#stats"><li><img id="icon" src="/dist/assets/staticon.png">STATS</li></a>
+    </nav>
+</div>
+
+<div class="menuwrapper">
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#employees"><li>EMPLOYEES</li></a>
+        <a href="#qSection"><li>QUEUE</li></a>
+        <a href="#tapinfo"><li>TAP INFO</li></a>
+        <a href="#beerinfo"><li>BEER INFO</li></a>
+        <a href="#stats"><li>STATS</li></a>
+    </div>
+
+        <span style="font-size:30px;cursor:pointer;color:white" onclick="openNav()">&#9776; </span>
+</div>
+
+<img id="alert" src="/dist/assets/aleroran.png">
+
+<main>
+
+<section id="employees">
+    <h1>BARTENDERS</h1>
+        <div id="bartenderContainer">
+                <template id="bartenders">
+                    <div id="bartenderBox">
+                        <h2 id="bartenderName">NAME</h2>
+                        <img src="/dist/assets/bartender.png">
+                        <h3 id="status">STATUS</h3>
+                    </div>
+                </template>  
+        </div>
+</section>
+
+
+<div id="circleContainer">
+    <h1>QUEUE ACTIVITY</h1>
+    <div id="queueC">
+        <h3>CURRENT QUEUE</h3>
+        <div id="qCircle">
+            <p id="qNumb">Q.NUMB</p>
+        </div>
+    </div>
+    
+    <div id="serveC">
+        <h3>CURRENT SERVING</h3>
+        <div id="serveCircle">
+            <p id="serveNumb">S.NUMB</p>
+        </div>
+    </div>
+
+
+</div>
+
+
+<!-- QUEUE SECTION -->
+<section id="qSection">
+
+    <div id="qContainer">
+        <h1>QUEUE ORDER LIST</h1>
+        <table id="order">
+                <tr>
+                    <th>CUSTOMER</th>
+                    <th>TIME</th>
+                    <th>ORDER</th>
+                    <th>AMT</th>
+                </tr>
+            <template id="tableTemp">
+              
+                <tr id="tableRow">
+                    <td class="id"></td>
+                    <td class="time"></td>
+                    <td class="beertype"></td>
+                    <td class="beercount"></td>
+                </tr>
+            </template>
+        </table>
+    </div>
+
+    <div id="serveContainer">
+        <h1>SERVING ORDER LIST</h1>
+        <table id="serveOrder">
+                <tr>
+                    <th>CUSTOMER</th>
+                    <th>TIME</th>
+                    <th>ORDER</th>
+                    <th>AMT</th>
+                </tr>
+            <template id="serveTemp">
+                <tr id="tableRow">
+                    <td class="id"></td>
+                    <td class="time"></td>
+                    <td class="beertype"></td>
+                    <td class="beercount"></td>
+                </tr>
+            </template>
+        </table>
+    </div>
+
+</section>
+
+
+<!-- level of beer + storage? -->
+<!-- TAPS SECTION -->
+<section id="tapinfo">
+    <h1>TAP LEVEL</h1>
+        <div id="tapsContainer">
+                <template id="tapTemp">
+                    <div id="tapBox">
+                        <h1 id="beer">BEER</h1>
+                        <p id="level"></p>
+                        <div id="svgContainer">
+                                <svg width='100%' height='65px'>
+                                    <g class='bars'>
+                                        <rect fill='grey' width='100%' height='25'></rect>;
+                                        <rect id="bluebar" fill='blue' width='0%' height='25'></rect>
+                                    </g>
+                        
+                                    <g text-anchor='middle'>
+                                        <text text-anchor='start' fill='#39AEA9' x='0' y='60'>0</text>
+                                        <text fill='#39AEA9' x='50%' y='60'>1250 CL</text>
+                                        <text text-anchor='end' fill='#39AEA9' x='100%' y='60'>2500 CL</text>
+                                    </g>
+                                </svg>
+                            </div>
+
+                        <div id="emptyKeg">
+                            <p id="empty">KEG EMPTY!!!</p>
+                        </div>
+                    </div>
+                </template>
+        </div>
+
+
+        <h1>STORAGE</h1>
+        <div id="storageContainer">
+            <template id="storTemp">
+                <div id="storageBox"> 
+                    <h2 id="storageAmount">AMOUNT</h2>
+                    <h2 id="storageName">NAME</h2>
+                    <div id="orderMore">ONE OR MORE KEGS ARE RUNNING LOW IN STORAGE</div>
+                </div>
+            </template>
+        </div>
+
+</section>
+
+
+
+
+<section id="beerinfo">
+    <h1>SELECTION OF BEER</h1>
+    <div id="beerContainer">
+            <template id="beerTemp">
+                <div id="beerBox">
+                    <h1 id="beerName">beer name</h1>
+                    <img class="beerImg" src="">
+                    <p id="beerCat"></p>
+                    <p id="beerAlc"></p>
+                    <button id="read">BEER INFO</button>
+                </div>
+            </template>
+    </div>
+
+    <!-- MODAL VINDUE TIL TAPS READ MORE -->
+    <div id="modalContainer">
+        <template id="modalTemp">
+            <div id="modalBox">
+                <h1 id="beerName">name</h1>
+                <p id="aroma"></p>
+                <p id="appearance"></p>
+                <p id="flavor"></p>
+                <p id="mouthfeel"></p>
+                <p id="overallImpression"></p>
+                <img id="close" src="/dist/assets/cross.png">
+            </div>
+        </template>
+    </div>
+</section>
+
+
+
+
+<section id="stats">
+    <div id="circleSum">
+        <div id="display">
+        <h1>CURRENT BEERS SOLD</h1>
+        </div>
+
+        <div id="beerSum">
+            <div id="sumContainer">
+                <h1 id="sum"></h1> 
+            </div>
+        </div>
+    </div>
+
+    <h1>BEST SELLING BEER</h1>
+    <div id="bestContainer">
+        <svg version="1.2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="graph" aria-labelledby="title" role="img">
+            <title id="title">BEST SELLING BEER</title>
+        
+        <g class="grid x-grid" id="xGrid">
+            <line x1="90" x2="90" y1="5" y2="400"></line>
+        </g>
+        <g class="grid y-grid" id="yGrid">
+            <line x1="90" x2="800" y1="400" y2="400"></line>
+        </g>
+        
+        <g class="labels x-labels">
+                <text x="100" y="420">El Hefe</text>
+                <text x="170" y="420">Fairy Tale Ale</text>
+                <text x="240" y="420">GitHop</text>
+                <text x="310" y="420">Hollaback Lager</text>
+                <text x="380" y="420">Hoppily Ever After</text>
+                <text x="450" y="420">Mowintime</text>
+                <text x="520" y="420">Row 26</text>
+                <text x="590" y="420">Ruined Childhood</text>
+                <text x="660" y="420">Sleighride</text>
+                <text x="730" y="420">Steampunk</text>
+
+                <text x="300" y="440" class="label-title">Beer Type</text>
+        </g>
+
+            <g class="labels y-labels">
+                <!-- startpos 0 = 400px, slutpos 50 = 100px -->
+                <!-- startpos - slutpos = 300px -->
+                <!-- 300px / 50 = 6px -->
+                <!-- Hver ny beer added skal rykke sig 6px -->
+                <text x="80" y="40">100</text>
+                <text x="80" y="100">50</text>
+                <text x="80" y="160">40</text>
+                <text x="80" y="220">30</text>
+                <text x="80" y="280">20</text>
+                <text x="80" y="340">10</text>
+                <text x="80" y="400">0</text>
+                <text x="50" y="200" class="label-title">Amount</text>
+            </g>
+
+        <g class="data" data-setname="dataset">
+                <circle cx="100" cy="400" data-value="7.2" r="4"></circle>
+                <circle cx="170" cy="400" data-value="8.1" r="4"></circle>
+                <circle cx="240" cy="400" data-value="7.7" r="4"></circle>
+                <circle cx="310" cy="400" data-value="6.8" r="4"></circle>
+                <circle cx="380" cy="400" data-value="6.7" r="4"></circle>
+                <circle cx="450" cy="400" data-value="6.7" r="4"></circle>
+                <circle cx="520" cy="400" data-value="6.7" r="4"></circle>
+                <circle cx="590" cy="400" data-value="6.7" r="4"></circle>
+                <circle cx="660" cy="400" data-value="6.7" r="4"></circle>
+                <circle cx="730" cy="400" data-value="6.7" r="4"></circle>
+            </g>
+
+            <!-- animate path -->
+            <!-- <g class="surfaces">
+                    <path class="first_set" d="M113,360 L113,192 L259,171 L405,179 L551,200 L697,204 L697,360 Z"></path>
+                </g> -->
+        </svg>
+    </div>
+</section>
+
+
+</main>
+
+
+    <script src="/source/js/main.js"></script>
+    <script src="http://petlatkea.dk/2018/front/foobar.js"></script>
+
+</body>
+</html>
