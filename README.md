@@ -1,5 +1,5 @@
 # fooBar
-Exam project in my frontend elective on Multimedia design
+Exam project in my frontend elective on Multimedia design  
 Case: Make a dynamic dashboard with data from a Web API
 
 Subject: Frontend  
