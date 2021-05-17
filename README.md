@@ -8,13 +8,13 @@ Tools: HTML, CSS/SCSS, Javascript, jQuery, SVG, Git, Npm
 
 ## Detailed description
 
-In my Frontend elective, we had to develop a dashboard for a virtual bar (in 1 week).
+In my Frontend elective, we had to develop a dashboard for a virtual bar.
 
-We got access to a web API with a lot of dynamic data, and had to pick and choose which data to visualize and how to do it.
+We got access to a web API with a lot of data, and had to pick and choose which data to visualize and how to do it.
 
 My focus was on functionality instead of design, as I wanted to get javascript under my skin. 
 
-I fetched the data with javascript and used html templates to display some of the data. 
+I fetched the data with javascript and used html templates to display the data. 
 
 In the process i have used git as version control, and worked with scss and npm packages through the terminal. 
 
