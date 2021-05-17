@@ -4,8 +4,7 @@ Case: Make a dynamic dashboard with data from a Web API
 
 Subject: Frontend  
 Year: 2018  
-Tools: HTML, CSS/SCSS, Javascript, jQuery, SVG, Git, Npm   
-Solution: [http://pennylee.dk/foobar/index.html]  
+Tools: HTML, CSS/SCSS, Javascript, jQuery, SVG, Git, Npm     
 
 ## Detailed description
 
